@@ -185,9 +185,13 @@ note left of tk: 比赛创建及参与功能
 
 <img src="img\question_flowchart.jpg" alt="question_flowchart" style="zoom:10%;" />
 
+图4.2.1  业务流程图
+
 #### 4.2.2 用例图
 
 <img src="img\question_useCase.jpg" alt="question_flowchart" style="zoom:10%;" />
+
+图4.2.2 题库管理用例图
 
 #### 4.2.3 功能点
 
@@ -219,7 +223,11 @@ note left of tk: 比赛创建及参与功能
 
 ##### 4.2.3.3 业务操作流程
 
-待修改
+正确操作流程如图4.2.1所示，异常操作流程：
+
+1）题目添加/编辑者填写不符合格式的题目信息，给出提示，并给出正确的格式规范
+
+2）管理员编辑/删除其他用户添加的题目，给出提示，没有该权限
 
 ##### 4.2.3.4 输入
 
