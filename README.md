@@ -14,5 +14,5 @@ TODO list:
 
 3. 如果你要在文档里添加图片, 请放在img目录下使用相对路径一并传上来, 像下面这样.
 
-<img src="\img\brain-storm-logo.jpg" alt="brain-storm-logo" style="zoom:10%;" />
+<img src="img\brain-storm-logo.jpg" alt="brain-storm-logo" style="zoom:30%;" />
 
