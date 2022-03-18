@@ -118,15 +118,23 @@ note left of tk: 比赛创建及参与功能
 
 #### 4.1.1 业务流程
 
-<img src="img\user_information_management1.jpg" alt="user_information_managementt" style="zoom:60%;" />
-
-图 4.1.1 信息管理流程图，分管理员（左）和普通用户（右）
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\user_information_management1.jpg" alt="user_information_managementt" style="zoom:60%;"/>
+    <br>		<!--换行-->
+    图 4.1.1 信息管理流程图，分管理员（左）和普通用户（右）	<!--标题-->
+    </center>
+</div>
 
 #### 4.1.2 用例图
 
-<img src="img\use_case_diagram1.jpg" alt="use_case_diagram" style="zoom:60%;" />
-
-图 4.1.2 信息管理用例图
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\use_case_diagram1.jpg" alt="use_case_diagram" style="zoom:60%;" />
+    <br>		<!--换行-->
+    图 4.1.2 信息管理用例图	<!--标题-->
+    </center>
+</div>
 
 #### 4.1.3 功能点
 
@@ -185,15 +193,23 @@ note left of tk: 比赛创建及参与功能
 
 #### 4.2.1 业务流程
 
-<img src="img\question_flowchart.jpg" alt="question_flowchart" style="zoom:60%;" />
-
-图4.2.1  业务流程图
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\question_flowchart.jpg" alt="question_flowchart" style="zoom:60%;" />
+    <br>		<!--换行-->
+    图4.2.1  业务流程图	<!--标题-->
+    </center>
+</div>
 
 #### 4.2.2 用例图
 
-<img src="img\question_useCase.jpg" alt="question_flowchart" style="zoom:60%;" />
-
-图4.2.2 题库管理用例图
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\question_useCase.jpg" alt="question_flowchart" style="zoom:60%;" />
+    <br>		<!--换行-->
+    图4.2.2 题库管理用例图	<!--标题-->
+    </center>
+</div>
 
 #### 4.2.3 功能点
 
