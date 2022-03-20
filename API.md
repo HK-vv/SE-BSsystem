@@ -222,6 +222,8 @@ Content-Type: application/json
 
 修改用户名时，后端需要检测用户名是否存在。
 
+修改密码时，后端需要验证两次密码是否相同。
+
 ##### 请求
 
 ###### 请求头
@@ -238,10 +240,11 @@ Content-Type: application/json
 {
   "action": "modify",
   "newdata": { 
-    "username": "zrx",
-    "name": "张瑞轩",
+    "username": "eddie",
+    "name": "zrx",
     "gender":"男",
     "password": "111111",
+    "repeat_password": "111111",
     "email":"19182605@buaa.edu.cn",
     "phone":"18800000001"
   }
@@ -257,14 +260,15 @@ Content-Type: application/json
 
 其中`newdata`中的参数信息如下所示：
 
-| 参数名   | 示例                 | 必要性 | 含义     | 类型   |
-| -------- | -------------------- | ------ | -------- | ------ |
-| username | zrx                  | 可选   | 用户名   | string |
-| name     | 张瑞轩               | 可选   | 姓名     | string |
-| gender   | 男                   | 可选   | 性别     | string |
-| password | 111111               | 可选   | 密码     | string |
-| email    | 19182605@buaa.edu.cn | 可选   | 邮箱     | string |
-| phone    | 18800000001          | 可选   | 联系电话 | string |
+| 参数名          | 示例                 | 必要性           | 含义     | 类型   |
+| --------------- | -------------------- | ---------------- | -------- | ------ |
+| username        | eddie                | 可选             | 用户名   | string |
+| name            | zrx                  | 可选             | 姓名     | string |
+| gender          | 男                   | 可选             | 性别     | string |
+| password        | 111111               | 可选             | 密码     | string |
+| repeat_password | 111111               | 有password时必有 | 重复密码 | string |
+| email           | 19182605@buaa.edu.cn | 可选             | 邮箱     | string |
+| phone           | 18800000001          | 可选             | 联系电话 | string |
 
 ##### 响应
 
@@ -412,10 +416,9 @@ Content-Type: application/json
 	"ret": 0,
   "items": [
     {
-      "username": "zrx",
-      "name": "张瑞轩",
+      "username": "eddie",
+      "name": "zrx",
       "gender":"男",
-      "password": "111111",
       "email":"19182605@buaa.edu.cn",
       "phone":"18800000001"
     },
@@ -423,7 +426,6 @@ Content-Type: application/json
       "username": "HKvv",
       "name": "zzh",
       "gender":"男",
-      "password": "222222",
       "email":"19182637@buaa.edu.cn",
       "phone":"18800000002"
     },
@@ -431,7 +433,6 @@ Content-Type: application/json
       "username": "littlehuo",
       "name": "hcl",
       "gender":"男",
-      "password": "333333",
       "email":"19182603@buaa.edu.cn",
       "phone":"18800000003"
     }
@@ -462,8 +463,8 @@ Content-Type: application/json
 
 | 参数名   | 示例                 | 必要性 | 含义     | 类型   |
 | -------- | -------------------- | ------ | -------- | ------ |
-| username | zrx                  | 必有   | 用户名   | string |
-| name     | 张瑞轩               | 必有   | 姓名     | string |
+| username | eddie                | 必有   | 用户名   | string |
+| name     | zrx                  | 必有   | 姓名     | string |
 | gender   | 男                   | 必有   | 性别     | string |
 | email    | 19182605@buaa.edu.cn | 必有   | 邮箱     | string |
 | phone    | 18800000001          | 必有   | 联系电话 | string |
