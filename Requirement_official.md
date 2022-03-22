@@ -14,6 +14,7 @@
 | 22.03.21 | v0.5 | 刘昀鑫 | 编写功能性需求-自主组卷练习功能，编写了功能性需求-比赛功能，删除了所有功能性需求中下属的界面条目 |
 | 22.03.21 | v0.51 | 黄辰麟 | 修改用户端界面需求-删除所有除功能性描述以外的描述 |
 | 22.03.22 | v0.52 | 刘东泽 | 编写管理端界面需求 |
+| 22.03.22 | v0.6 | 李昀泽 | 修改题库管理功能用例图 |
 
 ## 2 前言
 
@@ -206,7 +207,7 @@ note left of tk: 比赛创建及参与功能
 
 <div>			<!--块级封装-->
     <center>	<!--将图片和文字居中-->
-    <img src="img\question_useCase.jpg" alt="question_flowchart" style="zoom:60%;" />
+    <img src="img\question_useCase2.jpg" alt="question_flowchart" style="zoom:60%;" />
     <br>		<!--换行-->
     图4.2.2 题库管理用例图	<!--标题-->
     </center>
