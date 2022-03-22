@@ -137,7 +137,7 @@ note left of tk: 比赛创建及参与功能
 
 <div>			<!--块级封装-->
     <center>	<!--将图片和文字居中-->
-    <img src="img\use_case_diagram3.jpg" alt="use_case_diagram" style="zoom:60%;" />
+    <img src="img\use_case_diagram3.png" alt="use_case_diagram" style="zoom:60%;" />
     <br>		<!--换行-->
     图 4.1.2 信息管理用例图	<!--标题-->
     </center>
