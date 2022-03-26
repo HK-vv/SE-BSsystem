@@ -603,15 +603,15 @@ Content-Type: application/json
 
 ```json
 {
-	"code" : "1a5b"
+	"code" : "0514QOFa1cnRSC0KdfIa1Qsw7F34QOFs"
 }
 ```
 
 ###### 参数信息
 
-| 参数名 | 示例 | 必要性 | 含义         | 类型   |
-| ------ | ---- | ------ | ------------ | ------ |
-| code   | 1a5b | 必有   | 用户登录凭证 | string |
+| 参数名 | 示例                             | 必要性 | 含义         | 类型   |
+| ------ | -------------------------------- | ------ | ------------ | ------ |
+| code   | 0514QOFa1cnRSC0KdfIa1Qsw7F34QOFs | 必有   | 用户登录凭证 | string |
 
 ##### 响应
 
@@ -620,6 +620,7 @@ Content-Type: application/json
 ```http
 200 OK
 Content-Type: application/json
+Set-Cookie: sessionid=<sessionid数值>
 ```
 
 ###### 消息体
@@ -657,6 +658,7 @@ Content-Type: application/json
 
 ```http
 POST /api/client/logout
+Cookie: sessionid=<sessionid数值>
 ```
 
 ##### 响应
@@ -668,6 +670,7 @@ POST /api/client/logout
 ```http
 200 OK
 Content-Type: application/json
+Set-Cookie: sessionid=""
 ```
 
 ###### 消息体
@@ -685,13 +688,13 @@ Content-Type: application/json
 ```json
 {
 	"ret": 1,    
-	"msg": "登出错误"
+	"msg": "未登录"
 }
 ```
 
 ###### 参数信息
 
-| 参数名 | 示例     | 必要性     | 含义         | 类型   |
-| ------ | -------- | ---------- | ------------ | ------ |
-| ret    | 0        | 必有       | 是否正常返回 | int    |
-| msg    | 登出错误 | ret为1时有 | 错误信息     | string |
+| 参数名 | 示例   | 必要性     | 含义         | 类型   |
+| ------ | ------ | ---------- | ------------ | ------ |
+| ret    | 0      | 必有       | 是否正常返回 | int    |
+| msg    | 未登录 | ret为1时有 | 错误信息     | string |
