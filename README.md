@@ -2,7 +2,12 @@
 
 目前还不了解华为云能提供的环境, 因此只在这里开发文档.
 
-TODO list: 请见周报
+**TODO list**: 请见周报
+
+**各组仓库链接**:
+- 后端: https://github.com/HK-vv/BSsystem_backend
+- 管理端: 
+- 用户端: 
 
 **下面是注意事项**
 
