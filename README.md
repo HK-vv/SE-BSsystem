@@ -6,7 +6,7 @@
 
 **各组仓库链接**:
 - 后端: https://github.com/HK-vv/BSsystem_backend
-- 管理端: 
+- 管理端: https://github.com/TedLee515/BSsystem_web
 - 用户端: 
 
 **下面是注意事项**
