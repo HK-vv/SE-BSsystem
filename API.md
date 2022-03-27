@@ -241,21 +241,18 @@ Content-Type: application/json
   "items": [
     {
       "username": "eddie",
-      "name": "zrx",
       "gender":"男",
       "email":"19182605@buaa.edu.cn",
       "phone":"18800000001"
     },
     {
       "username": "HKvv",
-      "name": "zzh",
       "gender":"男",
       "email":"19182637@buaa.edu.cn",
       "phone":"18800000002"
     },
     {
       "username": "littlehuo",
-      "name": "hcl",
       "gender":"男",
       "email":"19182603@buaa.edu.cn",
       "phone":"18800000003"
@@ -288,7 +285,6 @@ Content-Type: application/json
 | 参数名   | 示例                 | 必要性 | 含义     | 类型   |
 | -------- | -------------------- | ------ | -------- | ------ |
 | username | eddie                | 必有   | 用户名   | string |
-| name     | zrx                  | 必有   | 姓名     | string |
 | gender   | 男                   | 必有   | 性别     | string |
 | email    | 19182605@buaa.edu.cn | 必有   | 邮箱     | string |
 | phone    | 18800000001          | 必有   | 联系电话 | string |
@@ -391,7 +387,6 @@ Content-Type: application/json
   "ret": 0,
   "infor": { 
     "username": "eddie",
-    "name": "zrx",
     "gender":"男",
     "email":"19182605@buaa.edu.cn",
     "phone":"18800000001"
@@ -419,7 +414,6 @@ Content-Type: application/json
 | 参数名   | 示例                 | 必要性 | 含义     | 类型   |
 | -------- | -------------------- | ------ | -------- | ------ |
 | username | eddie                | 必有   | 用户名   | string |
-| name     | zrx                  | 必有   | 姓名     | string |
 | gender   | 男                   | 必有   | 性别     | string |
 | email    | 19182605@buaa.edu.cn | 必有   | 邮箱     | string |
 | phone    | 18800000001          | 必有   | 联系电话 | string |
@@ -449,7 +443,6 @@ Content-Type: application/json
   "action": "modify",
   "newdata": { 
     "username": "eddie",
-    "name": "zrx",
     "gender":"男",
     "password": "111111",
     "email":"19182605@buaa.edu.cn",
@@ -470,7 +463,6 @@ Content-Type: application/json
 | 参数名   | 示例                 | 必要性 | 含义     | 类型   |
 | -------- | -------------------- | ------ | -------- | ------ |
 | username | eddie                | 可选   | 用户名   | string |
-| name     | zrx                  | 可选   | 姓名     | string |
 | gender   | 男                   | 可选   | 性别     | string |
 | password | 111111               | 可选   | 密码     | string |
 | email    | 19182605@buaa.edu.cn | 可选   | 邮箱     | string |
