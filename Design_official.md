@@ -82,7 +82,8 @@
 |      |      |                                   |               |                                          |
 |      | 内部 | /api/user/login                   |               | 用户登录                                 |
 |      | 内部 | /api/user/logout                  |               | 用户登出                                 |
-|      | 内部 | /api/user/account                 |               | 查看、修改个人信息                       |
+|      | 内部 | /api/user/account                 |               | 用户查看、修改个人信息                   |
+|      | 内部 | /api/user/collect                 |               | 用户自主组卷答题                         |
 
 ### 8.1 接口1定义(这些不着急写, 可以等API写完在这放一个精简版)
 
