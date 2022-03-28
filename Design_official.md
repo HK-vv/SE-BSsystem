@@ -145,14 +145,17 @@
 | 2    | 内部 | /api/admin/logout                 | 8.2           | 管理员登出                               |
 | 3    | 内部 | /api/admin/account                | 8.3           | 创建、删除管理员账号，查看、修改个人信息 |
 | 4    | 内部 | /api/admin/reset_password         | 8.4           | 重置管理员密码                           |
-| 5    | 内部 | /api/admin/list_accounts          | 8.5           | 列出用户、管理员账号                     |
-| 6    | 内部 | /api/admin/integrity_verification | 8.6           | 检测管理员信息是否完整                   |
+| 5    | 内部 | /api/admin/list_admin             | 8.5           | 列出管理员账号                           |
+| 6    | 内部 | /api/admin/list_user              | 8.6           | 列出用户账号                             |
+| 7    | 内部 | /api/admin/integrity_verification | 8.7           | 检测管理员信息是否完整                   |
+| 8    | 内部 | /api/admin/issuper                | 8.8           | 检测是否为超级管理员                     |
 |      |      |                                   |               |                                          |
 |      |      |                                   |               |                                          |
 |      | 内部 | /api/user/login                   |               | 用户登录                                 |
 |      | 内部 | /api/user/logout                  |               | 用户登出                                 |
 |      | 内部 | /api/user/account                 |               | 用户查看、修改个人信息                   |
 |      | 内部 | /api/user/collect                 |               | 用户自主组卷答题                         |
+|      |      |                                   |               |                                          |
 
 ### 8.1 接口1定义(这些不着急写, 可以等API写完在这放一个精简版)
 
