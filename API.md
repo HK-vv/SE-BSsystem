@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v0.4`
+**版本**: `v0.4.1`
 
 **进度**: 已完成功能A、C，待完成B、D、E
 
@@ -408,29 +408,26 @@ Content-Type: application/json
 
 ### 查看其他账号
 
-#### 列出账号
+#### 列出管理员账号
 
-管理员可以根据要求，按照页数列出所有用户账号，并查看账号信息。
-
-而超级管理员除拥有管理员的权限外，**还可以列出管理员账号**，并查看账号信息。后端应做权限检查。
+管理员和超级管路员可以根据要求，按照页数列出管理员账号，并查看账号信息。
 
 ##### 请求
 
 **请求头**
 
 ```http
-GET /api/admin/list_accounts?pagesize=4&pagenum=2&usertype=admin&keyword=HKvv
+GET /api/admin/list_admin?pagesize=4&pagenum=2&keyword=HKvv
 Cookie: sessionid=<sessionid数值>
 ```
 
 **参数信息**
 
-| 参数名   | 示例  | 必要性 | 含义                                                         | 类型   |
-| -------- | ----- | ------ | ------------------------------------------------------------ | ------ |
-| pagesize | 4     | 必有   | 每页列出的账号数量                                           | int    |
-| pagenum  | 2     | 必有   | 获取第几页的信息                                             | int    |
-| usertype | admin | 可选   | 想要获取的用户类型，如管理员`admin`、用户`user`、管理员及用户`all`，不填时为列出所有用户 | string |
-| keyword  | HKvv  | 可选   | 想要搜索账号的关键词                                         | string |
+| 参数名   | 示例 | 必要性 | 含义                 | 类型   |
+| -------- | ---- | ------ | -------------------- | ------ |
+| pagesize | 4    | 必有   | 每页列出的账号数量   | int    |
+| pagenum  | 2    | 必有   | 获取第几页的信息     | int    |
+| keyword  | HKvv | 可选   | 想要搜索账号的关键词 | string |
 
 ##### 响应
 
@@ -452,17 +449,20 @@ Content-Type: application/json
     {
       "username": "eddie",
       "email":"19182605@buaa.edu.cn",
-      "phone":"18800000001"
+      "phone":"18800000001",
+      "usertype": "admin"
     },
     {
       "username": "HKvv",
       "email":"19182637@buaa.edu.cn",
-      "phone":"18800000002"
+      "phone":"18800000002",
+      "usertype": "admin"
     },
     {
-      "username": "littlehuo",
-      "email":"19182603@buaa.edu.cn",
-      "phone":"18800000003"
+      "username": "super",
+      "email":"Brainstorm@163.com",
+      "phone":"18800000003",
+      "usertype": "super"
     }
   ],
   "total": 7
@@ -473,7 +473,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,    
+	"ret": 1,
 	"msg": "您未拥有此权限"
 }
 ```
@@ -484,16 +484,98 @@ Content-Type: application/json
 | ------ | -------------- | ------------ | ---------------------------------- | ------ |
 | ret    | 0              | 必有         | 是否正常返回                       | int    |
 | items  | []             | 必有         | 当前页的全部账号信息               | list   |
-| total  | 8              | 必有         | 当前要求下，系统总共拥有的账号数量 | int    |
+| total  | 7              | 必有         | 当前要求下，系统总共拥有的账号数量 | int    |
 | msg    | 您未拥有此权限 | ret不为0时有 | 错误信息                           | string |
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名   | 示例                 | 必要性 | 含义     | 类型   |
-| -------- | -------------------- | ------ | -------- | ------ |
-| username | eddie                | 必有   | 用户名   | string |
-| email    | 19182605@buaa.edu.cn | 必有   | 邮箱     | string |
-| phone    | 18800000001          | 必有   | 联系电话 | string |
+| 参数名   | 示例                 | 必要性 | 含义       | 类型   |
+| -------- | -------------------- | ------ | ---------- | ------ |
+| username | eddie                | 必有   | 用户名     | string |
+| email    | 19182605@buaa.edu.cn | 必有   | 邮箱       | string |
+| phone    | 18800000001          | 必有   | 联系电话   | string |
+| usertype | admin                | 必有   | 管理员类型 | string |
+
+#### 列出用户账号
+
+管理员和超级管路员可以根据要求，按照页数列出用户账号，并查看账号信息。
+
+可选择是否按照rating排序。若选择，则`descending`表示降序排序；`ascending`表示升序排序。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/list_user?pagesize=2&pagenum=2&sort_by_rating=descending
+Cookie: sessionid=<sessionid数值>
+```
+
+**参数信息**
+
+| 参数名         | 示例       | 必要性 | 含义                 | 类型   |
+| -------------- | ---------- | ------ | -------------------- | ------ |
+| pagesize       | 2          | 必有   | 每页列出的账号数量   | int    |
+| pagenum        | 2          | 必有   | 获取第几页的信息     | int    |
+| keyword        | Hkvv       | 可选   | 想要搜索账号的关键词 | string |
+| sort_by_rating | descending | 可选   | 按照rating排序       | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+	"ret": 0,
+  "items": [
+    {
+      "username": "HKvv",
+      "rating": 1983
+    },
+    {
+      "username": "eddie",
+      "rating": 0
+    }
+  ],
+  "total": 7
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+	"ret": 1,
+	"msg": "您未拥有此权限"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例           | 必要性       | 含义                               | 类型   |
+| ------ | -------------- | ------------ | ---------------------------------- | ------ |
+| ret    | 0              | 必有         | 是否正常返回                       | int    |
+| items  | []             | 必有         | 当前页的全部账号信息               | list   |
+| total  | 7              | 必有         | 当前要求下，系统总共拥有的账号数量 | int    |
+| msg    | 您未拥有此权限 | ret不为0时有 | 错误信息                           | string |
+
+其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名   | 示例        | 必要性 | 含义       | 类型   |
+| -------- | ----------- | ------ | ---------- | ------ |
+| username | HKvv        | 必有   | 用户名     | string |
+| rating   | 1983        | 必有   | 用户分数   | string |
+| phone    | 18800000001 | 必有   | 联系电话   | string |
+| usertype | admin       | 必有   | 管理员类型 | string |
 
 ### 重置密码
 
@@ -613,6 +695,58 @@ Content-Type: application/json
 | ret       | 0                | 必有         | 是否正常返回 | int    |
 | integrity | true             | ret为0时有   | 信息是否完整 | boolen |
 | msg       | 系统出现致命错误 | ret不为0时有 | 错误信息     | string |
+
+### 管理员类型
+
+#### 检测是否为超级管理员
+
+可以通过该接口检测该管理员是否为超级管理员。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/issuper
+Cookie: sessionid=<sessionid数值>
+```
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+	"ret": 0,
+  "issuper": false
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+	"ret": 2,    
+	"msg": "登录过期"
+}
+```
+
+**参数信息**
+
+| 参数名  | 示例     | 必要性       | 含义             | 类型   |
+| ------- | -------- | ------------ | ---------------- | ------ |
+| ret     | 0        | 必有         | 是否正常返回     | int    |
+| issuper | false    | ret为0时有   | 是否为超级管理员 | boolen |
+| msg     | 登录过期 | ret不为0时有 | 错误信息         | string |
 
 ## 用户端
 
