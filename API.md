@@ -570,12 +570,10 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名   | 示例        | 必要性 | 含义       | 类型   |
-| -------- | ----------- | ------ | ---------- | ------ |
-| username | HKvv        | 必有   | 用户名     | string |
-| rating   | 1983        | 必有   | 用户分数   | string |
-| phone    | 18800000001 | 必有   | 联系电话   | string |
-| usertype | admin       | 必有   | 管理员类型 | string |
+| 参数名   | 示例 | 必要性 | 含义     | 类型   |
+| -------- | ---- | ------ | -------- | ------ |
+| username | HKvv | 必有   | 用户名   | string |
+| rating   | 1983 | 必有   | 用户分数 | int    |
 
 ### 重置密码
 
@@ -735,7 +733,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 2,    
+	"ret": 2,
 	"msg": "登录过期"
 }
 ```
