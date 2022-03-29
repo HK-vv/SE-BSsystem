@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v0.4.1`
+**版本**: `v0.4.2`
 
 **进度**: 已完成功能A、C，待完成B、D、E
 
@@ -539,11 +539,13 @@ Content-Type: application/json
   "items": [
     {
       "username": "HKvv",
-      "rating": 1983
+      "rating": 1983,
+      "matches": 29
     },
     {
       "username": "eddie",
-      "rating": 0
+      "rating": 1304,
+      "matches": 8
     }
   ],
   "total": 7
@@ -570,10 +572,11 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名   | 示例 | 必要性 | 含义     | 类型   |
-| -------- | ---- | ------ | -------- | ------ |
-| username | HKvv | 必有   | 用户名   | string |
-| rating   | 1983 | 必有   | 用户分数 | int    |
+| 参数名   | 示例 | 必要性 | 含义             | 类型   |
+| -------- | ---- | ------ | ---------------- | ------ |
+| username | HKvv | 必有   | 用户名           | string |
+| rating   | 1983 | 必有   | 用户分数         | int    |
+| matches  | 29   | 必有   | 用户参加比赛次数 | int    |
 
 ### 重置密码
 
