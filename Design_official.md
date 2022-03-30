@@ -44,7 +44,7 @@
 | 重置管理员密码功能             | A3         | 超级管理员可将管理员密码重置为默认密码                                                                                   |
 | （超级）管理员信息查询功能     | A4         | （超级）管理员可直接浏览系统中所有管理员的信息，并可按（超级）管理员用户名进行查询                                       |
 | 微信小程序用户信息查询功能     | A5         | （超级）管理员可直接浏览所有小程序用户的信息，并支持根据用户名进行筛选                                                   |
-| （超级）管理员个人信息修改功能 | A6         | （超级）管理员可在个人中心对个人信息进行修改   
+| （超级）管理员个人信息修改功能 | A6         | （超级）管理员可在个人中心对个人信息进行修改 |
 | 小程序用户端登入登出     | A7   | 用户绑定微信进行登入登出 |
 | 小程序用户端修改个人信息 | A8   | 用户修改个人信息         |
 
@@ -342,23 +342,24 @@
 
 接口定义请与后端讨论确定
 
-| 序号 | 类型 | 接口名称                          | 来源/文档编号 | 说明                                     |
-| ---- | ---- | --------------------------------- | ------------- | ---------------------------------------- |
-| 1    | 内部 | /api/admin/login                  | 8.1           | 管理员登录                               |
-| 2    | 内部 | /api/admin/logout                 | 8.2           | 管理员登出                               |
-| 3    | 内部 | /api/admin/account                | 8.3           | 创建、删除管理员账号，查看、修改个人信息 |
-| 4    | 内部 | /api/admin/reset_password         | 8.4           | 重置管理员密码                           |
-| 5    | 内部 | /api/admin/list_admin             | 8.5           | 列出管理员账号                           |
-| 6    | 内部 | /api/admin/list_user              | 8.6           | 列出用户账号                             |
-| 7    | 内部 | /api/admin/integrity_verification | 8.7           | 检测管理员信息是否完整                   |
-| 8    | 内部 | /api/admin/issuper                | 8.8           | 检测是否为超级管理员                     |
-|      |      |                                   |               |                                          |
-|      |      |                                   |               |                                          |
-|      | 内部 | /api/user/login                   |               | 用户登录                                 |
-|      | 内部 | /api/user/logout                  |               | 用户登出                                 |
-|      | 内部 | /api/user/account                 |               | 用户查看、修改个人信息                   |
-|      | 内部 | /api/user/collect                 |               | 用户自主组卷答题                         |
-|      |      |                                   |               |                                          |
+| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     |
+| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- |
+|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               |
+|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               |
+|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 |
+|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           |
+|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           |
+|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   |
+|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |
+|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |
+|      |      | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |
+|      |      |                                                 |          |                                          |
+|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 |
+|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
+|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   |
+|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
+|      |      | /api/user/exercise/problem                      |          | 获取题面                                 |
+|      |      | /api/user/exercise/problem/check                |          | 验证答案                                 |
 
 ### 8.1 接口 1 定义(这些不着急写, 可以等 API 写完在这放一个精简版)
 

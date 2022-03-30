@@ -1008,7 +1008,7 @@ Content-Type: application/json
 | ret    | 0          | 必有         | 是否正常返回 | int    |
 | msg    | 用户名重复 | ret不为0时有 | 错误信息     | string |
 
-### 组卷
+### 练习
 
 #### 自主组卷
 
@@ -1075,9 +1075,70 @@ Content-Type: application/json
 | total    | 5          | ret为0时有   | 总题数               | int    |
 | msg      | 标签不存在 | ret不为0时有 | 错误信息             | string |
 
-### 答题
+#### 获取题面
 
-#### 自主组卷答题
+用户可以使用此接口获取题面.
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/user/
+Cookie: sessionid=<sessionid数值>
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| problemid | 24   | 必有   | 题目id | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "type": "",
+  "description": "请选出所有OJ",
+  "options":[
+    "Codeforces",
+    "DBforces",
+    "accoding",
+    "wacoding"
+  ]
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+	"ret": 1,
+	"msg": "题目不存在"/"题目未公开"
+}
+```
+
+**参数信息**
+
+| 参数名      | 示例                                               | 必要性 | 含义     | 类型   |
+| ----------- | -------------------------------------------------- | ------ | -------- | ------ |
+| type        |                                                    | 必有   | 题目类型 |        |
+| description | "请选出所有OJ"                                     | 必有   | 题面     | string |
+| options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项     | string |
+
+#### 作答验证
 
 用户可以使用此接口验证答案并获取正确答案.
 
@@ -1092,10 +1153,10 @@ Cookie: sessionid=<sessionid数值>
 
 **参数信息**
 
-| 参数名 | 示例      | 必要性 | 含义     | 类型   |
-| ------ | --------- | ------ | -------- | ------ |
-| tag    | 数学_英语 | 必有   | 标签     | string |
-| amount | 5         | 必有   | 题目数量 | int    |
+| 参数名    | 示例 | 必要性 | 含义     | 类型   |
+| --------- | ---- | ------ | -------- | ------ |
+| problemid | 24   | 必有   | 题目id   | int    |
+| useranwer | "C"  | 必有   | 用户答案 | string |
 
 ##### 响应
 
@@ -1114,7 +1175,7 @@ Content-Type: application/json
 {
   "ret": 0,
   "iscorrect": 1,
-  "answer": "动态规划/dp/DP, NP"
+  "answer": "动态规划/dp/DP, 最小生成树/MST"
 }
 ```
 
@@ -1129,14 +1190,14 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名    | 示例 | 必要性 | 含义          | 类型          |
-| --------- | ---- | ------ | ------------- | ------------- |
-| iscorrect | 0    | 必有   | 作答正确则为1 | int(boolean?) |
-| answer    | "AC" | 必有   | 正确答案      | string        |
+| 参数名    | 示例  | 必要性 | 含义          | 类型          |
+| --------- | ----- | ------ | ------------- | ------------- |
+| iscorrect | 0     | 必有   | 作答正确则为1 | int(boolean?) |
+| answer    | "ACD" | 必有   | 正确答案      | string        |
 
-#### 比赛答题
+### 比赛
 
-// TODO
+// TODO next week
 
 
 
