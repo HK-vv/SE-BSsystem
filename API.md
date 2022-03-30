@@ -2,7 +2,28 @@
 
 **版本**: `v0.4.3`
 
-**进度**: 已完成功能A、C，待完成B、D、E
+**进度**: 已完成功能A、C，待完成B、D
+
+## Content
+
+| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     |
+| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- |
+|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               |
+|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               |
+|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 |
+|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           |
+|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           |
+|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   |
+|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |
+|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |
+|      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |
+|      |      | 以上为管理端接口, 以下为用户端                  |          |                                          |
+|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 |
+|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
+|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   |
+|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
+|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 |
+|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
 
 ## 管理端
 
@@ -1084,7 +1105,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/problem?id=153
+GET /api/user/exercise/problem?id=153
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -1147,7 +1168,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/problem/check?problem_id=24&answer=C
+GET /api/user/exercise/problem/check?problem_id=24&answer=C
 Cookie: sessionid=<sessionid数值>
 ```
 
