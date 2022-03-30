@@ -1084,15 +1084,15 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/
+GET /api/user/problem?id=153
 Cookie: sessionid=<sessionid数值>
 ```
 
 **参数信息**
 
-| 参数名    | 示例 | 必要性 | 含义   | 类型 |
-| --------- | ---- | ------ | ------ | ---- |
-| problemid | 24   | 必有   | 题目id | int  |
+| 参数名 | 示例 | 必要性 | 含义   | 类型 |
+| ------ | ---- | ------ | ------ | ---- |
+| id     | 153  | 必有   | 题目id | int  |
 
 ##### 响应
 
@@ -1110,7 +1110,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "type": "",
+  "type": "multiple",
   "description": "请选出所有OJ",
   "options":[
     "Codeforces",
@@ -1134,9 +1134,9 @@ Content-Type: application/json
 
 | 参数名      | 示例                                               | 必要性 | 含义     | 类型   |
 | ----------- | -------------------------------------------------- | ------ | -------- | ------ |
-| type        |                                                    | 必有   | 题目类型 |        |
+| type        | "single" / "multiple" / "binary" / "completion"    | 必有   | 题目类型 | string |
 | description | "请选出所有OJ"                                     | 必有   | 题面     | string |
-| options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项     | string |
+| options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项     | list   |
 
 #### 作答验证
 
@@ -1147,16 +1147,16 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/
+GET /api/user/problem/check?problem_id=24&answer=C
 Cookie: sessionid=<sessionid数值>
 ```
 
 **参数信息**
 
-| 参数名    | 示例 | 必要性 | 含义     | 类型   |
-| --------- | ---- | ------ | -------- | ------ |
-| problemid | 24   | 必有   | 题目id   | int    |
-| useranwer | "C"  | 必有   | 用户答案 | string |
+| 参数名      | 示例 | 必要性 | 含义     | 类型   |
+| ----------- | ---- | ------ | -------- | ------ |
+| problem_id  | 24   | 必有   | 题目id   | int    |
+| user_answer | "C"  | 必有   | 用户答案 | string |
 
 ##### 响应
 
@@ -1174,7 +1174,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "iscorrect": 1,
+  "correct": 1,
   "answer": "动态规划/dp/DP, 最小生成树/MST"
 }
 ```
@@ -1190,10 +1190,10 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名    | 示例  | 必要性 | 含义          | 类型          |
-| --------- | ----- | ------ | ------------- | ------------- |
-| iscorrect | 0     | 必有   | 作答正确则为1 | int(boolean?) |
-| answer    | "ACD" | 必有   | 正确答案      | string        |
+| 参数名  | 示例  | 必要性 | 含义          | 类型          |
+| ------- | ----- | ------ | ------------- | ------------- |
+| correct | 0     | 必有   | 作答正确则为1 | int(boolean?) |
+| answer  | "ACD" | 必有   | 正确答案      | string        |
 
 ### 比赛
 
