@@ -1,7 +1,6 @@
 # 接口文档
 
-**版本**: `v0.4.3`
-
+**版本**: `v0.5.0`
 **进度**: 已完成功能A、C，待完成B、D
 
 ## Content
@@ -24,7 +23,6 @@
 |      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
 |      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 |
 |      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
-
 ## 管理端
 
 ### 账号登录登出
@@ -42,7 +40,7 @@
 **请求头**
 
 ```http
-POST /api/admin/login
+POST /api/admin/auth/login
 Content-Type: application/json
 ```
 
@@ -86,7 +84,7 @@ Set-Cookie: sessionid=<sessionid数值>
 
 ```json
 {
-	"ret": 1,    
+	"ret": 1,
 	"msg": "用户名或密码错误"
 }
 ```
@@ -105,7 +103,7 @@ Set-Cookie: sessionid=<sessionid数值>
 **请求头**
 
 ```http
-POST /api/admin/logout
+POST /api/admin/auth/logout
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -135,7 +133,7 @@ Set-Cookie: sessionid=""
 
 ```json
 {
-	"ret": 1,    
+	"ret": 1,
 	"msg": "未登录"
 }
 ```
@@ -164,7 +162,7 @@ Set-Cookie: sessionid=""
 **请求头**
 
 ```http
-PUT /api/admin/account
+PUT /api/admin/admin_account
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
@@ -206,7 +204,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,    
+	"ret": 1,
 	"msg":  "用户名已存在"
 }
 ```
@@ -227,7 +225,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/admin/account
+GET /api/admin/admin_account
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -247,7 +245,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "infor": { 
+  "info": { 
     "username": "eddie",
     "email":"19182605@buaa.edu.cn",
     "phone":"18800000001"
@@ -269,10 +267,10 @@ Content-Type: application/json
 | 参数名 | 示例       | 必要性       | 含义         | 类型       |
 | ------ | ---------- | ------------ | ------------ | ---------- |
 | ret    | 0          | 必有         | 是否正常返回 | int        |
-| infor  | {}         | 必有         | 个人信息     | dictionary |
+| info   | {}         | 必有         | 个人信息     | dictionary |
 | msg    | 标签不存在 | ret不为0时有 | 错误信息     | string     |
 
-其中`infor`中的参数信息如下所示：
+其中`info`中的参数信息如下所示：
 
 | 参数名   | 示例                 | 必要性 | 含义     | 类型   |
 | -------- | -------------------- | ------ | -------- | ------ |
@@ -295,7 +293,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-POST /api/admin/account
+POST /api/admin/admin_account
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
@@ -375,7 +373,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-DELETE /api/admin/account
+DELETE /api/admin/admin_account
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
@@ -440,7 +438,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/admin/list_admin?pagesize=4&pagenum=2&keyword=HKvv
+GET /api/admin/admin_account/list?pagesize=4&pagenum=2&keyword=HKvv
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -530,7 +528,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/admin/list_user?pagesize=2&pagenum=2&sort_by_rating=descending
+GET /api/admin/user_account/list?pagesize=2&pagenum=2&sort_by_rating=descending
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -614,7 +612,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-POST /api/admin/reset_password
+POST /api/admin/admin_account/reset_password
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
@@ -679,7 +677,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/admin/integrity_verification
+GET /api/admin/admin_account/integrity_verification
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -707,7 +705,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,    
+	"ret": 1,
 	"msg": "系统出现致命错误"
 }
 ```
@@ -731,7 +729,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/admin/issuper
+GET /api/admin/admin_account/issuper
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -787,7 +785,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-POST /api/user/login
+POST /api/user/auth/login
 Content-Type: application/json
 ```
 
@@ -830,7 +828,7 @@ Set-Cookie: sessionid=<sessionid数值>
 
 ```json
 {
-	"ret": 1,    
+	"ret": 1,
 	"msg": "用户登录凭证有误"
 }
 ```
@@ -850,7 +848,7 @@ Set-Cookie: sessionid=<sessionid数值>
 **请求头**
 
 ```http
-POST /api/user/logout
+POST /api/user/auth/logout
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -903,7 +901,7 @@ Set-Cookie: sessionid=""
 **请求头**
 
 ```http
-GET /api/user/account
+GET /api/user/profile
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -923,7 +921,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "infor": { 
+  "info": { 
     "username": "HKvv",
 		"rating": 1983
   }
@@ -944,10 +942,10 @@ Content-Type: application/json
 | 参数名 | 示例       | 必要性       | 含义         | 类型       |
 | ------ | ---------- | ------------ | ------------ | ---------- |
 | ret    | 0          | 必有         | 是否正常返回 | int        |
-| infor  | {}         | ret为0时有   | 个人信息     | dictionary |
+| info   | {}         | ret为0时有   | 个人信息     | dictionary |
 | msg    | 标签不存在 | ret不为0时有 | 错误信息     | string     |
 
-其中`infor`中的参数信息如下所示：
+其中`info`中的参数信息如下所示：
 
 | 参数名   | 示例 | 必要性 | 含义     | 类型   |
 | -------- | ---- | ------ | -------- | ------ |
@@ -967,7 +965,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-POST /api/user/account
+POST /api/user/profile
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
@@ -1040,7 +1038,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/collect?tag=数学+英语&amount=20
+GET /api/user/exercise/collect?tag=数学+英语&amount=20
 Cookie: sessionid=<sessionid数值>
 ```
 
