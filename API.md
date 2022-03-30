@@ -48,8 +48,8 @@ Content-Type: application/json
 
 ```json
 {
-	"username" : "super",
-	"password" : "123456"
+  "username" : "super",
+  "password" : "123456"
 }
 ```
 
@@ -76,7 +76,7 @@ Set-Cookie: sessionid=<sessionid数值>
 
 ```json
 {
-	"ret": 0
+  "ret": 0
 }
 ```
 
@@ -84,8 +84,8 @@ Set-Cookie: sessionid=<sessionid数值>
 
 ```json
 {
-	"ret": 1,
-	"msg": "用户名或密码错误"
+  "ret": 1,
+  "msg": "用户名或密码错误"
 }
 ```
 
@@ -125,7 +125,7 @@ Set-Cookie: sessionid=""
 
 ```json
 {
-	"ret": 0
+  "ret": 0
 }
 ```
 
@@ -133,8 +133,8 @@ Set-Cookie: sessionid=""
 
 ```json
 {
-	"ret": 1,
-	"msg": "未登录"
+  "ret": 1,
+  "msg": "未登录"
 }
 ```
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 ```json
 {
-	"username" : "admin"
+  "username" : "admin"
 }
 ```
 
@@ -196,7 +196,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0
+  "ret": 0
 }
 ```
 
@@ -204,8 +204,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg":  "用户名已存在"
+  "ret": 1,
+  "msg":  "用户名已存在"
 }
 ```
 
@@ -257,8 +257,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "账号未登录"
+  "ret": 1,
+  "msg": "账号未登录"
 }
 ```
 
@@ -342,7 +342,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
 }
 ```
 
@@ -350,8 +350,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "用户名已存在"
+  "ret": 1,
+  "msg": "用户名已存在"
 }
 ```
 
@@ -382,7 +382,7 @@ Content-Type: application/json
 
 ```json
 {
-	"username" : "HKvv"
+  "username" : "HKvv"
 }
 ```
 
@@ -407,7 +407,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0
+  "ret": 0
 }
 ```
 
@@ -415,8 +415,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "用户名不存在"
+  "ret": 1,
+  "msg": "用户名不存在"
 }
 ```
 
@@ -465,7 +465,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
   "items": [
     {
       "username": "eddie",
@@ -494,8 +494,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "您未拥有此权限"
+  "ret": 1,
+  "msg": "您未拥有此权限"
 }
 ```
 
@@ -556,7 +556,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
   "items": [
     {
       "username": "HKvv",
@@ -577,8 +577,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "您未拥有此权限"
+  "ret": 1,
+  "msg": "您未拥有此权限"
 }
 ```
 
@@ -646,7 +646,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
 }
 ```
 
@@ -654,8 +654,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "用户名不存在"
+  "ret": 1,
+  "msg": "用户名不存在"
 }
 ```
 
@@ -696,7 +696,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
   "integrity": true
 }
 ```
@@ -705,8 +705,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "系统出现致命错误"
+  "ret": 1,
+  "msg": "系统出现致命错误"
 }
 ```
 
@@ -748,7 +748,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
   "issuper": false
 }
 ```
@@ -757,8 +757,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 2,
-	"msg": "登录过期"
+  "ret": 2,
+  "msg": "登录过期"
 }
 ```
 
@@ -793,7 +793,7 @@ Content-Type: application/json
 
 ```json
 {
-	"code" : "0514QOFa1cnRSC0KdfIa1Qsw7F34QOFs"
+  "code" : "0514QOFa1cnRSC0KdfIa1Qsw7F34QOFs"
 }
 ```
 
@@ -828,8 +828,8 @@ Set-Cookie: sessionid=<sessionid数值>
 
 ```json
 {
-	"ret": 1,
-	"msg": "用户登录凭证有误"
+  "ret": 1,
+  "msg": "用户登录凭证有误"
 }
 ```
 
@@ -870,7 +870,7 @@ Set-Cookie: sessionid=""
 
 ```json
 {
-	"ret": 0
+  "ret": 0
 }
 ```
 
@@ -878,8 +878,8 @@ Set-Cookie: sessionid=""
 
 ```json
 {
-	"ret": 1,
-	"msg": "未登录"
+  "ret": 1,
+  "msg": "未登录"
 }
 ```
 
@@ -923,7 +923,7 @@ Content-Type: application/json
   "ret": 0,
   "info": { 
     "username": "HKvv",
-		"rating": 1983
+    "rating": 1983
   }
 }
 ```
@@ -932,8 +932,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "账号未登录"
+  "ret": 1,
+  "msg": "账号未登录"
 }
 ```
 
@@ -1007,7 +1007,7 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 0,
+  "ret": 0,
 }
 ```
 
@@ -1015,8 +1015,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "用户名已存在"
+  "ret": 1,
+  "msg": "用户名已存在"
 }
 ```
 
@@ -1080,8 +1080,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "标签不存在"
+  "ret": 1,
+  "msg": "标签不存在"
 }
 ```
 
@@ -1144,8 +1144,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "题目不存在"/"题目未公开"
+  "ret": 1,
+  "msg": "题目不存在" / "题目未公开"
 }
 ```
 
@@ -1202,8 +1202,8 @@ Content-Type: application/json
 
 ```json
 {
-	"ret": 1,
-	"msg": "题目不存在"/"题目未公开"
+  "ret": 1,
+  "msg": "题目不存在" / "题目未公开"
 }
 ```
 
