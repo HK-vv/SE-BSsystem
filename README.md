@@ -2,9 +2,12 @@
 
 目前还不了解华为云能提供的环境, 因此只在这里开发文档.
 
-**TODO list**: 请见周报
+**task list**: 见周报
+
+**项目主站**: https://github.com/HK-vv/SE-BSsystem
 
 **各组仓库链接**:
+
 - 后端: https://github.com/HK-vv/BSsystem_backend
 - 管理端: https://github.com/TedLee515/BSsystem_web
 - 用户端: 
