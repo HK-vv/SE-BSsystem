@@ -517,7 +517,7 @@ Content-Type: application/json
 | phone    | 18800000001          | 必有   | 联系电话   | string |
 | usertype | admin                | 必有   | 管理员类型 | string |
 
-#### 列出用户账号 // TODO: 加用户名搜索
+#### 列出用户账号
 
 管理员和超级管路员可以根据要求，按照页数列出用户账号，并查看账号信息, 查找为模糊查找。
 
