@@ -16,13 +16,16 @@
 |      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |
 |      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |
 |      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |
-|      |      | 以上为管理端接口, 以下为用户端                  |          |                                          |
+|      |      | 以上为管理端接口                                |          |                                          |
 |      | 内部 | /api/user/auth/login                            |          | 用户登录                                 |
 |      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
 |      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   |
 |      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
-|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 |
 |      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
+|      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |
+|      | 内部 | /api/general/problem                            |          | 获取题面                                 |
+|      |      |                                                 |          |                                          |
+|      |      |                                                 |          |                                          |
 ## 管理端
 
 ### 账号登录登出
@@ -1046,7 +1049,7 @@ Cookie: sessionid=<sessionid数值>
 
 | 参数名 | 示例      | 必要性 | 含义     | 类型   |
 | ------ | --------- | ------ | -------- | ------ |
-| tag    | 数学_英语 | 必有   | 标签     | string |
+| tag    | 数学+英语 | 必有   | 标签     | string |
 | amount | 5         | 必有   | 题目数量 | int    |
 
 ##### 响应
@@ -1219,6 +1222,52 @@ Content-Type: application/json
 // TODO next week
 
 
+
+## 通用
+
+#### 查看所有标签
+
+可以使用此接口获取所有标签.
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/general/tag/list
+```
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "tags":[
+    "哲学",
+    "理学",
+    "文学"
+  ],
+  "total": 3
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例                     | 必要性 | 含义     | 类型 |
+| ------ | ------------------------ | ------ | -------- | ---- |
+| tags   | ["历史", "理学", "文学"] | 必有   | 所有标签 | list |
+| total  | 3                        | 必有   | 标签数量 | int  |
 
 ## 说明
 
