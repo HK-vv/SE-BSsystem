@@ -1,4 +1,4 @@
-# 接口文档
+接口文档
 
 **版本**: `v0.5.0`
 **进度**: 已完成功能A、C，待完成B、D
@@ -21,9 +21,10 @@
 |      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
 |      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   |
 |      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
+|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 |
 |      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
 |      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |
-|      | 内部 | /api/general/problem                            |          | 获取题面                                 |
+|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             |
 |      |      |                                                 |          |                                          |
 |      |      |                                                 |          |                                          |
 ## 管理端
