@@ -5,33 +5,33 @@
 
 ## Content
 
-| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     |
-| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- |
-|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               |
-|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               |
-|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 |
-|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           |
-|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           |
-|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   |
-|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |
-|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |
-|      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |
-|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |
-|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |
-|      | 内部 | /api/admin/problem/batchs                       |          | 批量添加题目                             |
-|      | 内部 | /api/admin/problem/public                       |          | 批量公开题目                             |
-|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |
-|      |      | 以上为管理端接口                                |          |                                          |
-|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 |
-|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
-|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   |
-|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
-|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 |
-|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
-|      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |
-|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             |
-|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |
-|      |      |                                                 |          |                                          |
+| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     | 完成情况 |
+| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- | -------- |
+|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               | 1        |
+|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               | 1        |
+|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 |          |
+|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           |          |
+|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           |          |
+|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   |          |
+|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |          |
+|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |          |
+|      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |          |
+|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |          |
+|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |          |
+|      | 内部 | /api/admin/problem/batchs                       |          | 批量添加题目                             |          |
+|      | 内部 | /api/admin/problem/public                       |          | 批量公开题目                             |          |
+|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |          |
+|      |      | 以上为管理端接口                                |          |                                          |          |
+|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 1        |
+|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 | 1        |
+|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 1        |
+|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 | 1        |
+|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 1        |
+|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 1        |
+|      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |          |
+|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             |          |
+|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |          |
+|      |      |                                                 |          |                                          |          |
 ## 管理端
 
 ### 账号登录登出
