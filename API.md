@@ -1,7 +1,7 @@
-接口文档
+# 接口文档
 
-**版本**: `v0.5.0`
-**进度**: 已完成功能A、C，待完成B、D
+**版本**: `v0.6.2`
+**进度**: 已完成功能A、B、C，待完成D
 
 ## Content
 
@@ -16,6 +16,10 @@
 |      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |
 |      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |
 |      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |
+|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |
+|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |
+|      | 内部 | /api/admin/problem/batchs                       |          | 批量添加题目                             |
+|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |
 |      |      | 以上为管理端接口                                |          |                                          |
 |      | 内部 | /api/user/auth/login                            |          | 用户登录                                 |
 |      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
@@ -25,7 +29,7 @@
 |      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
 |      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |
 |      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             |
-|      |      |                                                 |          |                                          |
+|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |
 |      |      |                                                 |          |                                          |
 ## 管理端
 
@@ -271,7 +275,7 @@ Content-Type: application/json
 | 参数名 | 示例       | 必要性       | 含义         | 类型       |
 | ------ | ---------- | ------------ | ------------ | ---------- |
 | ret    | 0          | 必有         | 是否正常返回 | int        |
-| info   | {}         | 必有         | 个人信息     | dictionary |
+| info   | { }        | 必有         | 个人信息     | dictionary |
 | msg    | 标签不存在 | ret不为0时有 | 错误信息     | string     |
 
 其中`info`中的参数信息如下所示：
@@ -319,7 +323,7 @@ Content-Type: application/json
 
 | 参数名  | 示例 | 必要性 | 含义           | 类型       |
 | ------- | ---- | ------ | -------------- | ---------- |
-| newdata | {}   | 必有   | 需要修改的信息 | dictionary |
+| newdata | { }  | 必有   | 需要修改的信息 | dictionary |
 
 其中`newdata`中的参数信息如下所示：
 
@@ -508,7 +512,7 @@ Content-Type: application/json
 | 参数名 | 示例           | 必要性       | 含义                               | 类型   |
 | ------ | -------------- | ------------ | ---------------------------------- | ------ |
 | ret    | 0              | 必有         | 是否正常返回                       | int    |
-| items  | []             | 必有         | 当前页的全部账号信息               | list   |
+| items  | [ ]            | 必有         | 当前页的全部账号信息               | list   |
 | total  | 7              | 必有         | 当前要求下，系统总共拥有的账号数量 | int    |
 | msg    | 您未拥有此权限 | ret不为0时有 | 错误信息                           | string |
 
@@ -591,7 +595,7 @@ Content-Type: application/json
 | 参数名 | 示例           | 必要性       | 含义                               | 类型   |
 | ------ | -------------- | ------------ | ---------------------------------- | ------ |
 | ret    | 0              | 必有         | 是否正常返回                       | int    |
-| items  | []             | 必有         | 当前页的全部账号信息               | list   |
+| items  | [ ]            | 必有         | 当前页的全部账号信息               | list   |
 | total  | 7              | 必有         | 当前要求下，系统总共拥有的账号数量 | int    |
 | msg    | 您未拥有此权限 | ret不为0时有 | 错误信息                           | string |
 
@@ -774,6 +778,959 @@ Content-Type: application/json
 | issuper | false    | ret为0时有   | 是否为超级管理员 | boolen |
 | msg     | 登录过期 | ret不为0时有 | 错误信息         | string |
 
+### 标签
+
+#### 添加标签
+
+管理员可以通过此接口添加标签。
+
+##### 请求
+
+**请求头**
+
+```http
+PUT /api/admin/tag
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "tag": "语文"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例 | 必要性 | 含义   | 类型   |
+| ------ | ---- | ------ | ------ | ------ |
+| tag    | 语文 | 必有   | 标签名 | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 2,
+  "msg": "登录过期"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例     | 必要性       | 含义         | 类型   |
+| ------ | -------- | ------------ | ------------ | ------ |
+| ret    | 0        | 必有         | 是否正常返回 | int    |
+| msg    | 登录过期 | ret不为0时有 | 错误信息     | string |
+
+#### 修改标签
+
+管理员可以使用此接口修改标签。
+
+##### 请求
+
+**请求头**
+
+```http
+POST /api/admin/tag
+Cookie: sessionid=<sessionid数值>
+```
+
+**消息体**
+
+```json
+{
+  "oldname": "高等数学",
+  "newname": "数学分析"
+}
+```
+
+**参数信息**
+
+| 参数名  | 示例     | 必要性 | 含义     | 类型   |
+| ------- | -------- | ------ | -------- | ------ |
+| oldname | 高等数学 | 必有   | 标签原名 | string |
+| newname | 数学分析 | 必有   | 标签新名 | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 2,
+  "msg": "登录过期"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例     | 必要性       | 含义         | 类型   |
+| ------ | -------- | ------------ | ------------ | ------ |
+| ret    | 0        | 必有         | 是否正常返回 | int    |
+| msg    | 登录过期 | ret不为0时有 | 错误信息     | string |
+
+#### 删除标签
+
+##### 请求
+
+**请求头**
+
+```http
+DELETE /api/admin/tag
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "tags": [
+    "语文",
+    "数学"
+  ]
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例 | 必要性 | 含义                 | 类型 |
+| ------ | ---- | ------ | -------------------- | ---- |
+| tags   | [ ]  | 必有   | 需要被删除的标签名称 | list |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "标签不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型   |
+| ------ | ---------- | ------------ | ------------ | ------ |
+| ret    | 0          | 必有         | 是否正常返回 | int    |
+| msg    | 标签不存在 | ret不为0时有 | 错误信息     | string |
+
+#### 查看标签
+
+具体方法请见`通用 - 查看所有标签`，[点击查看](#查看所有标签)。
+
+### 题目
+
+#### 添加单个题目
+
+管理员可以通过此接口添加单个题目。
+
+对于单选、多选、判断，`A` `B`选项不能为空；对于单选、多选`A` `B` `C` `D`选项不能为空。
+
+##### 请求
+
+**请求头**
+
+```http
+PUT /api/admin/problem
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "type": "multiple",
+  "description": "请选出所有OJ",
+  "options":[
+    "Codeforces",
+    "DBforces",
+    "accoding",
+    "wacoding"
+  ],
+  "answer": "ABC",
+  "public": true
+}
+```
+
+**参数信息**
+
+| 参数名      | 示例                                               | 必要性 | 含义     | 类型    |
+| ----------- | -------------------------------------------------- | ------ | -------- | ------- |
+| type        | "single" / "multiple" / "binary" / "completion"    | 必有   | 题目类型 | string  |
+| description | "请选出所有OJ"                                     | 必有   | 题面     | string  |
+| options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项     | list    |
+| answer      | "ABC"                                              | 必有   | 答案     | string  |
+| public      | true                                               | 必有   | 公开性   | boolean |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 2,
+  "msg": "登录过期"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例     | 必要性       | 含义         | 类型   |
+| ------ | -------- | ------------ | ------------ | ------ |
+| ret    | 0        | 必有         | 是否正常返回 | int    |
+| msg    | 登录过期 | ret不为0时有 | 错误信息     | string |
+
+#### 批量添加题目
+
+管理员可以通过此接口使用文件批量添加题目，文件格式限定为`.xls`或`.xlsx`，即软件`excel`保存后的格式。
+
+##### 请求
+
+**请求头**
+
+```http
+PUT /api/admin/problem/batchs
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/vnd.ms-excel    // .xls
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet    // .xlsx
+```
+
+**消息体**
+
+文件内表格格式如下
+
+| 题型   | 题目                                                         | 选项1    | 选项2    | 选项3    | 选项4            | 正确答案                     | 是否公开 |
+| ------ | ------------------------------------------------------------ | -------- | -------- | -------- | ---------------- | ---------------------------- | -------- |
+| 单选题 | 我国的火警报警电话是（ ）？                                  | 110      | 120      | 119      | 911              | C                            | 公开     |
+| 多选题 | 四大文明古国中的，四大文明是下列选项中的哪四个（）？         | 埃及文明 | 印度文明 | 中国文明 | 美索不达米亚文明 | ABCD                         | 不公开   |
+| 判断题 | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 正确     | 错误     |          |                  | A                            | 公开     |
+| 填空题 | 《史记》的作者是____                                         |          |          |          |                  | 司马迁                       | 不公开   |
+| 填空题 | kmp本质是一种____算法, 其时间复杂度是____的.                 |          |          |          |                  | 动态规划/dp,线性/O(n)/O(n+m) | 公开     |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "文件格式有误"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例         | 必要性       | 含义         | 类型   |
+| ------ | ------------ | ------------ | ------------ | ------ |
+| ret    | 0            | 必有         | 是否正常返回 | int    |
+| msg    | 文件格式有误 | ret不为0时有 | 错误信息     | string |
+
+#### 查找题目
+
+管理员可以使用此接口筛选并查看题目信息。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/problem?pagesize=2&pagenum=1&type=binary&tags=语文+数学&author=HKvv&public=1&keyword=出师表
+Cookie: sessionid=<sessionid数值>
+```
+
+**参数信息**
+
+| 参数名   | 示例      | 必要性 | 含义                           | 类型   |
+| -------- | --------- | ------ | ------------------------------ | ------ |
+| pagesize | 2         | 必有   | 每页列出的账号数量             | int    |
+| pagenum  | 1         | 必有   | 获取第几页的信息               | int    |
+| type     | binary    | 可选   | 题目类型                       | string |
+| tags     | 语文+数学 | 可选   | 题目标签                       | string |
+| author   | HKvv      | 可选   | 作者用户名                     | string |
+| public   | 0         | 可选   | 公开性，0表示未公开，1表示公开 | int    |
+| keyword  | 出师表    | 可选   | 题目描述关键词                 | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "items": [
+    {
+      "problemid": 1,
+      "type": "binary",
+      "tags": [
+        "语文"
+      ],
+      "description": "《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。",
+      "options":[
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "public": true,
+      "author": "HKvv"
+    }
+  ],
+  "total": 1
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 2,
+  "msg": "登录过期"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例     | 必要性       | 含义                               | 类型   |
+| ------ | -------- | ------------ | ---------------------------------- | ------ |
+| ret    | 0        | 必有         | 是否正常返回                       | int    |
+| items  | [ ]      | 必有         | 当前页的全部题目信息               | list   |
+| total  | 1        | 必有         | 当前要求下，系统总共拥有的题目数量 | int    |
+| msg    | 登录过期 | ret不为0时有 | 错误信息                           | string |
+
+其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名      | 示例                                                         | 必要性 | 含义       | 类型    |
+| ----------- | ------------------------------------------------------------ | ------ | ---------- | ------- |
+| problemid   | 1                                                            | 必有   | 题目id     | int     |
+| type        | binary                                                       | 必有   | 题目类型   | string  |
+| tags        | [ ]                                                          | 必有   | 题目标签   | list    |
+| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 必有   | 题目信息   | string  |
+| options     | [ ]                                                          | 必有   | 选项       | list    |
+| answer      | A                                                            | 必有   | 答案       | string  |
+| public      | true                                                         | 必有   | 公开性     | boolean |
+| author      | HKvv                                                         | 必有   | 作者用户名 | string  |
+
+#### 删除题目
+
+管理员仅能删除**自己创建的题目**，超级管理员可以删除**所有题目**，**后端**应做权限检查。
+
+##### 请求
+
+**请求头**
+
+```http
+DELETE /api/admin/problem
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "problems": [
+    1,
+    2
+  ]
+}
+```
+
+**参数信息**
+
+| 参数名   | 示例 | 必要性 | 含义               | 类型 |
+| -------- | ---- | ------ | ------------------ | ---- |
+| problems | [ ]  | 必有   | 需要被删除的题目id | list |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "题目不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型   |
+| ------ | ---------- | ------------ | ------------ | ------ |
+| ret    | 0          | 必有         | 是否正常返回 | int    |
+| msg    | 题目不存在 | ret不为0时有 | 错误信息     | string |
+
+#### 修改题目信息
+
+管理员仅能修改**自己创建的题目**的信息，超级管理员可以修改**所有题目**的信息，**后端**应做权限检查。
+
+题目仅能从不公开修改为公开，**前端**应做检查。
+
+对于单选、多选、判断，`A` ` B`选项不能为空；对于单选、多选`A` ` B` `C` `D`选项不能为空，修改后逻辑仍应成立。
+
+##### 请求
+
+**请求头**
+
+```http
+POST /api/admin/problem
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "problemid": 1,
+  "newdata": { 
+    "type": "single",
+    "tags": [
+      "数学",
+      "语文"
+    ],
+    "description": "猜猜我想的答案是哪个",
+    "options":[
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "C",
+    "public": true
+  }
+}
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义           | 类型       |
+| --------- | ---- | ------ | -------------- | ---------- |
+| problemid | 1    | 必有   | 题目id         | int        |
+| newdata   | { }  | 必有   | 需要修改的信息 | dictionary |
+
+其中`newdata`中的参数信息如下所示：
+
+| 参数名      | 示例                                                         | 必要性 | 含义     | 类型    |
+| ----------- | ------------------------------------------------------------ | ------ | -------- | ------- |
+| type        | binary                                                       | 可选   | 题目类型 | string  |
+| tags        | [ ]                                                          | 可选   | 题目标签 | list    |
+| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 可选   | 题目信息 | string  |
+| options     | [ ]                                                          | 可选   | 选项     | list    |
+| answer      | A                                                            | 可选   | 答案     | string  |
+| public      | true                                                         | 可选   | 公开性   | boolean |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OKa
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "选项格式错误"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例         | 必要性       | 含义         | 类型   |
+| ------ | ------------ | ------------ | ------------ | ------ |
+| ret    | 0            | 必有         | 是否正常返回 | int    |
+| msg    | 选项格式错误 | ret不为0时有 | 错误信息     | string |
+
+### 比赛
+
+#### 创建比赛
+
+管理员可以创建比赛。
+
+时间格式请遵守格式`%Y-%m-%d %H:%M:%S`。
+
+##### 请求
+
+**请求头**
+
+```http
+PUT /api/admin/contest
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "name": "April Fools Day Contest 2022",
+  "start": "2022-04-01 22:35:00",
+  "latest": "2022-04-01 22:45:00",
+  "password": "brainstorm",
+  "rated": true,
+  "time_limited": {
+    "single": 30,
+    "multiple": 40,
+    "binary": 30,
+    "completion": 60
+  },
+  "problems": [
+    5,
+    3,
+    7,
+    1
+  ]
+}
+```
+
+**参数信息**
+
+| 参数名       | 示例                         | 必要性                    | 含义         | 类型       |
+| ------------ | ---------------------------- | ------------------------- | ------------ | ---------- |
+| name         | April Fools Day Contest 2022 | 必有                      | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00          | 必有                      | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00          | 必有                      | 最晚开始时间 | datetime   |
+| password     | brainstorm                   | 可选 (为空时代表比赛公开) | 比赛密码     | string     |
+| rated        | true                         | 必有                      | 是否计分     | boolean    |
+| time_limited | { }                          | 必有                      | 题目限时     | dictionary |
+| problems     | [ ]                          | 必有                      | 题目编号     | list       |
+
+其中`time_limited`中的参数信息如下所示：
+
+| 参数名     | 示例 | 必要性 | 含义          | 类型 |
+| ---------- | ---- | ------ | ------------- | ---- |
+| single     | 30   | 必有   | 单选题时限(s) | int  |
+| multiple   | 40   | 必有   | 多选题时限(s) | int  |
+| binary     | 30   | 必有   | 判断题时限(s) | int  |
+| completion | 60   | 必有   | 填空题时限(s) | int  |
+
+##### 响应
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 2,
+  "msg": "登录过期"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例     | 必要性       | 含义         | 类型   |
+| ------ | -------- | ------------ | ------------ | ------ |
+| ret    | 0        | 必有         | 是否正常返回 | int    |
+| msg    | 登录过期 | ret不为0时有 | 错误信息     | string |
+
+#### 查找比赛
+
+具体方法请见`通用 - 查找比赛`，[点击查看](#查找所有比赛)。
+
+#### 查看比赛信息
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/contest?contestid=1
+Cookie: sessionid=<sessionid数值>
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| contestid | 1    | 必有   | 比赛id | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "info": { 
+    "name": "April Fools Day Contest 2022",
+    "start": "2022-04-01 22:35:00",
+    "latest": "2022-04-01 22:45:00",
+    "password": "brainstorm",
+    "rated": true,
+    "time_limited": {
+      "single": 30,
+      "multiple": 40,
+      "binary": 30,
+      "completion": 60
+    },
+    "problems": [
+      5,
+      3,
+      7,
+      1
+    ],
+    "author": "HKvv"
+  }
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "比赛不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型       |
+| ------ | ---------- | ------------ | ------------ | ---------- |
+| ret    | 0          | 必有         | 是否正常返回 | int        |
+| info   | { }        | 必有         | 个人信息     | dictionary |
+| msg    | 标签不存在 | ret不为0时有 | 错误信息     | string     |
+
+其中`info`中的参数信息如下所示：
+
+| 参数名       | 示例                         | 必要性                    | 含义         | 类型       |
+| ------------ | ---------------------------- | ------------------------- | ------------ | ---------- |
+| name         | April Fools Day Contest 2022 | 必有                      | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00          | 必有                      | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00          | 必有                      | 最晚开始时间 | datetime   |
+| password     | brainstorm                   | 必有 (为空时代表比赛公开) | 比赛密码     | string     |
+| rated        | true                         | 必有                      | 是否计分     | boolean    |
+| time_limited | { }                          | 必有                      | 题目限时     | dictionary |
+| problems     | [ ]                          | 必有                      | 题目编号     | list       |
+| author       | HKvv                         | 必有                      | 作者用户名   | string     |
+
+其中`time_limited`中的参数信息如下所示：
+
+| 参数名     | 示例 | 必要性 | 含义          | 类型 |
+| ---------- | ---- | ------ | ------------- | ---- |
+| single     | 30   | 必有   | 单选题时限(s) | int  |
+| multiple   | 40   | 必有   | 多选题时限(s) | int  |
+| binary     | 30   | 必有   | 判断题时限(s) | int  |
+| completion | 60   | 必有   | 填空题时限(s) | int  |
+
+#### 修改比赛信息
+
+管理员仅能修改**自己创建的比赛**的信息，超级管理员可以修改**所有比赛**的信息，**后端**应做权限检查。
+
+##### 请求
+
+**请求头**
+
+```http
+POST /api/admin/contest
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "contestid": 1,
+  "newdata": {
+    "name": "April Fools Day Contest 2022",
+    "start": "2022-04-01 22:30:00",
+    "latest": "2022-04-01 22:40:00",
+    "password": "brainstorm",
+    "rated": true,
+    "time_limited": {
+      "single": 30,
+      "multiple": 40,
+      "binary": 30,
+      "completion": 60
+    },
+    "problems": [
+      5,
+      3,
+      7,
+      1
+    ],
+  }
+}
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义     | 类型       |
+| --------- | ---- | ------ | -------- | ---------- |
+| contestid | 1    | 必有   | 比赛id   | int        |
+| newdata   | { }  | 必有   | 修改信息 | dictionary |
+
+其中`newdate`中的参数信息如下所示：
+
+| 参数名       | 示例                         | 必要性 | 含义         | 类型       |
+| ------------ | ---------------------------- | ------ | ------------ | ---------- |
+| name         | April Fools Day Contest 2022 | 可选   | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00          | 可选   | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00          | 可选   | 最晚开始时间 | datetime   |
+| password     | brainstorm                   | 可选   | 比赛密码     | string     |
+| rated        | true                         | 可选   | 是否计分     | boolean    |
+| time_limited | { }                          | 可选   | 题目限时     | dictionary |
+| problems     | [ ]                          | 可选   | 题目编号     | list       |
+
+其中`time_limited`中的参数信息如下所示：
+
+| 参数名     | 示例 | 必要性 | 含义          | 类型 |
+| ---------- | ---- | ------ | ------------- | ---- |
+| single     | 30   | 可选   | 单选题时限(s) | int  |
+| multiple   | 40   | 可选   | 多选题时限(s) | int  |
+| binary     | 30   | 可选   | 判断题时限(s) | int  |
+| completion | 60   | 可选   | 填空题时限(s) | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OKa
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "选项格式错误"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例         | 必要性       | 含义         | 类型   |
+| ------ | ------------ | ------------ | ------------ | ------ |
+| ret    | 0            | 必有         | 是否正常返回 | int    |
+| msg    | 选项格式错误 | ret不为0时有 | 错误信息     | string |
+
+#### 删除比赛
+
+管理员仅能删除**自己创建的比赛**，超级管理员可以删除**所有比赛**，**后端**应做权限检查。
+
+##### 请求
+
+**请求头**
+
+```http
+DELETE /api/admin/contest
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "contests": [
+    1,
+    2
+  ]
+}
+```
+
+**参数信息**
+
+| 参数名   | 示例 | 必要性 | 含义               | 类型 |
+| -------- | ---- | ------ | ------------------ | ---- |
+| contests | [ ]  | 必有   | 需要被删除的比赛id | list |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "比赛不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型   |
+| ------ | ---------- | ------------ | ------------ | ------ |
+| ret    | 0          | 必有         | 是否正常返回 | int    |
+| msg    | 比赛不存在 | ret不为0时有 | 错误信息     | string |
+
 ## 用户端
 
 ### 账号登录登出
@@ -946,7 +1903,7 @@ Content-Type: application/json
 | 参数名 | 示例       | 必要性       | 含义         | 类型       |
 | ------ | ---------- | ------------ | ------------ | ---------- |
 | ret    | 0          | 必有         | 是否正常返回 | int        |
-| info   | {}         | ret为0时有   | 个人信息     | dictionary |
+| info   | { }        | ret为0时有   | 个人信息     | dictionary |
 | msg    | 标签不存在 | ret不为0时有 | 错误信息     | string     |
 
 其中`info`中的参数信息如下所示：
@@ -988,7 +1945,7 @@ Content-Type: application/json
 
 | 参数名  | 示例 | 必要性 | 含义           | 类型       |
 | ------- | ---- | ------ | -------------- | ---------- |
-| newdata | {}   | 必有   | 需要修改的信息 | dictionary |
+| newdata | { }  | 必有   | 需要修改的信息 | dictionary |
 
 其中`newdata`中的参数信息如下所示：
 
@@ -1094,7 +2051,7 @@ Content-Type: application/json
 | 参数名   | 示例       | 必要性       | 含义                 | 类型   |
 | -------- | ---------- | ------------ | -------------------- | ------ |
 | ret      | 0          | 必有         | 是否正常返回         | int    |
-| problems | []         | ret为0时有   | 得到的每个题目的编号 | list   |
+| problems | [ ]        | ret为0时有   | 得到的每个题目的编号 | list   |
 | total    | 5          | ret为0时有   | 总题数               | int    |
 | msg      | 标签不存在 | ret不为0时有 | 错误信息             | string |
 
@@ -1226,6 +2183,8 @@ Content-Type: application/json
 
 ## 通用
 
+### 查看标签
+
 #### 查看所有标签
 
 可以使用此接口获取所有标签.
@@ -1270,15 +2229,110 @@ Content-Type: application/json
 | tags   | ["历史", "理学", "文学"] | 必有   | 所有标签 | list |
 | total  | 3                        | 必有   | 标签数量 | int  |
 
+### 查看比赛
+
+#### 查找所有比赛
+
+比赛按照**距离当前时间长短排序**。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/general/contest/list?pagesize=1&pagenum=1&type=upcoming&keyword=April
+Cookie: sessionid=<sessionid数值>
+```
+
+**参数信息**
+
+| 参数名   | 示例               | 必要性 | 含义               | 类型   |
+| -------- | ------------------ | ------ | ------------------ | ------ |
+| pagesize | 1                  | 必有   | 每页列出的账号数量 | int    |
+| pagenum  | 1                  | 必有   | 获取第几页的信息   | int    |
+| type     | upcoming / history | 必有   | 获取未来/历史比赛  | string |
+| keyword  | April              | 可选   | 比赛名关键词       | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "items": [
+    { 
+      "name": "April Fools Day Contest 2022",
+      "start": "2022-04-01 22:35:00",
+      "latest": "2022-04-01 22:45:00",
+      "rated": true,
+      "time_limited": {
+        "single": 30,
+        "multiple": 40,
+        "binary": 30,
+        "completion": 60
+      },
+      "author": "HKvv"
+    }
+  ]
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "比赛不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型   |
+| ------ | ---------- | ------------ | ------------ | ------ |
+| ret    | 0          | 必有         | 是否正常返回 | int    |
+| items  | [ ]        | 必有         | 比赛信息     | list   |
+| msg    | 标签不存在 | ret不为0时有 | 错误信息     | string |
+
+其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名       | 示例                         | 必要性 | 含义         | 类型       |
+| ------------ | ---------------------------- | ------ | ------------ | ---------- |
+| name         | April Fools Day Contest 2022 | 必有   | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00          | 必有   | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
+| rated        | true                         | 必有   | 是否计分     | boolean    |
+| time_limited | { }                          | 必有   | 题目限时     | dictionary |
+| author       | HKvv                         | 必有   | 作者用户名   | string     |
+
+其中`time_limited`中的参数信息如下所示：
+
+| 参数名     | 示例 | 必要性 | 含义          | 类型 |
+| ---------- | ---- | ------ | ------------- | ---- |
+| single     | 30   | 必有   | 单选题时限(s) | int  |
+| multiple   | 40   | 必有   | 多选题时限(s) | int  |
+| binary     | 30   | 必有   | 判断题时限(s) | int  |
+| completion | 60   | 必有   | 填空题时限(s) | int  |
+
 ## 说明
 
 ### 返回值(ret)说明
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
 
-| ret值 | 含义     | 后续操作                   | 备注                                 |
-| :---: | -------- | -------------------------- | ------------------------------------ |
-|   0   | 正常返回 | 继续执行                   |                                      |
-|   1   | 一般错误 | 返回到执行前重新执行       | 一般错误包括权限不足、用户名不存在等 |
-|   2   | 登录过期 | 返回登录界面重新登录       | 由于长时间未进行操作导致的过期       |
+| ret值 | 含义     | 后续操作                 | 备注                                 |
+| :---: | -------- | ------------------------ | ------------------------------------ |
+|   0   | 正常返回 | 继续执行                 |                                      |
+|   1   | 一般错误 | 返回到执行前重新执行     | 一般错误包括权限不足、用户名不存在等 |
+|   2   | 登录过期 | 返回登录界面重新登录     | 由于长时间未进行操作导致的过期       |
 |   3   | 其他错误 | 查看后台报错信息尝试修复 |                                      |
