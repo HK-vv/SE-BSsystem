@@ -282,6 +282,36 @@
 
 #### 3.6.2 功能实现流程
 
+
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\屏幕截图 2022-04-06 023504.png" alt="info_change" style="zoom:75%;" />
+    <br>		<!--换行-->
+    图 3.6.1 个人信息修改流程图	<!--标题-->
+    </center>
+</div>
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\A2.jpg" alt="admin_add" style="zoom:75%;" />
+    <br>		<!--换行-->
+    图 3.6.2.1 创建管理员流程图	<!--标题-->
+    </center>
+</div>
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\admin_delete.jpg" alt="admin_add" style="zoom:75%;" />
+    <br>		<!--换行-->
+    图 3.6.2.2 删除管理员流程图	<!--标题-->
+    </center>
+</div>
+<div>			<!--块级封装-->
+    <center>	<!--将图片和文字居中-->
+    <img src="img\password_reset.jpg" alt="password_reset" style="zoom:75%;" />
+    <br>		<!--换行-->
+    图 3.6.3 重置管理员密码流程图	<!--标题-->
+    </center>
+</div>
+
 #### 3.6.3 用户界面设计
 
 **修改个人信息**
