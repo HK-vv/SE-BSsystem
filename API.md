@@ -9,9 +9,9 @@
 | ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- | ---------------------------------- |
 |      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               | 1                                  |
 |      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               | 1                                  |
-|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 | 0                                  |
-|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           | 0                                  |
-|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 0                                  |
+|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 | 1                                  |
+|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           | 1                                  |
+|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 1                                  |
 |      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   | 1                                  |
 |      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     | 1                                  |
 |      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 0                                  |
@@ -326,7 +326,6 @@ Content-Type: application/json
 | 参数名   | 示例                 | 必要性 | 含义     | 类型   |
 | -------- | -------------------- | ------ | -------- | ------ |
 | username | eddie                | 可选   | 用户名   | string |
-| gender   | 男                   | 可选   | 性别     | string |
 | password | 111111               | 可选   | 密码     | string |
 | email    | 19182605@buaa.edu.cn | 可选   | 邮箱     | string |
 | phone    | 18800000001          | 可选   | 联系电话 | string |
