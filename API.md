@@ -138,15 +138,6 @@ Set-Cookie: sessionid=""
 }
 ```
 
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "未登录"
-}
-```
-
 **参数信息**
 
 | 参数名 | 示例   | 必要性       | 含义         | 类型   |
@@ -259,15 +250,6 @@ Content-Type: application/json
     "email":"19182605@buaa.edu.cn",
     "phone":"18800000001"
   }
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "账号未登录"
 }
 ```
 
@@ -501,6 +483,8 @@ Content-Type: application/json
 
 异常返回(ret ≠ 0):
 
+// COMMENT: 这个有权限问题吗?
+
 ```json
 {
   "ret": 1,
@@ -710,15 +694,6 @@ Content-Type: application/json
 }
 ```
 
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "系统出现致命错误"
-}
-```
-
 **参数信息**
 
 | 参数名    | 示例             | 必要性       | 含义         | 类型   |
@@ -759,15 +734,6 @@ Content-Type: application/json
 {
   "ret": 0,
   "issuper": false
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
 }
 ```
 
@@ -828,15 +794,6 @@ Content-Type: application/json
 }
 ```
 
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
-}
-```
-
 **参数信息**
 
 | 参数名 | 示例     | 必要性       | 含义         | 类型   |
@@ -889,15 +846,6 @@ Content-Type: application/json
 ```json
 {
   "ret": 0
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
 }
 ```
 
@@ -1041,15 +989,6 @@ Content-Type: application/json
 ```json
 {
   "ret": 0
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
 }
 ```
 
@@ -1198,15 +1137,6 @@ Content-Type: application/json
     }
   ],
   "total": 1
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
 }
 ```
 
@@ -1453,15 +1383,6 @@ Content-Type: application/json
 }
 ```
 
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
-}
-```
-
 **参数信息**
 
 | 参数名  | 示例     | 必要性       | 含义                   | 类型   |
@@ -1542,15 +1463,6 @@ Content-Type: application/json
 ```json
 {
   "ret": 0
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 2,
-  "msg": "登录过期"
 }
 ```
 
@@ -1934,15 +1846,6 @@ Set-Cookie: sessionid=""
 }
 ```
 
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "未登录"
-}
-```
-
 **参数信息**
 
 | 参数名 | 示例   | 必要性       | 含义         | 类型   |
@@ -1985,15 +1888,6 @@ Content-Type: application/json
     "username": "HKvv",
     "rating": 1983
   }
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "账号未登录"
 }
 ```
 
