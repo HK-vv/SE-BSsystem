@@ -14,7 +14,7 @@
 |      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 1                                  |
 |      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   | 1                                  |
 |      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     | 1                                  |
-|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 0                                  |
+|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 1                                  |
 |      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         | 0                                  |
 |      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |                                    |
 |      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |                                    |
@@ -493,17 +493,6 @@ Content-Type: application/json
 }
 ```
 
-异常返回(ret ≠ 0):
-
-// COMMENT: 这个有权限问题吗?
-
-```json
-{
-  "ret": 1,
-  "msg": "您未拥有此权限"
-}
-```
-
 **参数信息**
 
 | 参数名 | 示例           | 必要性       | 含义                               | 类型   |
@@ -575,15 +564,6 @@ Content-Type: application/json
     }
   ],
   "total": 7
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "您未拥有此权限"
 }
 ```
 
