@@ -1,37 +1,37 @@
 # 接口文档
 
-**版本**: `v0.6.3`
+**版本**: `v0.6.4`
 **进度**: 已完成功能A、B、C，待完成D
 
 ## Content
 
-| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     |
-| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- |
-|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               |
-|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               |
-|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 |
-|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           |
-|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           |
-|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   |
-|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     |
-|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             |
-|      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         |
-|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |
-|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |
-|      | 内部 | /api/admin/problem/batchs                       |          | 批量添加题目                             |
-|      | 内部 | /api/admin/problem/public                       |          | 批量公开题目                             |
-|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |
-|      |      | 以上为管理端接口                                |          |                                          |
-|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 |
-|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 |
-|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   |
-|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 |
-|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 |
-|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 |
-|      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |
-|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             |
-|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |
-|      |      |                                                 |          |                                          |
+| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     | 完成情况(0: 接口确定, 1: 接口实现) |
+| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- | ---------------------------------- |
+|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               | 1                                  |
+|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               | 1                                  |
+|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 | 0                                  |
+|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           | 0                                  |
+|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 0                                  |
+|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   | 0                                  |
+|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     | 0                                  |
+|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 0                                  |
+|      | 内部 | /api/admin/user_account/contest_history         |          | 列出用户比赛历史                         | 0                                  |
+|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |                                    |
+|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |                                    |
+|      | 内部 | /api/admin/problem/batchs                       |          | 批量添加题目                             |                                    |
+|      | 内部 | /api/admin/problem/public                       |          | 批量公开题目                             |                                    |
+|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |                                    |
+|      |      | 以上为管理端接口                                |          |                                          |                                    |
+|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 1                                  |
+|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 | 1                                  |
+|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 1                                  |
+|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 | 1                                  |
+|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 1                                  |
+|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 1                                  |
+|      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |                                    |
+|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 0                                  |
+|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             | 0                                  |
+|      |      |                                                 |          |                                          |                                    |
 ## 管理端
 
 ### 账号登录登出
@@ -999,6 +999,9 @@ Content-Type: application/json
 ```json
 {
   "type": "multiple",
+  "tags": [
+    "算法"
+  ],
   "description": "请选出所有OJ",
   "options":[
     "Codeforces",
@@ -1016,6 +1019,7 @@ Content-Type: application/json
 | 参数名      | 示例                                               | 必要性 | 含义     | 类型    |
 | ----------- | -------------------------------------------------- | ------ | -------- | ------- |
 | type        | "single" / "multiple" / "binary" / "completion"    | 必有   | 题目类型 | string  |
+| tags        | [ ]                                                | 必有   | 题目标签 | list    |
 | description | "请选出所有OJ"                                     | 必有   | 题面     | string  |
 | options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项     | list    |
 | answer      | "ABC"                                              | 必有   | 答案     | string  |
@@ -1067,13 +1071,28 @@ Content-Type: application/json
 ```http
 PUT /api/admin/problem/batchs
 Cookie: sessionid=<sessionid数值>
-Content-Type: application/vnd.ms-excel    // .xls
-Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet    // .xlsx
+Content-Type: false
 ```
 
 **消息体**
 
-文件内表格格式如下
+```json
+{
+  "file": (binary),
+  "tags": [
+    "算法"
+  ]
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例 | 必要性 | 含义     | 类型 |
+| ------ | ---- | ------ | -------- | ---- |
+| file   |      | 必有   | 文件     | file |
+| tags   | [ ]  | 必有   | 题目标签 | list |
+
+`file`表示文件，文件内表格格式如下：
 
 | 题型   | 题目                                                         | 选项1    | 选项2    | 选项3    | 选项4            | 正确答案                     | 是否公开 |
 | ------ | ------------------------------------------------------------ | -------- | -------- | -------- | ---------------- | ---------------------------- | -------- |
@@ -1106,17 +1125,19 @@ Content-Type: application/json
 
 ```json
 {
-  "ret": 1,
-  "msg": "文件格式有误"
+  "ret": 4,
+  "msg": "文件格式有误",
+  "err_line": 3
 }
 ```
 
 **参数信息**
 
-| 参数名 | 示例         | 必要性       | 含义         | 类型   |
-| ------ | ------------ | ------------ | ------------ | ------ |
-| ret    | 0            | 必有         | 是否正常返回 | int    |
-| msg    | 文件格式有误 | ret不为0时有 | 错误信息     | string |
+| 参数名   | 示例         | 必要性       | 含义                 | 类型   |
+| -------- | ------------ | ------------ | -------------------- | ------ |
+| ret      | 0            | 必有         | 是否正常返回         | int    |
+| msg      | 文件格式有误 | ret不为0时有 | 错误信息             | string |
+| err_line | 3            | ret为4时有   | 第一次出现错误的行号 | int    |
 
 #### 查找题目
 
@@ -2359,7 +2380,7 @@ Content-Type: application/json
         "binary": 30,
         "completion": 60
       },
-      "author": "HKvv"
+      "author": "Agnimandur"
     }
   ]
 }
@@ -2408,9 +2429,10 @@ Content-Type: application/json
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
 
-| ret值 | 含义     | 后续操作                 | 备注                                 |
-| :---: | -------- | ------------------------ | ------------------------------------ |
-|   0   | 正常返回 | 继续执行                 |                                      |
-|   1   | 一般错误 | 返回到执行前重新执行     | 一般错误包括权限不足、用户名不存在等 |
-|   2   | 登录过期 | 返回登录界面重新登录     | 由于长时间未进行操作导致的过期       |
-|   3   | 其他错误 | 查看后台报错信息尝试修复 |                                      |
+| ret值 | 含义         | 后续操作                     | 备注                                 |
+| :---: | ------------ | ---------------------------- | ------------------------------------ |
+|   0   | 正常返回     | 继续执行                     |                                      |
+|   1   | 一般错误     | 返回到执行前重新执行         | 一般错误包括权限不足、用户名不存在等 |
+|   2   | 登录过期     | 返回登录界面重新登录         | 由于长时间未进行操作导致的过期       |
+|   3   | 其他错误     | 查看后台报错信息尝试修复     |                                      |
+|   4   | 文件格式错误 | 根据信息修改文件内容重新提交 |                                      |
