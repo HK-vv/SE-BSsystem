@@ -10,7 +10,7 @@
 
 - 后端: https://github.com/HK-vv/BSsystem_backend
 - 管理端: https://github.com/TedLee515/BSsystem_web
-- 用户端: 
+- 用户端: https://gitee.com/Casanova_s_stack/knowledge-competition-mini-program.git
 
 **下面是注意事项**
 
@@ -25,6 +25,5 @@
     图1 Original LOGO	<!--标题-->
     </center>
 </div>
-
 
 
