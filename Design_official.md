@@ -287,7 +287,7 @@
 
 <div>			<!--块级封装-->
     <center>	<!--将图片和文字居中-->
-    <img src="img\屏幕截图 2022-04-07 015713.png" alt="info_change" style="zoom:75%;" />
+    <img src="img\屏幕截图 2022-04-07 111309.png" alt="info_change" style="zoom:75%;" />
     <br>		<!--换行-->
     图 3.6 个人信息修改流程图	<!--标题-->
     </center>
