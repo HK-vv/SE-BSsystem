@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v0.7.0`
+**版本**: `v0.7.1`
 **进度**: 已完成功能A、B、C、D，未完成比赛数据统计分析部分。
 
 ## Content
@@ -2939,6 +2939,8 @@ Content-Type: application/json
 
 用户仅能查看排行榜**前三名**和**自己的排名**。
 
+排行榜按照分数`score`排名，如果分数相同，则按总耗时`timecost`排名。
+
 ##### 请求
 
 **请求头**
@@ -2971,7 +2973,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "items": [
+  "top3": [
     {
       "rank": 1,
       "username": "CasanovaLLL",
@@ -2995,17 +2997,16 @@ Content-Type: application/json
       "timecost": 61,
       "after_rating": 115,
       "changed_rating": 15
-    },
-    {
-      "rank": 10,
-      "username": "HKvv",
-      "score": 20,
-      "timecost": 15,
-      "after_rating": 85,
-      "changed_rating": -15
     }
   ],
-  "total": 4
+  "user_rank": {
+    "rank": 10,
+    "username": "HKvv",
+    "score": 20,
+    "timecost": 15,
+    "after_rating": 85,
+    "changed_rating": -15
+  }
 }
 ```
 
@@ -3020,14 +3021,15 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名 | 示例       | 必要性       | 含义           | 类型   |
-| ------ | ---------- | ------------ | -------------- | ------ |
-| ret    | 0          | 必有         | 是否正常返回   | int    |
-| items  | [ ]        | 必有         | 排行榜信息     | list   |
-| total  | 4          | 必有         | 排行榜显示人数 | int    |
-| msg    | 比赛不存在 | ret不为0时有 | 错误信息       | string |
+| 参数名    | 示例       | 必要性       | 含义           | 类型       |
+| --------- | ---------- | ------------ | -------------- | ---------- |
+| ret       | 0          | 必有         | 是否正常返回   | int        |
+| top3      | [ ]        | 必有         | 排行榜信息     | list       |
+| user_rank | { }        | 必有         | 用户排名信息   | dictionary |
+| total     | 3          | 必有         | 排行榜显示人数 | int        |
+| msg       | 比赛不存在 | ret不为0时有 | 错误信息       | string     |
 
-其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+其中`top3`是包含多个查找结果的列表，每个结果的参数信息以及`user_rank`的参数信息如下所示：
 
 | 参数名        | 示例 | 必要性 | 含义         | 类型   |
 | ------------- | ---- | ------ | ------------ | ------ |
