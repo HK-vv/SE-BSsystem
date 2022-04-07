@@ -1283,7 +1283,7 @@ Content-Type: application/json
 **响应头**
 
 ```http
-200 OKa
+200 OK
 Content-Type: application/json
 ```
 
@@ -1355,7 +1355,7 @@ Content-Type: application/json
 **响应头**
 
 ```http
-200 OKa
+200 OK
 Content-Type: application/json
 ```
 
@@ -1636,7 +1636,7 @@ Content-Type: application/json
 **响应头**
 
 ```http
-200 OKa
+200 OK
 Content-Type: application/json
 ```
 
@@ -2306,5 +2306,4 @@ Content-Type: application/json
 | multiple   | 40   | 必有   | 多选题时限(s) | int  |
 | binary     | 30   | 必有   | 判断题时限(s) | int  |
 | completion | 60   | 必有   | 填空题时限(s) | int  |
-
 
