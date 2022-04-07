@@ -8,8 +8,8 @@
 
 **各组仓库链接**:
 
-- 后端: https://github.com/HK-vv/BSsystem_backend
-- 管理端: https://github.com/TedLee515/BSsystem_web
+- 后端: https://github.com/HK-vv/BSsystem_backend.git
+- 管理端: https://github.com/TedLee515/BSsystem_web.git
 - 用户端: https://gitee.com/Casanova_s_stack/knowledge-competition-mini-program.git
 
 **下面是注意事项**
