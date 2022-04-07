@@ -1500,7 +1500,8 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "info": { 
+  "info": {
+    "contestid": 1,
     "name": "April Fools Day Contest 2022",
     "start": "2022-04-01 22:35:00",
     "latest": "2022-04-01 22:45:00",
@@ -1544,6 +1545,7 @@ Content-Type: application/json
 
 | 参数名       | 示例                         | 必要性                    | 含义         | 类型       |
 | ------------ | ---------------------------- | ------------------------- | ------------ | ---------- |
+| contestid    | 1                            | 必有                      | 比赛id       | int        |
 | name         | April Fools Day Contest 2022 | 必有                      | 比赛名       | string     |
 | start        | 2022-04-01 22:35:00          | 必有                      | 开始时间     | datetime   |
 | latest       | 2022-04-01 22:45:00          | 必有                      | 最晚开始时间 | datetime   |
@@ -2253,7 +2255,8 @@ Content-Type: application/json
 {
   "ret": 0,
   "items": [
-    { 
+    {
+      "contestid": 1,
       "name": "April Fools Day Contest 2022",
       "start": "2022-04-01 22:35:00",
       "latest": "2022-04-01 22:45:00",
@@ -2291,6 +2294,7 @@ Content-Type: application/json
 
 | 参数名       | 示例                         | 必要性 | 含义         | 类型       |
 | ------------ | ---------------------------- | ------ | ------------ | ---------- |
+| contestid    | 1                            | 必有   | 比赛id       | int        |
 | name         | April Fools Day Contest 2022 | 必有   | 比赛名       | string     |
 | start        | 2022-04-01 22:35:00          | 必有   | 开始时间     | datetime   |
 | latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
