@@ -1,7 +1,7 @@
 # 接口文档
 
-**版本**: `v0.6.4`
-**进度**: 已完成功能A、B、C，待完成D
+**版本**: `v0.6.5`
+**进度**: 已完成功能A、B、C，D完成进度`50%`。
 
 ## Content
 
@@ -28,6 +28,10 @@
 |      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 | 1                                  |
 |      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 1                                  |
 |      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 1                                  |
+|      | 内部 | /api/user/contest/register                      |          | 注册比赛                                 |                                    |
+|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         |                                    |
+|      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             |                                    |
+|      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           |                                    |
 |      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |                                    |
 |      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 1                                  |
 |      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |                                    |
@@ -583,6 +587,14 @@ Content-Type: application/json
 | username | HKvv | 必有   | 用户名           | string |
 | rating   | 1983 | 必有   | 用户分数         | int    |
 | matches  | 29   | 必有   | 用户参加比赛次数 | int    |
+
+#### 列出用户比赛历史
+
+// TODO
+
+#### 查看用户答题情况
+
+// TODO
 
 ### 重置密码
 
@@ -1734,6 +1746,14 @@ Content-Type: application/json
 | ret    | 0          | 必有         | 是否正常返回 | int    |
 | msg    | 比赛不存在 | ret不为0时有 | 错误信息     | string |
 
+### 比赛结果
+
+// TODO
+
+#### 开始比赛算分
+
+#### 查看比赛排行榜
+
 ## 用户端
 
 ### 账号登录登出
@@ -2162,9 +2182,351 @@ Content-Type: application/json
 
 ### 比赛
 
-// TODO next week
+#### 注册比赛
 
+##### 请求
 
+**请求头**
+
+```http
+POST /api/user/contest/register
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**消息体**
+
+```json
+{
+  "contestid": 1,
+  "password": "123456"
+}
+```
+
+**参数信息**
+
+| 参数名    | 示例   | 必要性           | 含义           | 类型   |
+| --------- | ------ | ---------------- | -------------- | ------ |
+| contestid | 1      | 必有             | 用户注册比赛id | int    |
+| password  | 123456 | 比赛不公开时必有 | 比赛密码       | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "比赛不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型   |
+| ------ | ---------- | ------------ | ------------ | ------ |
+| ret    | 0          | 必有         | 是否正常返回 | int    |
+| msg    | 比赛不存在 | ret不为0时有 | 错误信息     | string |
+
+#### 查询所有参加比赛
+
+用户可以使用此接口查询自己所有注册的比赛。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/user/contest/records?pagesize=1&pagenum=1&keyword=April
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**参数信息**
+
+| 参数名   | 示例  | 必要性 | 含义               | 类型   |
+| -------- | ----- | ------ | ------------------ | ------ |
+| pagesize | 1     | 必有   | 每页列出的账号数量 | int    |
+| pagenum  | 1     | 必有   | 获取第几页的信息   | int    |
+| keyword  | April | 可选   | 比赛名关键词       | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "items": [
+    {
+      "contestid": 1,
+      "name": "April Fools Day Contest 2022",
+      "start": "2022-04-01 22:35:00",
+      "latest": "2022-04-01 22:45:00",
+      "public": true,
+      "rated": true,
+      "time_limited": {
+        "single": 30,
+        "multiple": 40,
+        "binary": 30,
+        "completion": 60
+      },
+      "author": "Agnimandur"
+    }
+  ]
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例 | 必要性       | 含义         | 类型   |
+| ------ | ---- | ------------ | ------------ | ------ |
+| ret    | 0    | 必有         | 是否正常返回 | int    |
+| items  | [ ]  | 必有         | 比赛信息     | list   |
+| msg    |      | ret不为0时有 | 错误信息     | string |
+
+其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名       | 示例                         | 必要性 | 含义         | 类型       |
+| ------------ | ---------------------------- | ------ | ------------ | ---------- |
+| contestid    | 1                            | 必有   | 比赛id       | int        |
+| name         | April Fools Day Contest 2022 | 必有   | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00          | 必有   | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
+| public       | true                         | 必有   | 比赛是否公开 | boolen     |
+| rated        | true                         | 必有   | 是否计分     | boolean    |
+| time_limited | { }                          | 必有   | 题目限时     | dictionary |
+| author       | HKvv                         | 必有   | 作者用户名   | string     |
+
+其中`time_limited`中的参数信息如下所示：
+
+| 参数名     | 示例 | 必要性 | 含义          | 类型 |
+| ---------- | ---- | ------ | ------------- | ---- |
+| single     | 30   | 必有   | 单选题时限(s) | int  |
+| multiple   | 40   | 必有   | 多选题时限(s) | int  |
+| binary     | 30   | 必有   | 判断题时限(s) | int  |
+| completion | 60   | 必有   | 填空题时限(s) | int  |
+
+### 比赛答题
+
+// TODO
+
+### 比赛结果
+
+#### 查询答题记录
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/user/contest/record?contestid=1
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| contestid | 1    | 必有   | 比赛id | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "items": [
+    {
+      "problemno": 1,
+      "problemid": 5,
+      "correct": true,
+      "submitted": "A",
+    },
+    {
+      "problemno": 2,
+      "problemid": 3,
+      "correct": true,
+      "submitted": "BCD"
+    },
+    {
+      "problemno": 3,
+      "problemid": 8,
+      "correct": false,
+      "submitted": "HKwv"
+    }
+  ],
+  "total": 3,
+  "score": 20,
+  "timecost": 15,
+  "rank": 10,
+  "after_rating": 85,
+  "changed_rating": -15
+}
+```
+
+**参数信息**
+
+| 参数名        | 示例 | 必要性       | 含义         | 类型   |
+| ------------- | ---- | ------------ | ------------ | ------ |
+| ret           | 0    | 必有         | 是否正常返回 | int    |
+| items         | [ ]  | 必有         | 比赛答题记录 | list   |
+| total         | 3    | 必有         | 总题目量     | int    |
+| score         | 20   | 必有         | 得分         | int    |
+| timecost      | 15   | 必有         | 总耗时(s)    | int    |
+| rank          | 10   | 必有         | 比赛排名     | int    |
+| after_rating  | 85   | 必有         | 比赛后的分数 | int    |
+| change_rating | -15  | 必有         | 分数变化     | int    |
+| msg           |      | ret不为0时有 | 错误信息     | string |
+
+其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名    | 示例 | 必要性 | 含义         | 类型    |
+| --------- | ---- | ------ | ------------ | ------- |
+| problemno | 1    | 必有   | 题目序号     | int     |
+| problemid | 5    | 必有   | 题目id       | int     |
+| correct   | true | 必有   | 是否正确     | boolean |
+| submitted | A    | 必有   | 当时提交答案 | string  |
+
+#### 查看比赛排行榜
+
+用户仅能查看排行榜**前三名**和**自己的排名**。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/user/contest/leaderboard?contestid=1
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| contestid | 1    | 必有   | 比赛id | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "items": [
+    {
+      "rank": 1,
+      "username": "CasanovaLLL",
+      "score": 30,
+      "timecost": 31,
+      "after_rating": 130,
+      "changed_rating": 30
+    },
+    {
+      "rank": 2,
+      "username": "HKwv",
+      "score": 30,
+      "timecost": 52,
+      "after_rating": 120,
+      "changed_rating": 20
+    },
+    {
+      "rank": 3,
+      "username": "eddie",
+      "score": 30,
+      "timecost": 61,
+      "after_rating": 115,
+      "changed_rating": 15
+    },
+    {
+      "rank": 10,
+      "username": "HKvv",
+      "score": 20,
+      "timecost": 15,
+      "after_rating": 85,
+      "changed_rating": -15
+    }
+  ],
+  "total": 4
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "比赛不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义           | 类型   |
+| ------ | ---------- | ------------ | -------------- | ------ |
+| ret    | 0          | 必有         | 是否正常返回   | int    |
+| items  | [ ]        | 必有         | 排行榜信息     | list   |
+| total  | 4          | 必有         | 排行榜显示人数 | int    |
+| msg    | 比赛不存在 | ret不为0时有 | 错误信息       | string |
+
+其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名        | 示例 | 必要性 | 含义         | 类型   |
+| ------------- | ---- | ------ | ------------ | ------ |
+| rank          | 2    | 必有   | 排名         | int    |
+| username      | HKwv | 必有   | 用户名       | string |
+| score         | 30   | 必有   | 得分         | int    |
+| timecost      | 52   | 必有   | 总耗时(s)    | int    |
+| after_rating  | 120  | 必有   | 比赛后的分数 | int    |
+| change_rating | 20   | 必有   | 分数变化     | int    |
 
 ## 通用
 
@@ -2260,6 +2622,7 @@ Content-Type: application/json
       "name": "April Fools Day Contest 2022",
       "start": "2022-04-01 22:35:00",
       "latest": "2022-04-01 22:45:00",
+      "public": true,
       "rated": true,
       "time_limited": {
         "single": 30,
@@ -2273,22 +2636,13 @@ Content-Type: application/json
 }
 ```
 
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "比赛不存在"
-}
-```
-
 **参数信息**
 
-| 参数名 | 示例       | 必要性       | 含义         | 类型   |
-| ------ | ---------- | ------------ | ------------ | ------ |
-| ret    | 0          | 必有         | 是否正常返回 | int    |
-| items  | [ ]        | 必有         | 比赛信息     | list   |
-| msg    | 标签不存在 | ret不为0时有 | 错误信息     | string |
+| 参数名 | 示例 | 必要性       | 含义         | 类型   |
+| ------ | ---- | ------------ | ------------ | ------ |
+| ret    | 0    | 必有         | 是否正常返回 | int    |
+| items  | [ ]  | 必有         | 比赛信息     | list   |
+| msg    |      | ret不为0时有 | 错误信息     | string |
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
@@ -2298,6 +2652,7 @@ Content-Type: application/json
 | name         | April Fools Day Contest 2022 | 必有   | 比赛名       | string     |
 | start        | 2022-04-01 22:35:00          | 必有   | 开始时间     | datetime   |
 | latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
+| public       | true                         | 必有   | 比赛是否公开 | boolen     |
 | rated        | true                         | 必有   | 是否计分     | boolean    |
 | time_limited | { }                          | 必有   | 题目限时     | dictionary |
 | author       | HKvv                         | 必有   | 作者用户名   | string     |
