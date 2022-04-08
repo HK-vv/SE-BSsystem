@@ -2964,7 +2964,7 @@ Content-Type: application/json
       "username": "CasanovaLLL",
       "score": 30,
       "timecost": 31,
-      "after_rating": 130,
+      "before_rating": 130,
       "changed_rating": 30
     },
     {
@@ -2972,7 +2972,7 @@ Content-Type: application/json
       "username": "HKwv",
       "score": 30,
       "timecost": 52,
-      "after_rating": 120,
+      "before_rating": 120,
       "changed_rating": 20
     },
     {
@@ -2980,7 +2980,7 @@ Content-Type: application/json
       "username": "eddie",
       "score": 30,
       "timecost": 61,
-      "after_rating": 115,
+      "before_rating": 115,
       "changed_rating": 15
     }
   ],
@@ -2989,7 +2989,7 @@ Content-Type: application/json
     "username": "HKvv",
     "score": 20,
     "timecost": 15,
-    "after_rating": 85,
+    "before_rating": 85,
     "changed_rating": -15
   }
 }
@@ -3022,7 +3022,7 @@ Content-Type: application/json
 | username      | HKwv | 必有   | 用户名       | string |
 | score         | 30   | 必有   | 得分         | int    |
 | timecost      | 52   | 必有   | 总耗时(s)    | int    |
-| after_rating  | 120  | 必有   | 比赛后的分数 | int    |
+| before_rating | 120  | 必有   | 比赛前的分数 | int    |
 | change_rating | 20   | 必有   | 分数变化     | int    |
 
 ## 通用
