@@ -626,6 +626,8 @@ Content-Type: application/json
 
 正常返回(ret = 0):
 
+// 
+
 ```json
 {
   "ret": 0,
@@ -633,17 +635,10 @@ Content-Type: application/json
     {
       "contestid": 1,
       "name": "April Fools Day Contest 2022",
-      "start": "2022-04-01 22:35:00",
-      "latest": "2022-04-01 22:45:00",
-      "public": true,
-      "rated": true,
-      "time_limited": {
-        "single": 30,
-        "multiple": 40,
-        "binary": 30,
-        "completion": 60
-      },
-      "author": "Agnimandur"
+      "rated":
+      "score":
+      "beforerating":
+      "afterrating":
     }
   ],
   "total": 1
@@ -1752,7 +1747,7 @@ Content-Type: application/json
 
 #### 修改比赛信息
 
-管理员仅能修改**自己创建的比赛**的信息，超级管理员可以修改**所有比赛**的信息，**后端**应做权限检查。
+管理员仅能修改**自己创建的比赛**的信息，超级管理员可以修改**所有比赛**的信息，**后端**应做权限检查并检测当前时间是否早于`start`。
 
 ##### 请求
 
@@ -1856,7 +1851,7 @@ Content-Type: application/json
 
 #### 删除比赛
 
-管理员仅能删除**自己创建的比赛**，超级管理员可以删除**所有比赛**，**后端**应做权限检查。
+管理员仅能删除**自己创建的比赛**，超级管理员可以删除**所有比赛**，**后端**应做权限检查并检测当前时间是否早于`start`。
 
 ##### 请求
 
@@ -3125,7 +3120,7 @@ Content-Type: application/json
 
 **消息体**
 
-正常返回(ret = 0):
+正常返回(ret = 0): // COMMENT: 加入比赛人数信息
 
 ```json
 {
