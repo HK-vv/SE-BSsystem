@@ -626,8 +626,6 @@ Content-Type: application/json
 
 正常返回(ret = 0):
 
-// 
-
 ```json
 {
   "ret": 0,
@@ -635,10 +633,10 @@ Content-Type: application/json
     {
       "contestid": 1,
       "name": "April Fools Day Contest 2022",
-      "rated":
-      "score":
-      "beforerating":
-      "afterrating":
+      "rated": true,
+      "score": 76,
+      "beforerating": 1500,
+      "afterrating": 1532,
     }
   ],
   "total": 1
@@ -656,25 +654,15 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名       | 示例                         | 必要性 | 含义         | 类型       |
-| ------------ | ---------------------------- | ------ | ------------ | ---------- |
-| contestid    | 1                            | 必有   | 比赛id       | int        |
-| name         | April Fools Day Contest 2022 | 必有   | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00          | 必有   | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
-| public       | true                         | 必有   | 比赛是否公开 | boolen     |
-| rated        | true                         | 必有   | 是否计分     | boolean    |
-| time_limited | { }                          | 必有   | 题目限时     | dictionary |
-| author       | HKvv                         | 必有   | 作者用户名   | string     |
+| 参数名       | 示例                         | 必要性 | 含义       | 类型    |
+| ------------ | ---------------------------- | ------ | ---------- | ------- |
+| contestid    | 1                            | 必有   | 比赛id     | int     |
+| name         | April Fools Day Contest 2022 | 必有   | 比赛名     | string  |
+| rated        | true                         | 必有   | 开始时间   | boolean |
+| score        | 76                           | 必有   | 得分       | int     |
+| beforerating | 1500                         | 必有   | 比前rating | int     |
+| afterrating  | 1532                         | 必有   | 比后rating | int     |
 
-其中`time_limited`中的参数信息如下所示：
-
-| 参数名     | 示例 | 必要性 | 含义          | 类型 |
-| ---------- | ---- | ------ | ------------- | ---- |
-| single     | 30   | 必有   | 单选题时限(s) | int  |
-| multiple   | 40   | 必有   | 多选题时限(s) | int  |
-| binary     | 30   | 必有   | 判断题时限(s) | int  |
-| completion | 60   | 必有   | 填空题时限(s) | int  |
 
 #### 查看用户答题情况
 
