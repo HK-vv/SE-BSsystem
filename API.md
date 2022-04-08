@@ -2716,16 +2716,15 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/contest/problem?contestid=1&problemno=1
+GET /api/user/contest/problem?contestid=1
 Cookie: sessionid=<sessionid数值>
 ```
 
 **参数信息**
 
-| 参数名    | 示例 | 必要性 | 含义     | 类型 |
-| --------- | ---- | ------ | -------- | ---- |
-| contestid | 1    | 必有   | 比赛id   | int  |
-| problemno | 1    | 必有   | 题目序号 | int  |
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| contestid | 1    | 必有   | 比赛id | int  |
 
 ##### 响应
 
@@ -2751,6 +2750,7 @@ Content-Type: application/json
     "accoding",
     "wacoding"
   ],
+  "problemnum": 5,
   "time": 30
 }
 ```
@@ -2760,7 +2760,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 1,
-  "msg": "题目不存在" / "题目未公开"
+  "msg": "比赛完成"
 }
 ```
 
@@ -2772,6 +2772,7 @@ Content-Type: application/json
 | type        | "single" / "multiple" / "binary" / "completion"    | 必有   | 题目类型     | string |
 | description | "请选出所有OJ"                                     | 必有   | 题面         | string |
 | options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项         | list   |
+| problemnum  | 5                                                  | 必有   | 题目序号     | int    |
 | time        | 30                                                 | 必有   | 题目时限(s)  | int    |
 
 #### 提交答案
@@ -2783,7 +2784,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/contest/problem/submit?contestid=1&problemno=1&user_answer=C
+GET /api/user/contest/problem/submit?contestid=1&problemnum=6&user_answer=C
 Cookie: sessionid=<sessionid数值>
 ```
 
@@ -2792,7 +2793,7 @@ Cookie: sessionid=<sessionid数值>
 | 参数名      | 示例 | 必要性 | 含义     | 类型   |
 | ----------- | ---- | ------ | -------- | ------ |
 | contestid   | 1    | 必有   | 比赛id   | int    |
-| problemno   | 1    | 必有   | 题目序号 | int    |
+| problemnum  | 6    | 必有   | 题目序号 | int    |
 | user_answer | C    | 必有   | 用户答案 | string |
 
 ##### 响应
@@ -2811,26 +2812,15 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
-  "next_problemno": 3
-}
-```
-
-异常返回(ret ≠ 0):
-
-```json
-{
-  "ret": 1,
-  "msg": "比赛完成"
 }
 ```
 
 **参数信息**
 
-| 参数名         | 示例     | 必要性       | 含义           | 类型   |
-| -------------- | -------- | ------------ | -------------- | ------ |
-| ret            | 0        | 必有         | 是否正常返回   | int    |
-| next_problemno | 3        | 必有         | 下一题题目序号 | int    |
-| msg            | 比赛完成 | ret不为0时有 | 错误信息       | string |
+| 参数名 | 示例     | 必要性       | 含义         | 类型   |
+| ------ | -------- | ------------ | ------------ | ------ |
+| ret    | 0        | 必有         | 是否正常返回 | int    |
+| msg    | 比赛完成 | ret不为0时有 | 错误信息     | string |
 
 ### 比赛结果
 
