@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v0.7.1`
+**版本**: `v0.7.2`
 **进度**: 已完成功能A、B、C、D，未完成比赛数据统计分析部分。
 
 ## Content
@@ -1603,21 +1603,23 @@ Content-Type: application/json
     3,
     7,
     1
-  ]
+  ],
+  "ordered": true
 }
 ```
 
 **参数信息**
 
-| 参数名       | 示例                         | 必要性                    | 含义         | 类型       |
-| ------------ | ---------------------------- | ------------------------- | ------------ | ---------- |
-| name         | April Fools Day Contest 2022 | 必有                      | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00          | 必有                      | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00          | 必有                      | 最晚开始时间 | datetime   |
-| password     | brainstorm                   | 可选 (为空时代表比赛公开) | 比赛密码     | string     |
-| rated        | true                         | 必有                      | 是否计分     | boolean    |
-| time_limited | { }                          | 必有                      | 题目限时     | dictionary |
-| problems     | [ ]                          | 必有                      | 题目编号     | list       |
+| 参数名       | 示例                         | 必要性                    | 含义            | 类型       |
+| ------------ | ---------------------------- | ------------------------- | --------------- | ---------- |
+| name         | April Fools Day Contest 2022 | 必有                      | 比赛名          | string     |
+| start        | 2022-04-01 22:35:00          | 必有                      | 开始时间        | datetime   |
+| latest       | 2022-04-01 22:45:00          | 必有                      | 最晚开始时间    | datetime   |
+| password     | brainstorm                   | 可选 (为空时代表比赛公开) | 比赛密码        | string     |
+| rated        | true                         | 必有                      | 是否计分        | boolean    |
+| time_limited | { }                          | 必有                      | 题目限时        | dictionary |
+| problems     | [ ]                          | 必有                      | 题目编号        | list       |
+| ordered      | true                         | 必有                      | 有序 / 随机顺序 | boolean    |
 
 其中`time_limited`中的参数信息如下所示：
 
@@ -3109,7 +3111,7 @@ Cookie: sessionid=<sessionid数值>
 | -------- | ------------------ | ------ | ------------------ | ------ |
 | pagesize | 1                  | 必有   | 每页列出的账号数量 | int    |
 | pagenum  | 1                  | 必有   | 获取第几页的信息   | int    |
-| type     | upcoming / history | 必有   | 获取未来/历史比赛  | string |
+| type     | upcoming / history | 可选   | 获取未来/历史比赛  | string |
 | keyword  | April              | 可选   | 比赛名关键词       | string |
 
 ##### 响应
