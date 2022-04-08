@@ -3108,7 +3108,7 @@ Content-Type: application/json
 
 **消息体**
 
-正常返回(ret = 0): // COMMENT: 加入比赛人数信息
+正常返回(ret = 0):
 
 ```json
 {
@@ -3127,7 +3127,8 @@ Content-Type: application/json
         "binary": 30,
         "completion": 60
       },
-      "author": "Agnimandur"
+      "author": "Agnimandur",
+      "register_num": 163
     }
   ],
   "total": 3
@@ -3155,6 +3156,7 @@ Content-Type: application/json
 | rated        | true                         | 必有   | 是否计分     | boolean    |
 | time_limited | { }                          | 必有   | 题目限时     | dictionary |
 | author       | HKvv                         | 必有   | 作者用户名   | string     |
+| register_num | 163                          | 必有   | 注册人数     | int        |
 
 其中`time_limited`中的参数信息如下所示：
 
