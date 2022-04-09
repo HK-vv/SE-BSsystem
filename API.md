@@ -634,8 +634,8 @@ Content-Type: application/json
       "name": "April Fools Day Contest 2022",
       "rated": true,
       "score": 76,
-      "beforerating": 1500,
-      "afterrating": 1532,
+      "before_rating": 1500,
+      "after_rating": 1532,
     }
   ],
   "total": 1
@@ -653,14 +653,14 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名       | 示例                         | 必要性 | 含义       | 类型    |
-| ------------ | ---------------------------- | ------ | ---------- | ------- |
-| contestid    | 1                            | 必有   | 比赛id     | int     |
-| name         | April Fools Day Contest 2022 | 必有   | 比赛名     | string  |
-| rated        | true                         | 必有   | 开始时间   | boolean |
-| score        | 76                           | 必有   | 得分       | int     |
-| beforerating | 1500                         | 必有   | 比前rating | int     |
-| afterrating  | 1532                         | 必有   | 比后rating | int     |
+| 参数名        | 示例                         | 必要性 | 含义       | 类型    |
+| ------------- | ---------------------------- | ------ | ---------- | ------- |
+| contestid     | 1                            | 必有   | 比赛id     | int     |
+| name          | April Fools Day Contest 2022 | 必有   | 比赛名     | string  |
+| rated         | true                         | 必有   | 开始时间   | boolean |
+| score         | 76                           | 必有   | 得分       | int     |
+| before_rating | 1500                         | 必有   | 比前rating | int     |
+| after_rating  | 1532                         | 必有   | 比后rating | int     |
 
 
 #### 查看用户答题情况
@@ -722,7 +722,7 @@ Content-Type: application/json
   "score": 20,
   "timecost": 15,
   "rank": 10,
-  "after_rating": 85,
+  "before_rating": 85,
   "changed_rating": -15
 }
 ```
@@ -737,7 +737,7 @@ Content-Type: application/json
 | score         | 20   | 必有         | 得分         | int    |
 | timecost      | 15   | 必有         | 总耗时(s)    | int    |
 | rank          | 10   | 必有         | 比赛排名     | int    |
-| after_rating  | 85   | 必有         | 比赛后的分数 | int    |
+| before_rating | 85   | 必有         | 比赛后的分数 | int    |
 | change_rating | -15  | 必有         | 分数变化     | int    |
 | msg           |      | ret不为0时有 | 错误信息     | string |
 
@@ -2012,7 +2012,7 @@ Content-Type: application/json
       "username": "CasanovaLLL",
       "score": 30,
       "timecost": 31,
-      "after_rating": 130,
+      "before_rating": 130,
       "changed_rating": 30
     },
     {
@@ -2020,7 +2020,7 @@ Content-Type: application/json
       "username": "HKwv",
       "score": 30,
       "timecost": 52,
-      "after_rating": 120,
+      "before_rating": 120,
       "changed_rating": 20
     },
     {
@@ -2028,7 +2028,7 @@ Content-Type: application/json
       "username": "eddie",
       "score": 30,
       "timecost": 61,
-      "after_rating": 115,
+      "before_rating": 115,
       "changed_rating": 15
     }
   ],
@@ -2062,7 +2062,7 @@ Content-Type: application/json
 | username      | HKwv | 必有   | 用户名       | string |
 | score         | 30   | 必有   | 得分         | int    |
 | timecost      | 52   | 必有   | 总耗时(s)    | int    |
-| after_rating  | 120  | 必有   | 比赛后的分数 | int    |
+| before_rating | 120  | 必有   | 比赛后的分数 | int    |
 | change_rating | 20   | 必有   | 分数变化     | int    |
 
 #### 查看比赛统计
