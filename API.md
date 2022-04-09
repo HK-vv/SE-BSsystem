@@ -737,7 +737,7 @@ Content-Type: application/json
 | score         | 20   | 必有         | 得分         | int    |
 | timecost      | 15   | 必有         | 总耗时(s)    | int    |
 | rank          | 10   | 必有         | 比赛排名     | int    |
-| before_rating | 85   | 必有         | 比赛后的分数 | int    |
+| before_rating | 85   | 必有         | 比赛前的分数 | int    |
 | change_rating | -15  | 必有         | 分数变化     | int    |
 | msg           |      | ret不为0时有 | 错误信息     | string |
 
@@ -2062,7 +2062,7 @@ Content-Type: application/json
 | username      | HKwv | 必有   | 用户名       | string |
 | score         | 30   | 必有   | 得分         | int    |
 | timecost      | 52   | 必有   | 总耗时(s)    | int    |
-| before_rating | 120  | 必有   | 比赛后的分数 | int    |
+| before_rating | 120  | 必有   | 比赛前的分数 | int    |
 | change_rating | 20   | 必有   | 分数变化     | int    |
 
 #### 查看比赛统计
