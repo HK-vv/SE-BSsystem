@@ -1,7 +1,7 @@
 # 接口文档
 
-**版本**: `v0.7.2`
-**进度**: 已完成功能A、B、C、D，未完成比赛数据统计分析部分。
+**版本**: `v0.8.0`
+**进度**: 似乎都已经完成。等待**补充**、**修改**、**错字检查**以及**发布**。
 
 ## Content
 
@@ -24,7 +24,7 @@
 |      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |                                    |
 |      | 内部 | /api/admin/contest/calculate                    |          | 比赛开始算分                             |                                    |
 |      | 内部 | /api/admin/contest/leaderboard                  |          | 查看比赛排行榜                           |                                    |
-|      |      | 以上为管理端接口                                |          |                                          |                                    |
+|      | 内部 | /api/admin/contest/statistics                   |          | 查看比赛统计                             |                                    |
 |      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 1                                  |
 |      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 | 1                                  |
 |      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 1                                  |
@@ -38,7 +38,6 @@
 |      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         |                                    |
 |      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             |                                    |
 |      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           |                                    |
-|      |      | 以上是用户端接口, 以下是通用接口                |          |                                          |                                    |
 |      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 1                                  |
 |      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |                                    |
 ## 返回值(ret)规定
@@ -2068,7 +2067,131 @@ Content-Type: application/json
 
 #### 查看比赛统计
 
-// TODO
+管理员可以通过此接口查看比赛统计信息。
+
+其中，`sections`除第一个区间的左界为0外，其它都为上一个区间的右界。统计的人数的区间除第一个区间为**闭区间**外，其他都为**左开右闭**。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/contest/statistics?contestid=1&section=10
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义         | 类型 |
+| --------- | ---- | ------ | ------------ | ---- |
+| contestid | 1    | 必有   | 比赛id       | int  |
+| section   | 3    | 必有   | 成绩分段数量 | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "problems": [
+    {
+      "problemno": 1,
+      "problemid": 5,
+      "correct": 9,
+      "all": 10,
+      "correct_rate": 0.9,
+      "aver_timecost": 12.3
+    },
+    {
+      "problemno": 2,
+      "problemid": 3,
+      "correct": 9,
+      "all": 10,
+      "correct_rate": 0.9,
+      "aver_timecost": 21.3
+    },
+    {
+      "problemno": 3,
+      "problemid": 8,
+      "correct": 6,
+      "all": 9,
+      "correct_rate": 0.666667,
+      "aver_timecost": 8.5
+    }
+  ],
+  "total": 3,
+  "sections": [
+    {
+      "right_border": 10,
+      "number": 1
+    },
+    {
+      "right_border": 20,
+      "number": 3
+    },
+    {
+      "right_border": 30,
+      "number": 6
+    }
+  ],
+  "score": {
+    "highest": 30,
+    "average": 24,
+    "lowest": 10
+  },
+  "registrants":15,
+  "participants": 10
+}
+```
+
+**参数信息**
+
+| 参数名       | 示例 | 必要性 | 含义             | 类型       |
+| ------------ | ---- | ------ | ---------------- | ---------- |
+| ret          | 0    | 必有   | 是否正常返回     | int        |
+| problems     | [ ]  | 必有   | 比赛题目统计信息 | list       |
+| total        | 3    | 必有   | 总题目数量       | int        |
+| sections     | [ ]  | 必有   | 各个分数区间人数 | list       |
+| score        | { }  | 必有   | 分数特征         | dictionary |
+| registrants  | 15   | 必有   | 注册人数         | int        |
+| participants | 10   | 必有   | 实际参赛人数     | int        |
+
+其中`problems`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名        | 示例 | 必要性 | 含义       | 类型   |
+| ------------- | ---- | ------ | ---------- | ------ |
+| problemno     | 1    | 必有   | 题目序号   | int    |
+| problemid     | 5    | 必有   | 题目id     | int    |
+| correct       | 9    | 必有   | 正确人数   | int    |
+| all           | 10   | 必有   | 总提交人数 | int    |
+| correct_rate  | 0.9  | 必有   | 正确率     | double |
+| aver_timecost | 12.3 | 必有   | 平均用时   | double |
+
+`sections`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名       | 示例 | 必要性 | 含义         | 类型   |
+| ------------ | ---- | ------ | ------------ | ------ |
+| right_border | 20   | 必有   | 分数右边界   | double |
+| number       | 3    | 必有   | 分数段内人数 | int    |
+
+其中`score`中的参数信息如下所示：
+
+| 参数名  | 示例 | 必要性 | 含义   | 类型   |
+| ------- | ---- | ------ | ------ | ------ |
+| highest | 30   | 必有   | 最高分 | int    |
+| average | 24   | 必有   | 平均分 | double |
+| lowest  | 10   | 必有   | 最低分 | int    |
 
 ## 用户端
 
@@ -2863,7 +2986,7 @@ Content-Type: application/json
       "problemno": 1,
       "problemid": 5,
       "correct": true,
-      "submitted": "A",
+      "submitted": "A"
     },
     {
       "problemno": 2,
@@ -2882,7 +3005,7 @@ Content-Type: application/json
   "score": 20,
   "timecost": 15,
   "rank": 10,
-  "after_rating": 85,
+  "before_rating": 100,
   "changed_rating": -15
 }
 ```
@@ -2897,7 +3020,7 @@ Content-Type: application/json
 | score         | 20   | 必有         | 得分         | int    |
 | timecost      | 15   | 必有         | 总耗时(s)    | int    |
 | rank          | 10   | 必有         | 比赛排名     | int    |
-| after_rating  | 85   | 必有         | 比赛后的分数 | int    |
+| before_rating | 100  | 必有         | 比赛前的分数 | int    |
 | change_rating | -15  | 必有         | 分数变化     | int    |
 | msg           |      | ret不为0时有 | 错误信息     | string |
 
