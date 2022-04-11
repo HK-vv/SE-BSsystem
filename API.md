@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v0.8.0`
+**版本**: `v0.8.1`
 **进度**: 似乎都已经完成。等待**补充**、**修改**、**错字检查**以及**发布**。
 
 ## Content
@@ -670,7 +670,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/user_account/contest/result?contestid=1&username=HKvv
+GET /api/admin/user_account/contest/result?contestid=1&username=HKvv
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
@@ -704,18 +704,21 @@ Content-Type: application/json
       "problemid": 5,
       "correct": true,
       "submitted": "A",
+      "answer": "A"
     },
     {
       "problemno": 2,
       "problemid": 3,
       "correct": true,
-      "submitted": "BCD"
+      "submitted": "BCD",
+      "answer": "BCD"
     },
     {
       "problemno": 3,
       "problemid": 8,
       "correct": false,
-      "submitted": "HKwv"
+      "submitted": "HKwv",
+      "answer": "HKvv"
     }
   ],
   "total": 3,
@@ -749,6 +752,7 @@ Content-Type: application/json
 | problemid | 5    | 必有   | 题目id       | int     |
 | correct   | true | 必有   | 是否正确     | boolean |
 | submitted | A    | 必有   | 当时提交答案 | string  |
+| answer    | A    | 必有   | 正确答案     | string  |
 
 ### 重置密码
 
@@ -2986,19 +2990,22 @@ Content-Type: application/json
       "problemno": 1,
       "problemid": 5,
       "correct": true,
-      "submitted": "A"
+      "submitted": "A",
+      "answer": "A"
     },
     {
       "problemno": 2,
       "problemid": 3,
       "correct": true,
-      "submitted": "BCD"
+      "submitted": "BCD",
+      "answer": "BCD"
     },
     {
       "problemno": 3,
       "problemid": 8,
       "correct": false,
-      "submitted": "HKwv"
+      "submitted": "HKwv",
+      "answer": "HKvv"
     }
   ],
   "total": 3,
@@ -3032,6 +3039,7 @@ Content-Type: application/json
 | problemid | 5    | 必有   | 题目id       | int     |
 | correct   | true | 必有   | 是否正确     | boolean |
 | submitted | A    | 必有   | 当时提交答案 | string  |
+| answer    | A    | 必有   | 正确答案     | string  |
 
 #### 查看比赛排行榜
 
@@ -3203,12 +3211,12 @@ Cookie: sessionid=<sessionid数值>
 
 **参数信息**
 
-| 参数名   | 示例               | 必要性 | 含义               | 类型   |
-| -------- | ------------------ | ------ | ------------------ | ------ |
-| pagesize | 1                  | 必有   | 每页列出的账号数量 | int    |
-| pagenum  | 1                  | 必有   | 获取第几页的信息   | int    |
-| type     | upcoming / history | 可选   | 获取未来/历史比赛  | string |
-| keyword  | April              | 可选   | 比赛名关键词       | string |
+| 参数名   | 示例                             | 必要性 | 含义                       | 类型   |
+| -------- | -------------------------------- | ------ | -------------------------- | ------ |
+| pagesize | 1                                | 必有   | 每页列出的账号数量         | int    |
+| pagenum  | 1                                | 必有   | 获取第几页的信息           | int    |
+| type     | upcoming / history / in_progress | 可选   | 获取未来/历史/正在进行比赛 | string |
+| keyword  | April                            | 可选   | 比赛名关键词               | string |
 
 ##### 响应
 
@@ -3234,6 +3242,7 @@ Content-Type: application/json
       "latest": "2022-04-01 22:45:00",
       "public": true,
       "rated": true,
+      "status": "比赛中",
       "time_limited": {
         "single": 30,
         "multiple": 40,
@@ -3267,6 +3276,7 @@ Content-Type: application/json
 | latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
 | public       | true                         | 必有   | 比赛是否公开 | boolen     |
 | rated        | true                         | 必有   | 是否计分     | boolean    |
+| status       | 比赛中 / 未开始 / 已结束     | 必有   | 比赛状态     | string     |
 | time_limited | { }                          | 必有   | 题目限时     | dictionary |
 | author       | HKvv                         | 必有   | 作者用户名   | string     |
 | register_num | 163                          | 必有   | 注册人数     | int        |
