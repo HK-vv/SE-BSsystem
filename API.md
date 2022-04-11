@@ -19,8 +19,8 @@
 |      | 内部 | /api/admin/user_account/contest/result          |          | 列出用户答题情况                         |                                    |
 |      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |                                    |
 |      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |                                    |
-|      | 内部 | /api/admin/problem/batch/add                    |          | 批量添加题目                             |                                    |
-|      | 内部 | /api/admin/problem/batch/public                 |          | 批量公开题目                             |                                    |
+|      | 内部 | /api/admin/problem/batch/add                    |          | 批量添加题目                             | 1                                  |
+|      | 内部 | /api/admin/problem/batch/public                 |          | 批量公开题目                             | 1                                  |
 |      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |                                    |
 |      | 内部 | /api/admin/contest/calculate                    |          | 比赛开始算分                             |                                    |
 |      | 内部 | /api/admin/contest/leaderboard                  |          | 查看比赛排行榜                           |                                    |
@@ -1112,7 +1112,7 @@ Content-Type: application/json
   "options":[
     "Codeforces",
     "DBforces",
-    "accoding",
+    "accoding", 
     "wacoding"
   ],
   "answer": "ABC",
