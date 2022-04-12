@@ -2727,6 +2727,7 @@ Content-Type: application/json
       "latest": "2022-04-01 22:45:00",
       "public": true,
       "rated": true,
+      "status": "未开始",
       "time_limited": {
         "single": 30,
         "multiple": 40,
@@ -2751,16 +2752,17 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名       | 示例                         | 必要性 | 含义         | 类型       |
-| ------------ | ---------------------------- | ------ | ------------ | ---------- |
-| contestid    | 1                            | 必有   | 比赛id       | int        |
-| name         | April Fools Day Contest 2022 | 必有   | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00          | 必有   | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间 | datetime   |
-| public       | true                         | 必有   | 比赛是否公开 | boolen     |
-| rated        | true                         | 必有   | 是否计分     | boolean    |
-| time_limited | { }                          | 必有   | 题目限时     | dictionary |
-| author       | HKvv                         | 必有   | 作者用户名   | string     |
+| 参数名       | 示例                                  | 必要性 | 含义         | 类型       |
+| ------------ | ------------------------------------- | ------ | ------------ | ---------- |
+| contestid    | 1                                     | 必有   | 比赛id       | int        |
+| name         | April Fools Day Contest 2022          | 必有   | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00                   | 必有   | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00                   | 必有   | 最晚开始时间 | datetime   |
+| public       | true                                  | 必有   | 比赛是否公开 | boolen     |
+| rated        | true                                  | 必有   | 是否计分     | boolean    |
+| status       | 比赛中 / 未开始 / 已结束 / 待公布成绩 | 必有   | 比赛状态     | string     |
+| time_limited | { }                                   | 必有   | 题目限时     | dictionary |
+| author       | HKvv                                  | 必有   | 作者用户名   | string     |
 
 其中`time_limited`中的参数信息如下所示：
 
