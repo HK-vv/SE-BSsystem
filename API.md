@@ -25,20 +25,20 @@
 |      | 内部 | /api/admin/contest/calculate                    |          | 比赛开始算分                             |                                    |
 |      | 内部 | /api/admin/contest/leaderboard                  |          | 查看比赛排行榜                           |                                    |
 |      | 内部 | /api/admin/contest/statistics                   |          | 查看比赛统计                             |                                    |
-|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 1                                  |
+|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 01                                 |
 |      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 | 1                                  |
-|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 1                                  |
-|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 | 1                                  |
-|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 1                                  |
-|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 1                                  |
-|      | 内部 | /api/user/contest/register                      |          | 注册比赛                                 |                                    |
-|      | 内部 | /api/user/contest/start                         |          | 开髓比赛                                 |                                    |
-|      | 内部 | /api/user/contest/problem                       |          | 获取比赛题目题面                         |                                    |
-|      | 内部 | /api/user/contest/problem/submit                |          | 提交答案                                 |                                    |
-|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         |                                    |
-|      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             |                                    |
-|      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           |                                    |
-|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 1                                  |
+|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 01                                 |
+|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 | 01                                 |
+|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 01                                 |
+|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 01                                 |
+|      | 内部 | /api/user/contest/register                      |          | 注册比赛                                 | 0                                  |
+|      | 内部 | /api/user/contest/start                         |          | 开髓比赛 **(错别字啦)**                  | 0                                  |
+|      | 内部 | /api/user/contest/problem                       |          | 获取比赛题目题面                         | 0                                  |
+|      | 内部 | /api/user/contest/problem/submit                |          | 提交答案                                 | 0                                  |
+|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         | 0                                  |
+|      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             | 0                                  |
+|      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           | 0                                  |
+|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 01                                 |
 |      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |                                    |
 ## 返回值(ret)规定
 
