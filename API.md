@@ -2005,6 +2005,7 @@ Content-Type: application/json
       "username": "CasanovaLLL",
       "score": 30,
       "timecost": 31,
+      "correct":3,
       "before_rating": 130,
       "changed_rating": 30
     },
@@ -2013,6 +2014,7 @@ Content-Type: application/json
       "username": "HKwv",
       "score": 30,
       "timecost": 52,
+      "correct":3,
       "before_rating": 120,
       "changed_rating": 20
     },
@@ -2021,6 +2023,7 @@ Content-Type: application/json
       "username": "eddie",
       "score": 30,
       "timecost": 61,
+      "correct":3,
       "before_rating": 115,
       "changed_rating": 15
     }
@@ -2049,14 +2052,15 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名        | 示例 | 必要性 | 含义         | 类型   |
-| ------------- | ---- | ------ | ------------ | ------ |
-| rank          | 2    | 必有   | 排名         | int    |
-| username      | HKwv | 必有   | 用户名       | string |
-| score         | 30   | 必有   | 得分         | int    |
-| timecost      | 52   | 必有   | 总耗时(s)    | int    |
-| before_rating | 120  | 必有   | 比赛前的分数 | int    |
-| change_rating | 20   | 必有   | 分数变化     | int    |
+| 参数名        | 示例 | 必要性 | 含义             | 类型   |
+| ------------- | ---- | ------ | ---------------- | ------ |
+| rank          | 2    | 必有   | 排名             | int    |
+| username      | HKwv | 必有   | 用户名           | string |
+| score         | 30   | 必有   | 得分             | int    |
+| timecost      | 52   | 必有   | 总耗时(s)        | int    |
+| correct       | 3    | 必有   | 当前答对题目数量 | int    |
+| before_rating | 120  | 必有   | 比赛前的分数     | int    |
+| change_rating | 20   | 必有   | 分数变化         | int    |
 
 #### 查看比赛统计
 
@@ -3074,6 +3078,7 @@ Content-Type: application/json
       "username": "CasanovaLLL",
       "score": 30,
       "timecost": 31,
+      "correct":3,
       "before_rating": 130,
       "changed_rating": 30
     },
@@ -3082,6 +3087,7 @@ Content-Type: application/json
       "username": "HKwv",
       "score": 30,
       "timecost": 52,
+      "correct":3,
       "before_rating": 120,
       "changed_rating": 20
     },
@@ -3090,6 +3096,7 @@ Content-Type: application/json
       "username": "eddie",
       "score": 30,
       "timecost": 61,
+      "correct":3,
       "before_rating": 115,
       "changed_rating": 15
     }
@@ -3098,6 +3105,7 @@ Content-Type: application/json
     "rank": 10,
     "username": "HKvv",
     "score": 20,
+    "correct":2,
     "timecost": 15,
     "before_rating": 85,
     "changed_rating": -15
@@ -3126,14 +3134,15 @@ Content-Type: application/json
 
 其中`top3`是包含多个查找结果的列表，每个结果的参数信息以及`user_rank`的参数信息如下所示：
 
-| 参数名        | 示例 | 必要性 | 含义         | 类型   |
-| ------------- | ---- | ------ | ------------ | ------ |
-| rank          | 2    | 必有   | 排名         | int    |
-| username      | HKwv | 必有   | 用户名       | string |
-| score         | 30   | 必有   | 得分         | int    |
-| timecost      | 52   | 必有   | 总耗时(s)    | int    |
-| before_rating | 120  | 必有   | 比赛前的分数 | int    |
-| change_rating | 20   | 必有   | 分数变化     | int    |
+| 参数名        | 示例 | 必要性 | 含义             | 类型   |
+| ------------- | ---- | ------ | ---------------- | ------ |
+| rank          | 2    | 必有   | 排名             | int    |
+| username      | HKwv | 必有   | 用户名           | string |
+| score         | 30   | 必有   | 得分             | int    |
+| timecost      | 52   | 必有   | 总耗时(s)        | int    |
+| correct       | 3    | 必有   | 当前答对题目数量 | int    |
+| before_rating | 120  | 必有   | 比赛前的分数     | int    |
+| change_rating | 20   | 必有   | 分数变化         | int    |
 
 ## 通用
 
