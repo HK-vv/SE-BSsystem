@@ -16,15 +16,15 @@
 |      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     | 1                                  |
 |      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 1                                  |
 |      | 内部 | /api/admin/user_account/contest/history         |          | 列出用户比赛历史                         | 0                                  |
-|      | 内部 | /api/admin/user_account/contest/result          |          | 列出用户答题情况                         |                                    |
-|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               |                                    |
-|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         |                                    |
+|      | 内部 | /api/admin/user_account/contest/result          |          | 列出用户答题情况                         | 0                                   |
+|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               | 0                                   |
+|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         | 0                                   |
 |      | 内部 | /api/admin/problem/batch/add                    |          | 批量添加题目                             | 1                                  |
 |      | 内部 | /api/admin/problem/batch/public                 |          | 批量公开题目                             | 1                                  |
-|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             |                                    |
-|      | 内部 | /api/admin/contest/calculate                    |          | 比赛开始算分                             |                                    |
-|      | 内部 | /api/admin/contest/leaderboard                  |          | 查看比赛排行榜                           |                                    |
-|      | 内部 | /api/admin/contest/statistics                   |          | 查看比赛统计                             |                                    |
+|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             | 0                                   |
+|      | 内部 | /api/admin/contest/calculate                    |          | 比赛开始算分                             | 0                                   |
+|      | 内部 | /api/admin/contest/leaderboard                  |          | 查看比赛排行榜                           | 0                                   |
+|      | 内部 | /api/admin/contest/statistics                   |          | 查看比赛统计                             | 0                                   |
 |      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 1                                  |
 |      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 | 1                                  |
 |      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 1                                  |
@@ -39,7 +39,7 @@
 |      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             |                                    |
 |      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           |                                    |
 |      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 1                                  |
-|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |                                    |
+|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             | 0                                   |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
