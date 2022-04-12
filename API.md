@@ -10,6 +10,7 @@
 |      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               | 1                                  |
 |      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               | 1                                  |
 |      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 | 1                                  |
+| | 内部 | /api/admin/admin_account/get_username           | | 查看账号用户名 |  |
 |      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           | 1                                  |
 |      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 1                                  |
 |      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   | 1                                  |
@@ -35,7 +36,7 @@
 |      | 内部 | /api/user/contest/start                         |          | 开始比赛             | 0                                  |
 |      | 内部 | /api/user/contest/problem                       |          | 获取比赛题目题面                         | 0                                  |
 |      | 内部 | /api/user/contest/problem/submit                |          | 提交答案                                 | 0                                  |
-|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         |                                    |
+|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         | 0 |
 |      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             | 0                                  |
 |      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           | 0                                  |
 |      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 01                                 |
@@ -437,6 +438,47 @@ Content-Type: application/json
 | ------ | ------------ | ------------ | ------------ | ------ |
 | ret    | 0            | 必有         | 是否正常返回 | int    |
 | msg    | 用户名不存在 | ret不为0时有 | 错误信息     | string |
+
+#### 获取账号用户名
+
+管理员和超级管理员都可以使用此接口查看自己的用户名。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/admin_account/get_username
+Cookie: sessionid=<sessionid数值>
+```
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "username": "eddie"
+}
+```
+
+**参数信息**
+
+| 参数名   | 示例  | 必要性       | 含义         | 类型   |
+| -------- | ----- | ------------ | ------------ | ------ |
+| ret      | 0     | 必有         | 是否正常返回 | int    |
+| username | eddie | 必有         | 用户名       | string |
+| msg      |       | ret不为0时有 | 错误信息     | string |
 
 ### 查看其他账号
 
