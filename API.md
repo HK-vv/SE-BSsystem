@@ -35,11 +35,11 @@
 |      | 内部 | /api/user/contest/start                         |          | 开髓比赛 **(错别字啦)**                  | 0                                  |
 |      | 内部 | /api/user/contest/problem                       |          | 获取比赛题目题面                         | 0                                  |
 |      | 内部 | /api/user/contest/problem/submit                |          | 提交答案                                 | 0                                  |
-|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         | 0                                  |
+|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         |                                    |
 |      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             | 0                                  |
 |      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           | 0                                  |
 |      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 01                                 |
-|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             |                                    |
+|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             | 0                                  |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
