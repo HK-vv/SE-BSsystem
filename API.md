@@ -32,7 +32,7 @@
 |      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 01                                 |
 |      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 01                                 |
 |      | 内部 | /api/user/contest/register                      |          | 注册比赛                                 | 0                                  |
-|      | 内部 | /api/user/contest/start                         |          | 开髓比赛 **(错别字啦)**                  | 0                                  |
+|      | 内部 | /api/user/contest/start                         |          | 开始比赛             | 0                                  |
 |      | 内部 | /api/user/contest/problem                       |          | 获取比赛题目题面                         | 0                                  |
 |      | 内部 | /api/user/contest/problem/submit                |          | 提交答案                                 | 0                                  |
 |      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         |                                    |
