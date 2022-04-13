@@ -1483,12 +1483,12 @@ Content-Type: application/json
 
 | 参数名      | 示例                                                         | 必要性 | 含义     | 类型    |
 | ----------- | ------------------------------------------------------------ | ------ | -------- | ------- |
-| type        | binary                                                       | 可选   | 题目类型 | string  |
-| tags        | [ ]                                                          | 可选   | 题目标签 | list    |
-| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 可选   | 题目信息 | string  |
+| type        | binary                                                       | 必选   | 题目类型 | string  |
+| tags        | [ ]                                                          | 必选   | 题目标签 | list    |
+| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 必选   | 题目信息 | string  |
 | options     | [ ]                                                          | 可选   | 选项     | list    |
-| answer      | A                                                            | 可选   | 答案     | string  |
-| public      | true                                                         | 可选   | 公开性   | boolean |
+| answer      | A                                                            | 必选   | 答案     | string  |
+| public      | true                                                         | 必选   | 公开性   | boolean |
 
 ##### 响应
 
