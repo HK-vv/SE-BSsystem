@@ -1,46 +1,46 @@
 # 接口文档
 
-**版本**: `v0.8.2`
-**进度**: 似乎都已经完成。等待**补充**、**修改**、**错字检查**以及**发布**。
+**版本**: `v1.0`
+**进度**: 基础版正式发布
 
 ## Content
 
-| 序号 | 类型 | 接口名称                                        | 文档编号 | 说明                                     | 完成情况(0: 接口确定, 1: 接口实现) |
-| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- | ---------------------------------- |
-|      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               | 1                                  |
-|      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               | 1                                  |
-|      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 | 1                                  |
-| | 内部 | /api/admin/admin_account/get_username           | | 查看账号用户名 | 0 |
-|      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           | 1                                  |
-|      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 1                                  |
-|      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   | 1                                  |
-|      | 内部 | /api/admin/admin_account/issuper                |          | 检测是否为超级管理员                     | 1                                  |
-|      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 1                                  |
-|      | 内部 | /api/admin/user_account/contest/history         |          | 列出用户比赛历史                         | 0                                  |
-|      | 内部 | /api/admin/user_account/contest/result          |          | 列出用户答题情况                         | 0                                   |
-|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               | 1                                  |
-|      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         | 0                                   |
-|      | 内部 | /api/admin/problem/batch/add                    |          | 批量添加题目                             | 1                                  |
-|      | 内部 | /api/admin/problem/batch/public                 |          | 批量公开题目                             | 1                                  |
-|      | 内部 | /api/admin/contest                              |          | 增删改查比赛                             | 0                                   |
-|      | 内部 | /api/admin/contest/calculate                    |          | 比赛开始算分                             | 0                                   |
-|      | 内部 | /api/admin/contest/leaderboard                  |          | 查看比赛排行榜                           | 0                                   |
-|      | 内部 | /api/admin/contest/statistics                   |          | 查看比赛统计                             | 0                                   |
-|      | 内部 | /api/user/auth/login                            |          | 用户登录                                 | 1                                  |
-|      | 内部 | /api/user/auth/logout                           |          | 用户登出                                 | 1                                  |
-|      | 内部 | /api/user/profile                               |          | 用户查看、修改个人信息                   | 01                                 |
-|      | 内部 | /api/user/exercise/collect                      |          | 自主组卷                                 | 01                                 |
-|      | 内部 | /api/user/exercise/problem                      |          | 获取题面                                 | 01                                 |
-|      | 内部 | /api/user/exercise/problem/check                |          | 验证答案                                 | 01                                 |
-|      | 内部 | /api/user/contest/register                      |          | 注册比赛                                 | 0                                  |
-|      | 内部 | /api/user/contest/start                         |          | 开始比赛             | 0                                  |
-|      | 内部 | /api/user/contest/problem                       |          | 获取比赛题目题面                         | 0                                  |
-|      | 内部 | /api/user/contest/problem/submit                |          | 提交答案                                 | 0                                  |
-|      | 内部 | /api/user/contest/record                        |          | 查询所有参加比赛                         | 0 |
-|      | 内部 | /api/user/contest/result                        |          | 查询比赛记录                             | 0                                  |
-|      | 内部 | /api/user/contest/leaderboard                   |          | 查询比赛排行榜                           | 0                                  |
-|      | 内部 | /api/general/tag/list                           |          | 获取所有标签                             | 01                                 |
-|      | 内部 | /api/general/contest/list                       |          | 查找所有比赛                             | 0                                  |
+| 序号 | 类型 | 接口名称                                        | 说明                                     | 完成情况(0: 接口确定, 1: 接口实现) |
+| ---- | ---- | ----------------------------------------------- | -------- | ---------------------------------------- |
+| 1 | 内部 | /api/admin/auth/login                           | 管理员登录                               | 1                                  |
+| 2 | 内部 | /api/admin/auth/logout                          | 管理员登出                               | 1                                  |
+| 3 | 内部 | /api/admin/admin_account                        | 创建、删除管理员账号，查看、修改个人信息 | 1                                  |
+| 4 | 内部 | /api/admin/admin_account/get_username           | 查看账号用户名 | 0 |
+| 5 | 内部 | /api/admin/admin_account/reset_password         | 重置管理员密码                           | 1                                  |
+| 6 | 内部 | /api/admin/admin_account/list                   | 列出管理员账号                           | 1                                  |
+| 7 | 内部 | /api/admin/admin_account/integrity_verification | 检测管理员信息是否完整                   | 1                                  |
+| 8 | 内部 | /api/admin/admin_account/issuper                | 检测是否为超级管理员                     | 1                                  |
+| 9 | 内部 | /api/admin/user_account/list                    | 列出用户账号                             | 1                                  |
+| 10 | 内部 | /api/admin/user_account/contest/history         | 列出用户比赛历史                         | 0                                  |
+| 11 | 内部 | /api/admin/user_account/contest/result          | 列出用户答题情况                         | 0                                   |
+| 12 | 内部 | /api/admin/tag                                  | 增删改标签                               | 1                                  |
+| 13 | 内部 | /api/admin/problem                              | 增删改查题目信息                         | 1                                  |
+| 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
+| 15 | 内部 | /api/admin/problem/batch/public                 | 批量公开题目                             | 1                                  |
+| 16 | 内部 | /api/admin/contest                              | 增删改查比赛                             | 0                                   |
+| 17 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
+| 18 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 0                                   |
+| 19 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
+| 20 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
+| 21 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
+| 22 | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   | 1                                 |
+| 23 | 内部 | /api/user/exercise/collect                      | 自主组卷                                 | 1                                 |
+| 24 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
+| 25 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
+| 26 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 0                                  |
+| 27 | 内部 | /api/user/contest/start                         | 开始比赛             | 0                                  |
+| 28 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 0                                  |
+| 29 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 0                                  |
+| 30 | 内部 | /api/user/contest/record                        | 查询所有参加比赛                         | 0 |
+| 31 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
+| 32 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
+| 33 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
+| 34 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                                  |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
@@ -1483,12 +1483,12 @@ Content-Type: application/json
 
 | 参数名      | 示例                                                         | 必要性 | 含义     | 类型    |
 | ----------- | ------------------------------------------------------------ | ------ | -------- | ------- |
-| type        | binary                                                       | 可选   | 题目类型 | string  |
-| tags        | [ ]                                                          | 可选   | 题目标签 | list    |
-| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 可选   | 题目信息 | string  |
+| type        | binary                                                       | 必选   | 题目类型 | string  |
+| tags        | [ ]                                                          | 必选   | 题目标签 | list    |
+| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 必选   | 题目信息 | string  |
 | options     | [ ]                                                          | 可选   | 选项     | list    |
-| answer      | A                                                            | 可选   | 答案     | string  |
-| public      | true                                                         | 可选   | 公开性   | boolean |
+| answer      | A                                                            | 必选   | 答案     | string  |
+| public      | true                                                         | 必选   | 公开性   | boolean |
 
 ##### 响应
 
