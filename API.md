@@ -1077,18 +1077,15 @@ Content-Type: application/json
 
 ```json
 {
-  "tags": [
-    "语文",
-    "数学"
-  ]
+  "tag": "语文"
 }
 ```
 
 **参数信息**
 
-| 参数名 | 示例 | 必要性 | 含义                 | 类型 |
-| ------ | ---- | ------ | -------------------- | ---- |
-| tags   | [ ]  | 必有   | 需要被删除的标签名称 | list |
+| 参数名 | 示例 | 必要性 | 含义                 | 类型   |
+| ------ | ---- | ------ | -------------------- | ------ |
+| tag    | 语文 | 必有   | 需要被删除的标签名称 | string |
 
 ##### 响应
 
@@ -1213,7 +1210,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-PUT /api/admin/problem/batch/add
+POST /api/admin/problem/batch/add
 Cookie: sessionid=<sessionid数值>
 Content-Type: false
 ```
