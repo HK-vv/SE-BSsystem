@@ -1148,25 +1148,26 @@ $n_c$ : 当前题目序号, $t_c$ : 当前题目的开始时间.
 | 13   | 内部 | /api/admin/problem                              | 增删改查题目信息                         |
 | 14   | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             |
 | 15   | 内部 | /api/admin/problem/batch/public                 | 批量公开题目                             |
-| 16   | 内部 | /api/admin/contest                              | 增删改查比赛                             |
-| 17   | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             |
-| 18   | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           |
-| 19   | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             |
-| 20   | 内部 | /api/user/auth/login                            | 用户登录                                 |
-| 21   | 内部 | /api/user/auth/logout                           | 用户登出                                 |
-| 22   | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   |
-| 23   | 内部 | /api/user/exercise/collect                      | 自主组卷                                 |
-| 24   | 内部 | /api/user/exercise/problem                      | 获取题面                                 |
-| 25   | 内部 | /api/user/exercise/problem/check                | 验证答案                                 |
-| 26   | 内部 | /api/user/contest/register                      | 注册比赛                                 |
-| 27   | 内部 | /api/user/contest/start                         | 开始比赛                                 |
-| 28   | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         |
-| 29   | 内部 | /api/user/contest/problem/submit                | 提交答案                                 |
-| 30   | 内部 | /api/user/contest/record                        | 查询所有参加比赛                         |
-| 31   | 内部 | /api/user/contest/result                        | 查询比赛记录                             |
-| 32   | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           |
-| 33   | 内部 | /api/general/tag/list                           | 获取所有标签                             |
-| 34   | 内部 | /api/general/contest/list                       | 查找所有比赛                             |
+| 16   | 内部 | /api/admin/problem/batch/delete                 | 批量删除题目                             |
+| 17   | 内部 | /api/admin/contest                              | 增删改查比赛                             |
+| 18   | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             |
+| 19   | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           |
+| 20   | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             |
+| 21   | 内部 | /api/user/auth/login                            | 用户登录                                 |
+| 22   | 内部 | /api/user/auth/logout                           | 用户登出                                 |
+| 23   | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   |
+| 24   | 内部 | /api/user/exercise/collect                      | 自主组卷                                 |
+| 25   | 内部 | /api/user/exercise/problem                      | 获取题面                                 |
+| 26   | 内部 | /api/user/exercise/problem/check                | 验证答案                                 |
+| 27   | 内部 | /api/user/contest/register                      | 注册比赛                                 |
+| 28   | 内部 | /api/user/contest/start                         | 开始比赛                                 |
+| 29   | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         |
+| 30   | 内部 | /api/user/contest/problem/submit                | 提交答案                                 |
+| 31   | 内部 | /api/user/contest/record                        | 查询所有参加比赛                         |
+| 32   | 内部 | /api/user/contest/result                        | 查询比赛记录                             |
+| 33   | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           |
+| 34   | 内部 | /api/general/tag/list                           | 获取所有标签                             |
+| 35   | 内部 | /api/general/contest/list                       | 查找所有比赛                             |
 
 ### 7.2 接口详细定义
 
