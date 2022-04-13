@@ -10,7 +10,7 @@
 |      | 内部 | /api/admin/auth/login                           |          | 管理员登录                               | 1                                  |
 |      | 内部 | /api/admin/auth/logout                          |          | 管理员登出                               | 1                                  |
 |      | 内部 | /api/admin/admin_account                        |          | 创建、删除管理员账号，查看、修改个人信息 | 1                                  |
-| | 内部 | /api/admin/admin_account/get_username           | | 查看账号用户名 |  |
+| | 内部 | /api/admin/admin_account/get_username           | | 查看账号用户名 | 0 |
 |      | 内部 | /api/admin/admin_account/reset_password         |          | 重置管理员密码                           | 1                                  |
 |      | 内部 | /api/admin/admin_account/list                   |          | 列出管理员账号                           | 1                                  |
 |      | 内部 | /api/admin/admin_account/integrity_verification |          | 检测管理员信息是否完整                   | 1                                  |
