@@ -41,7 +41,6 @@
 | 32 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
 | 33 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
 | 34 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                                  |
->>>>>>> 0459a2c... publish API
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
