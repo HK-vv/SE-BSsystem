@@ -18,7 +18,7 @@
 |      | 内部 | /api/admin/user_account/list                    |          | 列出用户账号                             | 1                                  |
 |      | 内部 | /api/admin/user_account/contest/history         |          | 列出用户比赛历史                         | 0                                  |
 |      | 内部 | /api/admin/user_account/contest/result          |          | 列出用户答题情况                         | 0                                   |
-|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               | 0                                   |
+|      | 内部 | /api/admin/tag                                  |          | 增删改标签                               | 1                                  |
 |      | 内部 | /api/admin/problem                              |          | 增删改查题目信息                         | 0                                   |
 |      | 内部 | /api/admin/problem/batch/add                    |          | 批量添加题目                             | 1                                  |
 |      | 内部 | /api/admin/problem/batch/public                 |          | 批量公开题目                             | 1                                  |
