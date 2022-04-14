@@ -1287,21 +1287,21 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/admin/problem?pagesize=2&pagenum=1&type=binary&tags=语文+数学&author=HKvv&public=1&keyword=出师表
+GET /api/admin/problem?pagesize=2&pagenum=1&type=binary+single&tags=语文+数学&author=HKvv&public=1&keyword=出师表
 Cookie: sessionid=<sessionid数值>
 ```
 
 **参数信息**
 
-| 参数名   | 示例      | 必要性 | 含义                           | 类型   |
-| -------- | --------- | ------ | ------------------------------ | ------ |
-| pagesize | 2         | 必有   | 每页列出的账号数量             | int    |
-| pagenum  | 1         | 必有   | 获取第几页的信息               | int    |
-| type     | binary    | 可选   | 题目类型                       | string |
-| tags     | 语文+数学 | 可选   | 题目标签                       | string |
-| author   | HKvv      | 可选   | 作者用户名                     | string |
-| public   | 0         | 可选   | 公开性，0表示未公开，1表示公开 | int    |
-| keyword  | 出师表    | 可选   | 题目描述关键词                 | string |
+| 参数名   | 示例          | 必要性 | 含义                           | 类型   |
+| -------- | ------------- | ------ | ------------------------------ | ------ |
+| pagesize | 2             | 必有   | 每页列出的账号数量             | int    |
+| pagenum  | 1             | 必有   | 获取第几页的信息               | int    |
+| type     | binary+single | 可选   | 题目类型                       | string |
+| tags     | 语文+数学     | 可选   | 题目标签                       | string |
+| author   | HKvv          | 可选   | 作者用户名                     | string |
+| public   | 0             | 可选   | 公开性，0表示未公开，1表示公开 | int    |
+| keyword  | 出师表        | 可选   | 题目描述关键词                 | string |
 
 ##### 响应
 
