@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0`
+**版本**: `v1.0.1`
 **进度**: 基础版正式发布
 
 ## Content
@@ -22,26 +22,27 @@
 | 13 | 内部 | /api/admin/problem                              | 增删改查题目信息                         | 1                                  |
 | 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
 | 15 | 内部 | /api/admin/problem/batch/public                 | 批量公开题目                             | 1                                  |
-| 16 | 内部 | /api/admin/problem/batch/delete | 批量删除题目 |  |
-| 17 | 内部 | /api/admin/contest                              | 增删改查比赛                             | 0                                   |
-| 18 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
-| 19 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 0                                   |
-| 20 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
-| 21 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
-| 22 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
-| 23 | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   | 1                                 |
-| 24 | 内部 | /api/user/exercise/collect                      | 自主组卷                                 | 1                                 |
-| 25 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
-| 26 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
-| 27 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 0                                  |
-| 28 | 内部 | /api/user/contest/start                         | 开始比赛             | 0                                  |
-| 29 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 0                                  |
-| 30 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 0                                  |
-| 31 | 内部 | /api/user/contest/record                        | 查询所有参加比赛                         | 0 |
-| 32 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
-| 33 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
-| 34 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
-| 35 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                                  |
+| 16 | 内部 | /api/admin/problem/batch/delete | 批量删除题目 | 1 |
+| 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
+| 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
+| 19 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
+| 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 0                                   |
+| 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
+| 22 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
+| 23 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
+| 24 | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   | 1                                 |
+| 25 | 内部 | /api/user/exercise/collect                      | 自主组卷                                 | 1                                 |
+| 26 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
+| 27 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
+| 28 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 0                                  |
+| 29 | 内部 | /api/user/contest/start                         | 开始比赛             | 0                                  |
+| 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 0                                  |
+| 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 0                                  |
+| 32 | 内部 | /api/user/contest/record                        | 查询所有参加比赛                         | 0 |
+| 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
+| 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
+| 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
+| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                                  |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
@@ -1670,6 +1671,8 @@ Content-Type: application/json
 
 #### 查看比赛信息
 
+如果当前题目中无某类型题目，则该类型题目题目限时会显示为0。
+
 ##### 请求
 
 **请求头**
@@ -1802,6 +1805,7 @@ Content-Type: application/json
       7,
       1
     ],
+    "ordered": true
   }
 }
 ```
@@ -1815,15 +1819,16 @@ Content-Type: application/json
 
 其中`newdate`中的参数信息如下所示：
 
-| 参数名       | 示例                         | 必要性 | 含义         | 类型       |
-| ------------ | ---------------------------- | ------ | ------------ | ---------- |
-| name         | April Fools Day Contest 2022 | 可选   | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00          | 可选   | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00          | 可选   | 最晚开始时间 | datetime   |
-| password     | brainstorm                   | 可选   | 比赛密码     | string     |
-| rated        | true                         | 可选   | 是否计分     | boolean    |
-| time_limited | { }                          | 可选   | 题目限时     | dictionary |
-| problems     | [ ]                          | 可选   | 题目编号     | list       |
+| 参数名       | 示例                         | 必要性 | 含义            | 类型       |
+| ------------ | ---------------------------- | ------ | --------------- | ---------- |
+| name         | April Fools Day Contest 2022 | 可选   | 比赛名          | string     |
+| start        | 2022-04-01 22:35:00          | 可选   | 开始时间        | datetime   |
+| latest       | 2022-04-01 22:45:00          | 可选   | 最晚开始时间    | datetime   |
+| password     | brainstorm                   | 可选   | 比赛密码        | string     |
+| rated        | true                         | 可选   | 是否计分        | boolean    |
+| time_limited | { }                          | 可选   | 题目限时        | dictionary |
+| problems     | [ ]                          | 可选   | 题目编号        | list       |
+| ordered      | true                         | 必有   | 有序 / 随机顺序 | boolean    |
 
 其中`time_limited`中的参数信息如下所示：
 
@@ -1878,7 +1883,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-DELETE /api/admin/contest
+PUT /api/admin/contest/batch/delete
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
