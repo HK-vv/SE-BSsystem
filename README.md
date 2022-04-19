@@ -1,6 +1,6 @@
 这是**BrainStorm知识竞赛系统**的开发仓库.
 
-目前还不了解华为云能提供的环境, 因此只在这里开发文档.
+目前已经了解华为云能提供的环境, 但仍在这里开发文档.
 
 **task list**: 见周报
 
@@ -11,6 +11,10 @@
 - 后端: https://github.com/HK-vv/BSsystem_backend.git
 - 管理端: https://github.com/TedLee515/BSsystem_web.git
 - 用户端: https://gitee.com/Casanova_s_stack/knowledge-competition-mini-program.git
+
+**关于服务器**:
+
+进入`/root/bs_server/`文件夹, 请一定阅读`README`后再操作.
 
 **下面是注意事项**
 
