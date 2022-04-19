@@ -14,7 +14,7 @@
 
 **关于服务器**:
 
-进入`/root/bs_server/`文件夹, 请一定阅读`README`后再执行任何其他操作.
+进入`/root/bs_server/`文件夹, 请一定阅读`README`后再执行任何其他操作. 需要登录服务器请联系[@HK-vv](https://github.com/HK-vv).
 
 **下面是注意事项**
 
