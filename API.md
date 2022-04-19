@@ -23,6 +23,7 @@
 | 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
 | 15 | 内部 | /api/admin/problem/batch/public                 | 批量公开题目                             | 1                                  |
 | 16 | 内部 | /api/admin/problem/batch/delete | 批量删除题目 | 1 |
+|  | 内部 | /api/admin/problem/detail | 查看题目详细信息 |  |
 | 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
 | 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
 | 19 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
@@ -680,6 +681,8 @@ Content-Type: application/json
       "score": 76,
       "before_rating": 1500,
       "after_rating": 1532,
+      "timecost": 42,
+      "rank": 10
     }
   ],
   "total": 1
@@ -705,6 +708,8 @@ Content-Type: application/json
 | score         | 76                           | 必有   | 得分       | int     |
 | before_rating | 1500                         | 必有   | 比前rating | int     |
 | after_rating  | 1532                         | 必有   | 比后rating | int     |
+| timecost      | 42                           | 必有   | 总耗时(s)  | int     |
+| rank          | 10                           | 必有   | 比赛排名   | int     |
 
 
 #### 查看用户答题情况
@@ -765,28 +770,18 @@ Content-Type: application/json
       "answer": "HKvv"
     }
   ],
-  "total": 3,
-  "score": 20,
-  "timecost": 15,
-  "rank": 10,
-  "before_rating": 85,
-  "changed_rating": -15
+  "total": 3
 }
 ```
 
 **参数信息**
 
-| 参数名        | 示例 | 必要性       | 含义         | 类型   |
-| ------------- | ---- | ------------ | ------------ | ------ |
-| ret           | 0    | 必有         | 是否正常返回 | int    |
-| items         | [ ]  | 必有         | 比赛答题记录 | list   |
-| total         | 3    | 必有         | 总题目量     | int    |
-| score         | 20   | 必有         | 得分         | int    |
-| timecost      | 15   | 必有         | 总耗时(s)    | int    |
-| rank          | 10   | 必有         | 比赛排名     | int    |
-| before_rating | 85   | 必有         | 比赛前的分数 | int    |
-| change_rating | -15  | 必有         | 分数变化     | int    |
-| msg           |      | ret不为0时有 | 错误信息     | string |
+| 参数名 | 示例 | 必要性       | 含义         | 类型   |
+| ------ | ---- | ------------ | ------------ | ------ |
+| ret    | 0    | 必有         | 是否正常返回 | int    |
+| items  | [ ]  | 必有         | 比赛答题记录 | list   |
+| total  | 3    | 必有         | 总题目量     | int    |
+| msg    |      | ret不为0时有 | 错误信息     | string |
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
@@ -1351,6 +1346,87 @@ Content-Type: application/json
 | msg    | 登录过期 | ret不为0时有 | 错误信息                           | string |
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
+
+| 参数名      | 示例                                                         | 必要性 | 含义       | 类型    |
+| ----------- | ------------------------------------------------------------ | ------ | ---------- | ------- |
+| problemid   | 1                                                            | 必有   | 题目id     | int     |
+| type        | binary                                                       | 必有   | 题目类型   | string  |
+| tags        | [ ]                                                          | 必有   | 题目标签   | list    |
+| description | 《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。 | 必有   | 题目信息   | string  |
+| options     | [ ]                                                          | 必有   | 选项       | list    |
+| answer      | A                                                            | 必有   | 答案       | string  |
+| public      | true                                                         | 必有   | 公开性     | boolean |
+| author      | HKvv                                                         | 必有   | 作者用户名 | string  |
+
+#### 查看题面
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/admin/problem/detail?problemid=1
+Cookie: sessionid=<sessionid数值>
+```
+
+**参数信息**
+
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| problemid | 1    | 必有   | 题目id | int  |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "info": {
+    "problemid": 1,
+    "type": "binary",
+    "tags": [
+      "语文"
+    ],
+    "description": "《出师表》中，“先帝創業未半，而中道崩殂“中的”先帝“是指刘备。",
+    "options":[
+      "正确",
+      "错误"
+    ],
+    "answer": "A",
+    "public": true,
+    "author": "HKvv"
+  }
+}
+```
+
+异常返回(ret ≠ 0):
+
+```json
+{
+  "ret": 1,
+  "msg": "题目不存在"
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例       | 必要性       | 含义         | 类型       |
+| ------ | ---------- | ------------ | ------------ | ---------- |
+| ret    | 0          | 必有         | 是否正常返回 | int        |
+| info   | { }        | 必有         | 题目信息     | dictionary |
+| msg    | 题目不存在 | ret不为0时有 | 错误信息     | string     |
+
+其中`info`的参数信息如下所示：
 
 | 参数名      | 示例                                                         | 必要性 | 含义       | 类型    |
 | ----------- | ------------------------------------------------------------ | ------ | ---------- | ------- |
