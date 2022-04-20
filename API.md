@@ -35,11 +35,11 @@
 | 25 | 内部 | /api/user/exercise/collect                      | 自主组卷                                 | 1                                 |
 | 26 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
 | 27 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
-| 28 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 0                                  |
+| 28 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 1                                 |
 | 29 | 内部 | /api/user/contest/start                         | 开始比赛             | 0                                  |
 | 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 0                                  |
 | 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 0                                  |
-| 32 | 内部 | /api/user/contest/record                        | 查询所有参加比赛                         | 0 |
+| 32 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
@@ -2846,6 +2846,7 @@ Content-Type: application/json
       "name": "April Fools Day Contest 2022",
       "start": "2022-04-01 22:35:00",
       "latest": "2022-04-01 22:45:00",
+      "regtime": "2022-04-01 12:45:00",
       "public": true,
       "rated": true,
       "status": "未开始",
@@ -2855,7 +2856,8 @@ Content-Type: application/json
         "binary": 30,
         "completion": 60
       },
-      "author": "Agnimandur"
+      "register_num": 163,
+      "author": "Agnimandur",
     }
   ],
   "total": 3
@@ -2879,10 +2881,12 @@ Content-Type: application/json
 | name         | April Fools Day Contest 2022          | 必有   | 比赛名       | string     |
 | start        | 2022-04-01 22:35:00                   | 必有   | 开始时间     | datetime   |
 | latest       | 2022-04-01 22:45:00                   | 必有   | 最晚开始时间 | datetime   |
+| regtime      | 2022-04-01 12:35:00                   | 必有   | 注册时间     | datetime   |
 | public       | true                                  | 必有   | 比赛是否公开 | boolen     |
 | rated        | true                                  | 必有   | 是否计分     | boolean    |
 | status       | 比赛中 / 未开始 / 已结束 / 待公布成绩 | 必有   | 比赛状态     | string     |
 | time_limited | { }                                   | 必有   | 题目限时     | dictionary |
+| register_num | 163                                   | 必有   | 注册人数     | int        |
 | author       | HKvv                                  | 必有   | 作者用户名   | string     |
 
 其中`time_limited`中的参数信息如下所示：
