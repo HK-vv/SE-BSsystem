@@ -23,7 +23,7 @@
 | 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
 | 15 | 内部 | /api/admin/problem/batch/public                 | 批量公开题目                             | 1                                  |
 | 16 | 内部 | /api/admin/problem/batch/delete | 批量删除题目 | 1 |
-|  | 内部 | /api/admin/problem/detail | 查看题目详细信息 |  |
+|  | 内部 | /api/admin/problem/detail | 查看题目详细信息 | 1 |
 | 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
 | 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
 | 19 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
