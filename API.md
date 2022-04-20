@@ -16,7 +16,7 @@
 | 7 | 内部 | /api/admin/admin_account/integrity_verification | 检测管理员信息是否完整                   | 1                                  |
 | 8 | 内部 | /api/admin/admin_account/issuper                | 检测是否为超级管理员                     | 1                                  |
 | 9 | 内部 | /api/admin/user_account/list                    | 列出用户账号                             | 1                                  |
-| 10 | 内部 | /api/admin/user_account/contest/history         | 列出用户比赛历史                         | 0                                  |
+| 10 | 内部 | /api/admin/user_account/contest/history         | 列出用户比赛历史                         | 1                                 |
 | 11 | 内部 | /api/admin/user_account/contest/result          | 列出用户答题情况                         | 0                                   |
 | 12 | 内部 | /api/admin/tag                                  | 增删改标签                               | 1                                  |
 | 13 | 内部 | /api/admin/problem                              | 增删改查题目信息                         | 1                                  |
@@ -1823,17 +1823,17 @@ Content-Type: application/json
 
 其中`info`中的参数信息如下所示：
 
-| 参数名       | 示例                         | 必要性                    | 含义         | 类型       |
-| ------------ | ---------------------------- | ------------------------- | ------------ | ---------- |
-| contestid    | 1                            | 必有                      | 比赛id       | int        |
-| name         | April Fools Day Contest 2022 | 必有                      | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00          | 必有                      | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00          | 必有                      | 最晚开始时间 | datetime   |
-| password     | brainstorm                   | 必有 (为空时代表比赛公开) | 比赛密码     | string     |
-| rated        | true                         | 必有                      | 是否计分     | boolean    |
-| time_limited | { }                          | 必有                      | 题目限时     | dictionary |
-| problems     | [ ]                          | 必有                      | 题目编号     | list       |
-| author       | HKvv                         | 必有                      | 作者用户名   | string     |
+| 参数名       | 示例                         | 必要性 | 含义                         | 类型       |
+| ------------ | ---------------------------- | ------ | ---------------------------- | ---------- |
+| contestid    | 1                            | 必有   | 比赛id                       | int        |
+| name         | April Fools Day Contest 2022 | 必有   | 比赛名                       | string     |
+| start        | 2022-04-01 22:35:00          | 必有   | 开始时间                     | datetime   |
+| latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间                 | datetime   |
+| password     | brainstorm                   | 必有   | 比赛密码, **为NULL代表公开** | string     |
+| rated        | true                         | 必有   | 是否计分                     | boolean    |
+| time_limited | { }                          | 必有   | 题目限时                     | dictionary |
+| problems     | [ ]                          | 必有   | 题目编号                     | list       |
+| author       | HKvv                         | 必有   | 作者用户名                   | string     |
 
 其中`time_limited`中的参数信息如下所示：
 
@@ -1895,16 +1895,16 @@ Content-Type: application/json
 
 其中`newdate`中的参数信息如下所示：
 
-| 参数名       | 示例                         | 必要性 | 含义            | 类型       |
-| ------------ | ---------------------------- | ------ | --------------- | ---------- |
-| name         | April Fools Day Contest 2022 | 可选   | 比赛名          | string     |
-| start        | 2022-04-01 22:35:00          | 可选   | 开始时间        | datetime   |
-| latest       | 2022-04-01 22:45:00          | 可选   | 最晚开始时间    | datetime   |
-| password     | brainstorm                   | 可选   | 比赛密码        | string     |
-| rated        | true                         | 可选   | 是否计分        | boolean    |
-| time_limited | { }                          | 可选   | 题目限时        | dictionary |
-| problems     | [ ]                          | 可选   | 题目编号        | list       |
-| ordered      | true                         | 必有   | 有序 / 随机顺序 | boolean    |
+| 参数名       | 示例                         | 必要性 | 含义                           | 类型       |
+| ------------ | ---------------------------- | ------ | ------------------------------ | ---------- |
+| name         | April Fools Day Contest 2022 | 可选   | 比赛名                         | string     |
+| start        | 2022-04-01 22:35:00          | 可选   | 开始时间                       | datetime   |
+| latest       | 2022-04-01 22:45:00          | 可选   | 最晚开始时间                   | datetime   |
+| password     | brainstorm                   | 可选   | 比赛密码, **为""代表公开比赛** | string     |
+| rated        | true                         | 可选   | 是否计分                       | boolean    |
+| time_limited | { }                          | 可选   | 题目限时                       | dictionary |
+| problems     | [ ]                          | 可选   | 题目编号                       | list       |
+| ordered      | true                         | 必有   | 有序 / 随机顺序                | boolean    |
 
 其中`time_limited`中的参数信息如下所示：
 
