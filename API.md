@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0.1`
+**版本**: `v1.0.2`
 **进度**: 基础版正式发布
 
 ## Content
@@ -36,7 +36,7 @@
 | 26 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
 | 27 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
 | 28 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 1                                 |
-| 29 | 内部 | /api/user/contest/start                         | 开始比赛             | 0                                  |
+| 29 | 内部 | /api/user/contest/start                         | 开始比赛             | 1                                 |
 | 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 0                                  |
 | 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 0                                  |
 | 32 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
@@ -1799,6 +1799,7 @@ Content-Type: application/json
       7,
       1
     ],
+    "ordered": true,
     "author": "HKvv"
   }
 }
@@ -1833,6 +1834,7 @@ Content-Type: application/json
 | rated        | true                         | 必有   | 是否计分                     | boolean    |
 | time_limited | { }                          | 必有   | 题目限时                     | dictionary |
 | problems     | [ ]                          | 必有   | 题目编号                     | list       |
+| ordered      | true                         | 必有   | 有序 / 随机顺序              | boolean    |
 | author       | HKvv                         | 必有   | 作者用户名                   | string     |
 
 其中`time_limited`中的参数信息如下所示：
