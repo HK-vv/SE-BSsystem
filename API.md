@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0.2`
+**版本**: `v1.0.3`
 **进度**: 基础版正式发布
 
 ## Content
@@ -43,7 +43,7 @@
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
-| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                                 |
+| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                                |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
@@ -2851,7 +2851,7 @@ Content-Type: application/json
       "regtime": "2022-04-01 12:45:00",
       "public": true,
       "rated": true,
-      "status": "未开始",
+      "status": "finished",
       "time_limited": {
         "single": 30,
         "multiple": 40,
@@ -2877,19 +2877,19 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名       | 示例                                  | 必要性 | 含义         | 类型       |
-| ------------ | ------------------------------------- | ------ | ------------ | ---------- |
-| contestid    | 1                                     | 必有   | 比赛id       | int        |
-| name         | April Fools Day Contest 2022          | 必有   | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00                   | 必有   | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00                   | 必有   | 最晚开始时间 | datetime   |
-| regtime      | 2022-04-01 12:35:00                   | 必有   | 注册时间     | datetime   |
-| public       | true                                  | 必有   | 比赛是否公开 | boolen     |
-| rated        | true                                  | 必有   | 是否计分     | boolean    |
-| status       | 比赛中 / 未开始 / 已结束 / 待公布成绩 | 必有   | 比赛状态     | string     |
-| time_limited | { }                                   | 必有   | 题目限时     | dictionary |
-| register_num | 163                                   | 必有   | 注册人数     | int        |
-| author       | HKvv                                  | 必有   | 作者用户名   | string     |
+| 参数名       | 示例                                   | 必要性 | 含义         | 类型       |
+| ------------ | -------------------------------------- | ------ | ------------ | ---------- |
+| contestid    | 1                                      | 必有   | 比赛id       | int        |
+| name         | April Fools Day Contest 2022           | 必有   | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00                    | 必有   | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00                    | 必有   | 最晚开始时间 | datetime   |
+| regtime      | 2022-04-01 12:35:00                    | 必有   | 注册时间     | datetime   |
+| public       | true                                   | 必有   | 比赛是否公开 | boolen     |
+| rated        | true                                   | 必有   | 是否计分     | boolean    |
+| status       | "upcoming"/"running"/"shut"/"finished" | 必有   | 比赛状态     | string     |
+| time_limited | { }                                    | 必有   | 题目限时     | dictionary |
+| register_num | 163                                    | 必有   | 注册人数     | int        |
+| author       | HKvv                                   | 必有   | 作者用户名   | string     |
 
 其中`time_limited`中的参数信息如下所示：
 
@@ -3338,12 +3338,12 @@ Cookie: sessionid=<sessionid数值>
 
 **参数信息**
 
-| 参数名   | 示例                                               | 必要性 | 含义                                    | 类型   |
-| -------- | -------------------------------------------------- | ------ | --------------------------------------- | ------ |
-| pagesize | 1                                                  | 必有   | 每页列出的账号数量                      | int    |
-| pagenum  | 1                                                  | 必有   | 获取第几页的信息                        | int    |
-| type     | upcoming / history / in_progress / to_be_announced | 可选   | 获取未来/历史/正在进行/即将公布成绩比赛 | string |
-| keyword  | April                                              | 可选   | 比赛名关键词                            | string |
+| 参数名   | 示例                                   | 必要性 | 含义               | 类型   |
+| -------- | -------------------------------------- | ------ | ------------------ | ------ |
+| pagesize | 1                                      | 必有   | 每页列出的账号数量 | int    |
+| pagenum  | 1                                      | 必有   | 获取第几页的信息   | int    |
+| type     | "upcoming"/"running"/"shut"/"finished" | 可选   | 比赛状态           | string |
+| keyword  | April                                  | 可选   | 比赛名关键词       | string |
 
 ##### 响应
 
@@ -3369,7 +3369,7 @@ Content-Type: application/json
       "latest": "2022-04-01 22:45:00",
       "public": true,
       "rated": true,
-      "status": "比赛中",
+      "status": "upcoming",
       "time_limited": {
         "single": 30,
         "multiple": 40,
@@ -3377,7 +3377,8 @@ Content-Type: application/json
         "completion": 60
       },
       "author": "Agnimandur",
-      "register_num": 163
+      "register_num": 163,
+      "registered": true
     }
   ],
   "total": 3
@@ -3395,18 +3396,19 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名       | 示例                                  | 必要性 | 含义         | 类型       |
-| ------------ | ------------------------------------- | ------ | ------------ | ---------- |
-| contestid    | 1                                     | 必有   | 比赛id       | int        |
-| name         | April Fools Day Contest 2022          | 必有   | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00                   | 必有   | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00                   | 必有   | 最晚开始时间 | datetime   |
-| public       | true                                  | 必有   | 比赛是否公开 | boolen     |
-| rated        | true                                  | 必有   | 是否计分     | boolean    |
-| status       | 比赛中 / 未开始 / 已结束 / 待公布成绩 | 必有   | 比赛状态     | string     |
-| time_limited | { }                                   | 必有   | 题目限时     | dictionary |
-| author       | HKvv                                  | 必有   | 作者用户名   | string     |
-| register_num | 163                                   | 必有   | 注册人数     | int        |
+| 参数名       | 示例                                   | 必要性         | 含义         | 类型       |
+| ------------ | -------------------------------------- | -------------- | ------------ | ---------- |
+| contestid    | 1                                      | 必有           | 比赛id       | int        |
+| name         | April Fools Day Contest 2022           | 必有           | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00                    | 必有           | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00                    | 必有           | 最晚开始时间 | datetime   |
+| public       | true                                   | 必有           | 比赛是否公开 | boolean    |
+| rated        | true                                   | 必有           | 是否计分     | boolean    |
+| status       | "upcoming"/"running"/"shut"/"finished" | 必有           | 比赛状态     | string     |
+| time_limited | { }                                    | 必有           | 题目限时     | dictionary |
+| author       | HKvv                                   | 必有           | 作者用户名   | string     |
+| register_num | 163                                    | 必有           | 注册人数     | int        |
+| registered   | true                                   | 小程序登录时有 | 是否注册     | boolean    |
 
 其中`time_limited`中的参数信息如下所示：
 
