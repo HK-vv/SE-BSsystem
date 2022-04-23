@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0.3`
+**版本**: `v1.0.4`
 **进度**: 基础版正式发布
 
 ## Content
@@ -2909,8 +2909,16 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/contest/start?contestid=1
+POST /api/user/contest/start
 Cookie: sessionid=<sessionid数值>
+```
+
+**消息体**
+
+```json
+{
+  "contestid": 1
+}
 ```
 
 **参数信息**
@@ -2965,8 +2973,16 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/contest/problem?contestid=1
+POST /api/user/contest/problem
 Cookie: sessionid=<sessionid数值>
+```
+
+**消息体**
+
+```json
+{
+  "contestid": 1
+}
 ```
 
 **参数信息**
@@ -3033,8 +3049,18 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/contest/problem/submit?contestid=1&problemnum=6&user_answer=C
+POST /api/user/contest/problem/submit?contestid=1&problemnum=6&user_answer=C
 Cookie: sessionid=<sessionid数值>
+```
+
+**消息体**
+
+```json
+{
+  "contestid": 1,
+  "problemnum": 6,
+  "user_answer": "C"
+}
 ```
 
 **参数信息**
