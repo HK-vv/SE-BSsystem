@@ -37,8 +37,8 @@
 | 27 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
 | 28 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 1                                 |
 | 29 | 内部 | /api/user/contest/start                         | 开始比赛             | 1                                 |
-| 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 0                                  |
-| 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 0                                  |
+| 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 1                                 |
+| 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 1                                 |
 | 32 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
