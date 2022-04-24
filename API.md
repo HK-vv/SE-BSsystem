@@ -3016,7 +3016,8 @@ Content-Type: application/json
     "wacoding"
   ],
   "problemnum": 5,
-  "time": 30
+  "time": 30,
+  "total_number": 10
 }
 ```
 
@@ -3087,15 +3088,16 @@ Content-Type: application/json
 ```json
 {
   "ret": 0,
+  "msg": "Timeout"
 }
 ```
 
 **参数信息**
 
-| 参数名 | 示例     | 必要性       | 含义         | 类型   |
-| ------ | -------- | ------------ | ------------ | ------ |
-| ret    | 0        | 必有         | 是否正常返回 | int    |
-| msg    | 提交失败 | ret不为0时有 | 错误信息     | string |
+| 参数名 | 示例    | 必要性 | 含义                                                        | 类型   |
+| ------ | ------- | ------ | ----------------------------------------------------------- | ------ |
+| ret    | 0       | 必有   | 是否正常返回                                                | int    |
+| msg    | Timeout | 必有   | 当ret为0时, 可能返回"Success"或"Timeout"; 不为0返回错误信息 | string |
 
 ### 比赛结果
 
