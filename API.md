@@ -3032,14 +3032,15 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名      | 示例                                               | 必要性 | 含义         | 类型   |
-| ----------- | -------------------------------------------------- | ------ | ------------ | ------ |
-| ret         | 0                                                  | 必有   | 是否正常返回 | int    |
-| type        | "single" / "multiple" / "binary" / "completion"    | 必有   | 题目类型     | string |
-| description | "请选出所有OJ"                                     | 必有   | 题面         | string |
-| options     | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项         | list   |
-| problemnum  | 5                                                  | 必有   | 题目序号     | int    |
-| time        | 30                                                 | 必有   | 题目时限(s)  | int    |
+| 参数名       | 示例                                               | 必要性 | 含义         | 类型   |
+| ------------ | -------------------------------------------------- | ------ | ------------ | ------ |
+| ret          | 0                                                  | 必有   | 是否正常返回 | int    |
+| type         | "single" / "multiple" / "binary" / "completion"    | 必有   | 题目类型     | string |
+| description  | "请选出所有OJ"                                     | 必有   | 题面         | string |
+| options      | ["Codeforces", "DBforces", "accoding", "wacoding"] | 必有   | 选项         | list   |
+| problemnum   | 5                                                  | 必有   | 题目序号     | int    |
+| time         | 30                                                 | 必有   | 题目时限(s)  | int    |
+| total_number | 10                                                 | 必有   | 比赛总题目   | int    |
 
 #### 提交答案
 
