@@ -40,8 +40,8 @@
 | 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 1                                 |
 | 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 1                                 |
 | 32 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
-| 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
-| 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
+| 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 1                                 |
+| 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
 | 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                               |
 ## 返回值(ret)规定
@@ -3099,7 +3099,7 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/user/contest/record?contestid=1
+GET /api/user/contest/result?contestid=1
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
