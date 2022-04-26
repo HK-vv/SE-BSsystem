@@ -43,7 +43,7 @@
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 0                                  |
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                  |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
-| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                                |
+| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                               |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
@@ -2241,27 +2241,18 @@ Content-Type: application/json
   "problems": [
     {
       "problemno": 1,
-      "problemid": 5,
       "correct": 9,
-      "all": 10,
-      "correct_rate": 0.9,
-      "aver_timecost": 12.3
+      "all": 10
     },
     {
       "problemno": 2,
-      "problemid": 3,
       "correct": 9,
-      "all": 10,
-      "correct_rate": 0.9,
-      "aver_timecost": 21.3
+      "all": 10
     },
     {
       "problemno": 3,
-      "problemid": 8,
       "correct": 6,
-      "all": 9,
-      "correct_rate": 0.666667,
-      "aver_timecost": 8.5
+      "all": 9
     }
   ],
   "total": 3,
@@ -2299,14 +2290,11 @@ Content-Type: application/json
 
 其中`problems`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名        | 示例 | 必要性 | 含义       | 类型   |
-| ------------- | ---- | ------ | ---------- | ------ |
-| problemno     | 1    | 必有   | 题目序号   | int    |
-| problemid     | 5    | 必有   | 题目id     | int    |
-| correct       | 9    | 必有   | 正确人数   | int    |
-| all           | 10   | 必有   | 总提交人数 | int    |
-| correct_rate  | 0.9  | 必有   | 正确率     | double |
-| aver_timecost | 12.3 | 必有   | 平均用时   | double |
+| 参数名    | 示例 | 必要性 | 含义       | 类型 |
+| --------- | ---- | ------ | ---------- | ---- |
+| problemno | 1    | 必有   | 题目序号   | int  |
+| correct   | 9    | 必有   | 正确人数   | int  |
+| all       | 10   | 必有   | 总提交人数 | int  |
 
 `sections`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
