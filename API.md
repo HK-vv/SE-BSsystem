@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0.4`
+**版本**: `v1.0.5`
 **进度**: 基础版正式发布
 
 ## Content
@@ -2151,6 +2151,11 @@ Content-Type: application/json
       "changed_rating": 15
     }
   ],
+  "score": {
+    "highest": 30,
+    "average": 24,
+    "lowest": 10
+  },
   "total": 10
 }
 ```
@@ -2166,12 +2171,13 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名 | 示例       | 必要性       | 含义             | 类型   |
-| ------ | ---------- | ------------ | ---------------- | ------ |
-| ret    | 0          | 必有         | 是否正常返回     | int    |
-| items  | [ ]        | 必有         | 排行榜信息       | list   |
-| total  | 10         | 必有         | 当前条件总共人数 | int    |
-| msg    | 比赛不存在 | ret不为0时有 | 错误信息         | string |
+| 参数名 | 示例       | 必要性       | 含义             | 类型       |
+| ------ | ---------- | ------------ | ---------------- | ---------- |
+| ret    | 0          | 必有         | 是否正常返回     | int        |
+| items  | [ ]        | 必有         | 排行榜信息       | list       |
+| score  | { }        | 必有         | 分数特征         | dictionary |
+| total  | 10         | 必有         | 当前条件总共人数 | int        |
+| msg    | 比赛不存在 | ret不为0时有 | 错误信息         | string     |
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
@@ -2184,6 +2190,14 @@ Content-Type: application/json
 | correct       | 3    | 必有   | 当前答对题目数量 | int    |
 | before_rating | 120  | 必有   | 比赛前的分数     | int    |
 | change_rating | 20   | 必有   | 分数变化         | int    |
+
+其中`score`中的参数信息如下所示：
+
+| 参数名  | 示例 | 必要性 | 含义   | 类型   |
+| ------- | ---- | ------ | ------ | ------ |
+| highest | 30   | 必有   | 最高分 | int    |
+| average | 24   | 必有   | 平均分 | double |
+| lowest  | 10   | 必有   | 最低分 | int    |
 
 #### 查看比赛统计
 
@@ -2265,11 +2279,7 @@ Content-Type: application/json
       "number": 6
     }
   ],
-  "score": {
-    "highest": 30,
-    "average": 24,
-    "lowest": 10
-  },
+  "average_score": 24,
   "registrants":15,
   "participants": 10
 }
@@ -2277,15 +2287,15 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名       | 示例 | 必要性 | 含义             | 类型       |
-| ------------ | ---- | ------ | ---------------- | ---------- |
-| ret          | 0    | 必有   | 是否正常返回     | int        |
-| problems     | [ ]  | 必有   | 比赛题目统计信息 | list       |
-| total        | 3    | 必有   | 总题目数量       | int        |
-| sections     | [ ]  | 必有   | 各个分数区间人数 | list       |
-| score        | { }  | 必有   | 分数特征         | dictionary |
-| registrants  | 15   | 必有   | 注册人数         | int        |
-| participants | 10   | 必有   | 实际参赛人数     | int        |
+| 参数名        | 示例 | 必要性 | 含义             | 类型   |
+| ------------- | ---- | ------ | ---------------- | ------ |
+| ret           | 0    | 必有   | 是否正常返回     | int    |
+| problems      | [ ]  | 必有   | 比赛题目统计信息 | list   |
+| total         | 3    | 必有   | 总题目数量       | int    |
+| sections      | [ ]  | 必有   | 各个分数区间人数 | list   |
+| average_score | 24   | 必有   | 平均分           | double |
+| registrants   | 15   | 必有   | 注册人数         | int    |
+| participants  | 10   | 必有   | 实际参赛人数     | int    |
 
 其中`problems`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
@@ -2304,14 +2314,6 @@ Content-Type: application/json
 | ------------ | ---- | ------ | ------------ | ------ |
 | right_border | 20   | 必有   | 分数右边界   | double |
 | number       | 3    | 必有   | 分数段内人数 | int    |
-
-其中`score`中的参数信息如下所示：
-
-| 参数名  | 示例 | 必要性 | 含义   | 类型   |
-| ------- | ---- | ------ | ------ | ------ |
-| highest | 30   | 必有   | 最高分 | int    |
-| average | 24   | 必有   | 平均分 | double |
-| lowest  | 10   | 必有   | 最低分 | int    |
 
 ## 用户端
 
