@@ -43,7 +43,7 @@
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 1                                 |
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
-| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                              |
+| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                             |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
