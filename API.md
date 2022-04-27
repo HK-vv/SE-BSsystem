@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0.5`
+**版本**: `v1.0.6`
 **进度**: 基础版正式发布
 
 ## Content
@@ -43,7 +43,7 @@
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 1                                 |
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
-| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                               |
+| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 0                              |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
@@ -2203,24 +2203,23 @@ Content-Type: application/json
 
 管理员可以通过此接口查看比赛统计信息。
 
-其中，`sections`除第一个区间的左界为0外，其它都为上一个区间的右界。统计的人数的区间除第一个区间为**闭区间**外，其他都为**左开右闭**。
+其中，`sections`总共分为10个区间，除第一个区间的左界为0外，其它都为上一个区间的右界。统计的人数的区间除第一个区间为**闭区间**外，其他都为**左开右闭**。
 
 ##### 请求
 
 **请求头**
 
 ```http
-GET /api/admin/contest/statistics?contestid=1&section=10
+GET /api/admin/contest/statistics?contestid=1
 Cookie: sessionid=<sessionid数值>
 Content-Type: application/json
 ```
 
 **参数信息**
 
-| 参数名    | 示例 | 必要性 | 含义         | 类型 |
-| --------- | ---- | ------ | ------------ | ---- |
-| contestid | 1    | 必有   | 比赛id       | int  |
-| section   | 3    | 必有   | 成绩分段数量 | int  |
+| 参数名    | 示例 | 必要性 | 含义   | 类型 |
+| --------- | ---- | ------ | ------ | ---- |
+| contestid | 1    | 必有   | 比赛id | int  |
 
 ##### 响应
 
@@ -2257,18 +2256,7 @@ Content-Type: application/json
   ],
   "total": 3,
   "sections": [
-    {
-      "right_border": 10,
-      "number": 1
-    },
-    {
-      "right_border": 20,
-      "number": 3
-    },
-    {
-      "right_border": 30,
-      "number": 6
-    }
+    1,3,6,3,5,1,3,2,3,0
   ],
   "average_score": 24,
   "registrants":15,
@@ -2295,13 +2283,6 @@ Content-Type: application/json
 | problemno | 1    | 必有   | 题目序号   | int  |
 | correct   | 9    | 必有   | 正确人数   | int  |
 | all       | 10   | 必有   | 总提交人数 | int  |
-
-`sections`是包含多个查找结果的列表，每个结果的参数信息如下所示：
-
-| 参数名       | 示例 | 必要性 | 含义         | 类型   |
-| ------------ | ---- | ------ | ------------ | ------ |
-| right_border | 20   | 必有   | 分数右边界   | double |
-| number       | 3    | 必有   | 分数段内人数 | int    |
 
 ## 用户端
 
@@ -3351,18 +3332,19 @@ Content-Type: application/json
 **请求头**
 
 ```http
-GET /api/general/contest/list?pagesize=1&pagenum=1&type=upcoming&keyword=April
+GET /api/general/contest/list?pagesize=1&pagenum=1&type=upcoming+running&author=HKvv&keyword=April
 Cookie: sessionid=<sessionid数值>
 ```
 
 **参数信息**
 
-| 参数名   | 示例                                   | 必要性 | 含义               | 类型   |
-| -------- | -------------------------------------- | ------ | ------------------ | ------ |
-| pagesize | 1                                      | 必有   | 每页列出的账号数量 | int    |
-| pagenum  | 1                                      | 必有   | 获取第几页的信息   | int    |
-| type     | "upcoming"/"running"/"shut"/"finished" | 可选   | 比赛状态           | string |
-| keyword  | April                                  | 可选   | 比赛名关键词       | string |
+| 参数名   | 示例                                   | 必要性 | 含义                      | 类型   |
+| -------- | -------------------------------------- | ------ | ------------------------- | ------ |
+| pagesize | 1                                      | 必有   | 每页列出的账号数量        | int    |
+| pagenum  | 1                                      | 必有   | 获取第几页的信息          | int    |
+| type     | "upcoming"/"running"/"shut"/"finished" | 可选   | 比赛状态，多个状态用+分隔 | string |
+| keyword  | April                                  | 可选   | 比赛名关键词              | string |
+| author   | HKvv                                   | 可选   | 比赛作者                  | string |
 
 ##### 响应
 
