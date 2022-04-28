@@ -1747,7 +1747,7 @@ Content-Type: application/json
 
 #### 查看比赛信息
 
-如果当前题目中无某类型题目，则该类型题目题目限时会显示为0。
+如果当前题目中无某类型题目，则该类型题目题目限时会显示为0。只有**比赛作者**和**超级管理员**能看到比赛密码。
 
 ##### 请求
 
@@ -1830,7 +1830,7 @@ Content-Type: application/json
 | name         | April Fools Day Contest 2022 | 必有   | 比赛名                       | string     |
 | start        | 2022-04-01 22:35:00          | 必有   | 开始时间                     | datetime   |
 | latest       | 2022-04-01 22:45:00          | 必有   | 最晚开始时间                 | datetime   |
-| password     | brainstorm                   | 必有   | 比赛密码, **为NULL代表公开** | string     |
+| password     | brainstorm                   | 可有   | 比赛密码, **为NULL代表公开** | string     |
 | rated        | true                         | 必有   | 是否计分                     | boolean    |
 | time_limited | { }                          | 必有   | 题目限时                     | dictionary |
 | problems     | [ ]                          | 必有   | 题目编号                     | list       |
