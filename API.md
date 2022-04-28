@@ -27,7 +27,7 @@
 | 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
 | 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
 | 19 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
-| 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 0                                   |
+| 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 1                                  |
 | 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
 | 22 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
 | 23 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
@@ -41,7 +41,7 @@
 | 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 1                                 |
 | 32 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
 | 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 1                                 |
-| 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 0                                |
+| 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 1                               |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
 | 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                             |
 ## 返回值(ret)规定
@@ -3253,13 +3253,12 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名    | 示例       | 必要性       | 含义           | 类型       |
-| --------- | ---------- | ------------ | -------------- | ---------- |
-| ret       | 0          | 必有         | 是否正常返回   | int        |
-| top3      | [ ]        | 必有         | 排行榜信息     | list       |
-| user_rank | { }        | 必有         | 用户排名信息   | dictionary |
-| total     | 3          | 必有         | 排行榜显示人数 | int        |
-| msg       | 比赛不存在 | ret不为0时有 | 错误信息       | string     |
+| 参数名    | 示例       | 必要性             | 含义         | 类型       |
+| --------- | ---------- | ------------------ | ------------ | ---------- |
+| ret       | 0          | 必有               | 是否正常返回 | int        |
+| top3      | [ ]        | 必有               | 排行榜信息   | list       |
+| user_rank | { }        | 当用户参加比赛时有 | 用户排名信息 | dictionary |
+| msg       | 比赛不存在 | ret不为0时有       | 错误信息     | string     |
 
 其中`top3`是包含多个查找结果的列表，每个结果的参数信息以及`user_rank`的参数信息如下所示：
 
