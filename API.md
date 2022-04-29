@@ -2831,6 +2831,7 @@ Content-Type: application/json
       },
       "register_num": 163,
       "author": "Agnimandur",
+      "total_number": 10
     }
   ],
   "total": 3
@@ -2861,6 +2862,7 @@ Content-Type: application/json
 | time_limited | { }                                    | 必有   | 题目限时     | dictionary |
 | register_num | 163                                    | 必有   | 注册人数     | int        |
 | author       | HKvv                                   | 必有   | 作者用户名   | string     |
+| total_number | 10                                     | 必有   | 题目数量     | int        |
 
 其中`time_limited`中的参数信息如下所示：
 
@@ -3378,7 +3380,8 @@ Content-Type: application/json
       },
       "author": "Agnimandur",
       "register_num": 163,
-      "registered": true
+      "registered": true,
+      "total_number": 10
     }
   ],
   "total": 3
@@ -3409,6 +3412,7 @@ Content-Type: application/json
 | author       | HKvv                                   | 必有           | 作者用户名   | string     |
 | register_num | 163                                    | 必有           | 注册人数     | int        |
 | registered   | true                                   | 小程序登录时有 | 是否注册     | boolean    |
+| total_number | 10                                     | 必有           | 题目数量     | int        |
 
 其中`time_limited`中的参数信息如下所示：
 
