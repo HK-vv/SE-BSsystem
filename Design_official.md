@@ -1341,7 +1341,7 @@ $$
 
 则裸分数 $s= \mu^2\frac {\mu nd}{\tau n}=\frac{\mu^3}{\tau/d}= 0.853$. 我们定义此时得分 $score=90$ , 则 $k=-\frac{\ln(1-score/100)}s=2.7$ .
 
-计算此时 $\mu=0.6, \tau=2/3$ 下, $score\approx 60$ , 比较合理.
+计算此时 $\mu=0.6, \tau=\frac 23d$ 下, $score\approx 60$ , 比较合理.
 
 因此, 参数的推荐值为 $k=2.7$.
 
