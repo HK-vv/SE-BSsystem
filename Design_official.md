@@ -1287,4 +1287,62 @@ $n_c$ : 当前题目序号, $t_c$ : 当前题目的开始时间.
 
 ### A.1 score 计算
 
+设比赛的题目序号为 $U=\{1,2,3,...,n\}$ , 此用户通过的题目为 $P\subseteq U$ , 第 $i$ 题的最大时限为 $d_i$ , 用户当前比赛总用时 $t$ . 时间单位统一为 second .
+
+定义映射 $f: [0,+\infin)\rightarrow [0,100],\ f(x)=100(1-e^{-kx})$ . 注意到 $k$ 是可调参数, 将在 **A.1.2** 内讨论.
+
+定义 $r_p=\frac {|P|}{|U|},\ t_p=\sum_{i\in P} d_i$ .
+
+**Definition A.1** 比赛裸分数为 $s=r_p^2\cdot \frac {t_p}t$, 最终分数为 $score=f(s)$ .
+
+#### A.1.1 合理性讨论
+
+我们希望分数主要和过题数相关, 用时起到次要的影响. 但我们并不希望结果完全按多关键字排序, 毕竟题目数量很大, 通过题目数的差距可能在通过率上体现很小, 这时其他因素应起到更大作用. 除此之外, 比赛在进行到一定程度后, 用户应有一定的动力继续做题, 而不是采用极端的比赛策略. 
+
+注意到 $f$ 的单调性, 我们下面只考虑裸分数.
+
+**Definition A.1.1** 设用户在一个阶段内的正确率为 $\mu$ , 平均用时为 $\tau$ . 比赛表现为 $p=\frac\mu \tau$. 对于两个表现 $p_1,p_2$ , 比赛表现差异为 $\max\{\frac {p_1}{p_2},\frac{p_2}{p_1}\}$ .
+
+**Theorem A.1.1** 若一场比赛满足 $d_1=d_2=\cdots=d_n=d$ . 用户在比赛过程中某时刻做了 $rn$ 题, 还剩 $(1-r)n$ 题待做. 设两阶段用户正确率分别为 $\mu_1,\mu_2$ , 平均每题用时分别为 $t_1,t_2$ , 此刻和结束的裸分数分别为 $s_1,s_2$ , 两阶段的表现差异为 $p$ . 则 
+$$
+s_1>s_2\Rightarrow p>3
+$$
+**Proof**.
+
+计算裸分数
+$$
+\begin{equation}
+\begin{split}
+s_1&=(\mu_1r)^2\frac {\mu_1 rnd}{rnt_1}=\frac{(\mu_1r)^3}{t_1r}d\\
+s_2&=(\mu_1r+\mu_2(1-r))^2\frac{(\mu_1r+\mu_2(1-r))nd}{(t_1r+t_2(1-r))n}=\frac{(\mu_1r+\mu_2(1-r))^3}{t_1r+t_2(1-r)}d
+\end{split}
+\end{equation}
+$$
+则有
+$$
+\begin{equation}
+\begin{split}
+&s_1>s_2\\
+\Leftrightarrow& \frac{(\mu_1r)^3}{t_1r}>\frac{(\mu_1r+\mu_2(1-r))^3}{t_1r+t_2(1-r)}\\
+\Leftrightarrow& (\frac{\mu_1r+\mu_2(1-r)}{\mu_1r})^3<\frac{t_1r+t_2(1-r)}{t_1r}\\
+\Leftrightarrow& (1+\frac{\mu_2}{\mu_1}\frac{1-r}r)^3<1+\frac{t_2}{t_1}\frac{1-r}r\\
+\end{split}
+\end{equation}
+$$
+令 $x=\frac{\mu_2}{\mu_1}\frac{1-r}r,y=\frac{t_2}{t_1}\frac{1-r}r, a=\frac yx=\frac{\frac{t_2}{t_1}}{\frac{\mu_2}{\mu_1}}\le p$ . 通过求导容易证明 $(1+x)<1+ax\Rightarrow a>3$ .
+
+那么 $s_1>s_2\Rightarrow a>3\Rightarrow p>3$.  $\square$ 
+
+#### A.1.2 参数调整
+
+为确定参数 $k$ , 我们需要考虑一个具体的情况, 并为其赋值.
+
+考虑一场比赛 $d_1=d_2=\cdots=d_n=d$, 过题率为 $\mu=0.8$ , 平均用时为 $\tau=\frac 35d$.
+
+则裸分数 $s= \mu^2\frac {\mu nd}{\tau n}=\frac{\mu^3}{\tau/d}= 0.853$. 我们定义此时得分 $score=90$ , 则 $k=-\frac{\ln(1-score/100)}s=2.7$ .
+
+计算此时 $\mu=0.6, \tau=2/3$ 下, $score\approx 60$ , 比较合理.
+
+因此, 参数的推荐值为 $k=2.7$.
+
 ### A.2 rating 更新
