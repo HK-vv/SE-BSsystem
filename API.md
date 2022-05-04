@@ -28,7 +28,7 @@
 | 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
 | 19 | 内部 | /api/admin/contest/calculate                    | 公布比赛结果                         | 1 (fake)                          |
 | 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 1                                  |
-| 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
+| 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 1                                  |
 | 22 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
 | 23 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
 | 24 | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   | 1                                 |
