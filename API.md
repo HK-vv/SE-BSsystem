@@ -17,7 +17,7 @@
 | 8 | 内部 | /api/admin/admin_account/issuper                | 检测是否为超级管理员                     | 1                                  |
 | 9 | 内部 | /api/admin/user_account/list                    | 列出用户账号                             | 1                                  |
 | 10 | 内部 | /api/admin/user_account/contest/history         | 列出用户比赛历史                         | 1                                 |
-| 11 | 内部 | /api/admin/user_account/contest/result          | 列出用户答题情况                         | 0                                   |
+| 11 | 内部 | /api/admin/user_account/contest/result          | 列出用户答题情况                         | 1                                  |
 | 12 | 内部 | /api/admin/tag                                  | 增删改标签                               | 1                                  |
 | 13 | 内部 | /api/admin/problem                              | 增删改查题目信息                         | 1                                  |
 | 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
@@ -26,7 +26,7 @@
 |  | 内部 | /api/admin/problem/detail | 查看题目详细信息 | 1 |
 | 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
 | 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
-| 19 | 内部 | /api/admin/contest/calculate                    | 公布比赛结果                         | 0                                   |
+| 19 | 内部 | /api/admin/contest/calculate                    | 公布比赛结果                         | 1 (fake)                          |
 | 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 1                                  |
 | 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
 | 22 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
