@@ -2917,7 +2917,7 @@ Content-Type: application/json
 {
   "ret": 0,
   "total": 10,
-  "finish": false
+  "finished": false
 }
 ```
 
@@ -2932,12 +2932,12 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名 | 示例       | 必要性       | 含义             | 类型    |
-| ------ | ---------- | ------------ | ---------------- | ------- |
-| ret    | 0          | 必有         | 是否正常返回     | int     |
-| total  | 10         | 必有         | 题目总数         | int     |
-| finish | false      | 必有         | 用户比赛是否结束 | boolean |
-| msg    | 比赛未开始 | ret不为0时有 | 错误信息         | string  |
+| 参数名   | 示例       | 必要性       | 含义             | 类型    |
+| -------- | ---------- | ------------ | ---------------- | ------- |
+| ret      | 0          | 必有         | 是否正常返回     | int     |
+| total    | 10         | 必有         | 题目总数         | int     |
+| finished | false      | 必有         | 用户比赛是否结束 | boolean |
+| msg      | 比赛未开始 | ret不为0时有 | 错误信息         | string  |
 
 #### 获取题面
 
