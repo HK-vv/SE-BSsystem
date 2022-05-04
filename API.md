@@ -17,7 +17,7 @@
 | 8 | 内部 | /api/admin/admin_account/issuper                | 检测是否为超级管理员                     | 1                                  |
 | 9 | 内部 | /api/admin/user_account/list                    | 列出用户账号                             | 1                                  |
 | 10 | 内部 | /api/admin/user_account/contest/history         | 列出用户比赛历史                         | 1                                 |
-| 11 | 内部 | /api/admin/user_account/contest/result          | 列出用户答题情况                         | 1                                  |
+| 11 | 内部 | /api/admin/user_account/contest/result          | 查看用户答题情况                       | 1                                  |
 | 12 | 内部 | /api/admin/tag                                  | 增删改标签                               | 1                                  |
 | 13 | 内部 | /api/admin/problem                              | 增删改查题目信息                         | 1                                  |
 | 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
@@ -751,13 +751,13 @@ Content-Type: application/json
     {
       "problemno": 1,
       "problemid": 5,
-      "correct": true,
-      "submitted": "A",
+      "status": "timeout",
       "answer": "A"
     },
     {
       "problemno": 2,
       "problemid": 3,
+      "status": "valid",
       "correct": true,
       "submitted": "BCD",
       "answer": "BCD"
@@ -765,8 +765,7 @@ Content-Type: application/json
     {
       "problemno": 3,
       "problemid": 8,
-      "correct": false,
-      "submitted": "HKwv",
+      "status": "miss",
       "answer": "HKvv"
     }
   ],
@@ -785,13 +784,14 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名    | 示例 | 必要性 | 含义         | 类型    |
-| --------- | ---- | ------ | ------------ | ------- |
-| problemno | 1    | 必有   | 题目序号     | int     |
-| problemid | 5    | 必有   | 题目id       | int     |
-| correct   | true | 必有   | 是否正确     | boolean |
-| submitted | A    | 必有   | 当时提交答案 | string  |
-| answer    | A    | 必有   | 正确答案     | string  |
+| 参数名    | 示例                     | 必要性              | 含义         | 类型    |
+| --------- | ------------------------ | ------------------- | ------------ | ------- |
+| problemno | 1                        | 必有                | 题目序号     | int     |
+| problemid | 5                        | 必有                | 题目id       | int     |
+| status    | 'timeout'/'miss'/'valid' | 必有                | 状态         | string  |
+| correct   | true                     | status=="valid"时有 | 是否正确     | boolean |
+| submitted | A                        | status=="valid"时有 | 当时提交答案 | string  |
+| answer    | A                        | 必有                | 正确答案     | string  |
 
 ### 重置密码
 
