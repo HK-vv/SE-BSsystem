@@ -2999,7 +2999,7 @@ Content-Type: application/json
 ```json
 {
   "ret": 1,
-  "msg": "比赛完成"
+  "msg": "finished already"
 }
 ```
 
