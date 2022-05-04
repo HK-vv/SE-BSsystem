@@ -26,7 +26,7 @@
 |  | 内部 | /api/admin/problem/detail | 查看题目详细信息 | 1 |
 | 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
 | 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
-| 19 | 内部 | /api/admin/contest/calculate                    | 比赛开始算分                             | 0                                   |
+| 19 | 内部 | /api/admin/contest/calculate                    | 公布比赛结果                         | 0                                   |
 | 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 1                                  |
 | 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 0                                   |
 | 22 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
@@ -2020,7 +2020,7 @@ Content-Type: application/json
 
 ### 比赛结果
 
-#### 开始比赛算分
+#### 公布比赛结果
 
 ##### 请求
 
