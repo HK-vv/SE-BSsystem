@@ -2130,7 +2130,16 @@ Content-Type: application/json
       "timecost": 31,
       "correct":3,
       "before_rating": 130,
-      "changed_rating": 30
+      "changed_rating": 30,
+      "answer_case":[
+        {
+          "status": "timeout"
+        },
+        {
+          "status": "valid",
+          "correct": true
+        }
+      ]
     },
     {
       "rank": 2,
@@ -2139,7 +2148,8 @@ Content-Type: application/json
       "timecost": 52,
       "correct":3,
       "before_rating": 120,
-      "changed_rating": 20
+      "changed_rating": 20,
+      "answer_case":['...']
     },
     {
       "rank": 3,
@@ -2148,7 +2158,8 @@ Content-Type: application/json
       "timecost": 61,
       "correct":3,
       "before_rating": 115,
-      "changed_rating": 15
+      "changed_rating": 15,
+      "answer_case":['...']
     }
   ],
   "score": {
@@ -2156,7 +2167,8 @@ Content-Type: application/json
     "average": 24,
     "lowest": 10
   },
-  "total": 10
+  "total": 10,
+  "problem_total": 2
 }
 ```
 
@@ -2171,25 +2183,27 @@ Content-Type: application/json
 
 **参数信息**
 
-| 参数名 | 示例       | 必要性       | 含义             | 类型       |
-| ------ | ---------- | ------------ | ---------------- | ---------- |
-| ret    | 0          | 必有         | 是否正常返回     | int        |
-| items  | [ ]        | 必有         | 排行榜信息       | list       |
-| score  | { }        | 必有         | 分数特征         | dictionary |
-| total  | 10         | 必有         | 当前条件总共人数 | int        |
-| msg    | 比赛不存在 | ret不为0时有 | 错误信息         | string     |
+| 参数名        | 示例       | 必要性       | 含义             | 类型       |
+| ------------- | ---------- | ------------ | ---------------- | ---------- |
+| ret           | 0          | 必有         | 是否正常返回     | int        |
+| items         | [ ]        | 必有         | 排行榜信息       | list       |
+| score         | { }        | 必有         | 分数特征         | dictionary |
+| total         | 10         | 必有         | 当前条件总共人数 | int        |
+| problem_total | 2          | 必有         | 题目数量         | int        |
+| msg           | 比赛不存在 | ret不为0时有 | 错误信息         | string     |
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名        | 示例 | 必要性 | 含义             | 类型   |
-| ------------- | ---- | ------ | ---------------- | ------ |
-| rank          | 2    | 必有   | 排名             | int    |
-| username      | HKwv | 必有   | 用户名           | string |
-| score         | 30   | 必有   | 得分             | int    |
-| timecost      | 52   | 必有   | 总耗时(s)        | int    |
-| correct       | 3    | 必有   | 当前答对题目数量 | int    |
-| before_rating | 120  | 必有   | 比赛前的分数     | int    |
-| change_rating | 20   | 必有   | 分数变化         | int    |
+| 参数名        | 示例 | 必要性 | 含义             | 类型                |
+| ------------- | ---- | ------ | ---------------- | ------------------- |
+| rank          | 2    | 必有   | 排名             | int                 |
+| username      | HKwv | 必有   | 用户名           | string              |
+| score         | 30   | 必有   | 得分             | int                 |
+| timecost      | 52   | 必有   | 总耗时(s)        | int                 |
+| correct       | 3    | 必有   | 当前答对题目数量 | int                 |
+| before_rating | 120  | 必有   | 比赛前的分数     | int                 |
+| change_rating | 20   | 必有   | 分数变化         | int                 |
+| answer_case   | []   | 必有   | 答题情况         | list[problem_total] |
 
 其中`score`中的参数信息如下所示：
 
