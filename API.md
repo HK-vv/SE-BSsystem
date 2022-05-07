@@ -23,28 +23,28 @@
 | 14 | 内部 | /api/admin/problem/batch/add                    | 批量添加题目                             | 1                                  |
 | 15 | 内部 | /api/admin/problem/batch/public                 | 批量公开题目                             | 1                                  |
 | 16 | 内部 | /api/admin/problem/batch/delete | 批量删除题目 | 1 |
-|  | 内部 | /api/admin/problem/detail | 查看题目详细信息 | 1 |
-| 17 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
-| 18 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
-| 19 | 内部 | /api/admin/contest/calculate                    | 公布比赛结果                         | 1 (fake)                          |
-| 20 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 1                                  |
-| 21 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 1                                  |
-| 22 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
-| 23 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
-| 24 | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   | 1                                 |
-| 25 | 内部 | /api/user/exercise/collect                      | 自主组卷                                 | 1                                 |
-| 26 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
-| 27 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
-| 28 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 1                                 |
-| 29 | 内部 | /api/user/contest/start                         | 开始比赛             | 1                                 |
-| 30 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 1                                 |
-| 31 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 1                                 |
-| 32 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
-| 33 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 1                                 |
-| 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 1                               |
-| 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
-| 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                             |
-|  | 内部 | /api/general/rating/leaderboard | 查询分数排行榜 | 0 |
+| 17 | 内部 | /api/admin/problem/detail | 查看题目详细信息 | 1 |
+| 18 | 内部 | /api/admin/contest                              | 增改查比赛                             | 1                                  |
+| 19 | 内部 | /api/admin/contest/batch/delete | 批量删除比赛 | 1 |
+| 20 | 内部 | /api/admin/contest/calculate                    | 公布比赛结果                         | 1 (fake)                          |
+| 21 | 内部 | /api/admin/contest/leaderboard                  | 查看比赛排行榜                           | 1                                  |
+| 22 | 内部 | /api/admin/contest/statistics                   | 查看比赛统计                             | 1                                  |
+| 23 | 内部 | /api/user/auth/login                            | 用户登录                                 | 1                                  |
+| 24 | 内部 | /api/user/auth/logout                           | 用户登出                                 | 1                                  |
+| 25 | 内部 | /api/user/profile                               | 用户查看、修改个人信息                   | 1                                 |
+| 26 | 内部 | /api/user/exercise/collect                      | 自主组卷                                 | 1                                 |
+| 27 | 内部 | /api/user/exercise/problem                      | 获取题面                                 | 1                                 |
+| 28 | 内部 | /api/user/exercise/problem/check                | 验证答案                                 | 1                                 |
+| 29 | 内部 | /api/user/contest/register                      | 注册比赛                                 | 1                                 |
+| 30 | 内部 | /api/user/contest/start                         | 开始比赛             | 1                                 |
+| 31 | 内部 | /api/user/contest/problem                       | 获取比赛题目题面                         | 1                                 |
+| 32 | 内部 | /api/user/contest/problem/submit                | 提交答案                                 | 1                                 |
+| 33 | 内部 | /api/user/contest/records                       | 查询所有参加比赛                         | 1 |
+| 34 | 内部 | /api/user/contest/result                        | 查询比赛记录                             | 1                                 |
+| 35 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 1                               |
+| 36 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
+| 37 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                             |
+| 38 | 内部 | /api/general/rating/leaderboard | 查询分数排行榜 | 1 |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
