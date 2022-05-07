@@ -1,6 +1,6 @@
 # 接口文档
 
-**版本**: `v1.0.6`
+**版本**: `v1.1.0`
 **进度**: 基础版正式发布
 
 ## Content
@@ -44,6 +44,7 @@
 | 34 | 内部 | /api/user/contest/leaderboard                   | 查询比赛排行榜                           | 1                               |
 | 35 | 内部 | /api/general/tag/list                           | 获取所有标签                             | 1                                 |
 | 36 | 内部 | /api/general/contest/list                       | 查找所有比赛                             | 1                             |
+|  | 内部 | /api/general/rating/leaderboard | 查询分数排行榜 | 0 |
 ## 返回值(ret)规定
 
 不同的返回值`ret`对应不同的含义，具体可参考下表：
@@ -3439,3 +3440,80 @@ Content-Type: application/json
 | binary     | 30   | 必有   | 判断题时限(s) | int  |
 | completion | 60   | 必有   | 填空题时限(s) | int  |
 
+### 分数
+
+#### 查看rating排行榜
+
+用户和管理员可以查看rating排行榜。
+
+##### 请求
+
+**请求头**
+
+```http
+GET /api/general/rating/leaderboard?pagesize=3&pagenum=1
+Cookie: sessionid=<sessionid数值>
+Content-Type: application/json
+```
+
+**参数信息**
+
+| 参数名   | 示例 | 必要性 | 含义               | 类型   |
+| -------- | ---- | ------ | ------------------ | ------ |
+| pagesize | 1    | 必有   | 每页列出的账号数量 | int    |
+| pagenum  | 1    | 必有   | 获取第几页的信息   | int    |
+| keyword  | HKvv | 可选   | 用户名关键词       | string |
+
+##### 响应
+
+**响应头**
+
+```http
+200 OK
+Content-Type: application/json
+```
+
+**消息体**
+
+正常返回(ret = 0):
+
+```json
+{
+  "ret": 0,
+  "items": [
+    {
+      "rank": 1,
+      "username": "CasanovaLLL",
+      "rating": 1000
+    },
+    {
+      "rank": 2,
+      "username": "HKwv",
+      "rating": 500
+    },
+    {
+      "rank": 3,
+      "username": "eddie",
+      "rating": 100
+    }
+  ],
+  "total": 7
+}
+```
+
+**参数信息**
+
+| 参数名 | 示例 | 必要性       | 含义             | 类型   |
+| ------ | ---- | ------------ | ---------------- | ------ |
+| ret    | 0    | 必有         | 是否正常返回     | int    |
+| items  | [ ]  | 必有         | 排行榜信息       | list   |
+| total  | 7    | 必有         | 当前条件下总人数 | int    |
+| msg    |      | ret不为0时有 | 错误信息         | string |
+
+其中`items`是包含多个查找结果的列表：
+
+| 参数名   | 示例 | 必要性 | 含义       | 类型   |
+| -------- | ---- | ------ | ---------- | ------ |
+| rank     | 2    | 必有   | 排名       | int    |
+| username | HKwv | 必有   | 用户名     | string |
+| rating   | 500  | 必有   | rating分数 | int    |
