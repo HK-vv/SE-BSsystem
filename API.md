@@ -2443,7 +2443,8 @@ Content-Type: application/json
   "ret": 0,
   "info": { 
     "username": "HKvv",
-    "rating": 1983
+    "rating": 1983,
+    "rank": 1
   }
 }
 ```
@@ -2462,6 +2463,7 @@ Content-Type: application/json
 | -------- | ---- | ------ | -------- | ------ |
 | username | HKvv | 必有   | 用户名   | string |
 | rating   | 1983 | 必有   | 用户分数 | int    |
+| rank     | 1    | 必有   | 排名     | int    |
 
 #### 修改账号信息
 
