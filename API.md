@@ -3432,7 +3432,7 @@ Content-Type: application/json
 | author       | HKvv                                   | 必有           | 作者用户名     | string     |
 | register_num | 163                                    | 必有           | 注册人数       | int        |
 | registered   | true                                   | 小程序登录时有 | 是否注册       | boolean    |
-| started      | started                                | 小程序登陆时有 | 是否已开始比赛 | boolean    |
+| started      | true                                   | 小程序登陆时有 | 是否已开始比赛 | boolean    |
 | total_number | 10                                     | 必有           | 题目数量       | int        |
 
 其中`time_limited`中的参数信息如下所示：
