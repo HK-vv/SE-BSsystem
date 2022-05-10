@@ -2957,6 +2957,16 @@ Content-Type: application/json
 | finished | false      | 必有         | 用户比赛是否结束 | boolean |
 | msg      | 比赛未开始 | ret不为0时有 | 错误信息         | string  |
 
+ret参数真值表
+
+| contest status              | 用户contest started状态 | ret  |
+| --------------------------- | ----------------------- | ---- |
+| "running"                   | true                    | 0    |
+| "running"                   | false                   | 0    |
+| "shut"                      | true                    | 0    |
+| "shut"                      | false                   | 1    |
+| "upcoming"/"end"/"finished" | true/false              | 1    |
+
 #### 获取题面
 
 用户可以使用此接口获取题面。
