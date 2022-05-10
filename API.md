@@ -2866,20 +2866,20 @@ Content-Type: application/json
 
 其中`items`是包含多个查找结果的列表，每个结果的参数信息如下所示：
 
-| 参数名       | 示例                                   | 必要性 | 含义         | 类型       |
-| ------------ | -------------------------------------- | ------ | ------------ | ---------- |
-| contestid    | 1                                      | 必有   | 比赛id       | int        |
-| name         | April Fools Day Contest 2022           | 必有   | 比赛名       | string     |
-| start        | 2022-04-01 22:35:00                    | 必有   | 开始时间     | datetime   |
-| latest       | 2022-04-01 22:45:00                    | 必有   | 最晚开始时间 | datetime   |
-| regtime      | 2022-04-01 12:35:00                    | 必有   | 注册时间     | datetime   |
-| public       | true                                   | 必有   | 比赛是否公开 | boolen     |
-| rated        | true                                   | 必有   | 是否计分     | boolean    |
-| status       | "upcoming"/"running"/"shut"/"finished" | 必有   | 比赛状态     | string     |
-| time_limited | { }                                    | 必有   | 题目限时     | dictionary |
-| register_num | 163                                    | 必有   | 注册人数     | int        |
-| author       | HKvv                                   | 必有   | 作者用户名   | string     |
-| total_number | 10                                     | 必有   | 题目数量     | int        |
+| 参数名       | 示例                                         | 必要性 | 含义         | 类型       |
+| ------------ | -------------------------------------------- | ------ | ------------ | ---------- |
+| contestid    | 1                                            | 必有   | 比赛id       | int        |
+| name         | April Fools Day Contest 2022                 | 必有   | 比赛名       | string     |
+| start        | 2022-04-01 22:35:00                          | 必有   | 开始时间     | datetime   |
+| latest       | 2022-04-01 22:45:00                          | 必有   | 最晚开始时间 | datetime   |
+| regtime      | 2022-04-01 12:35:00                          | 必有   | 注册时间     | datetime   |
+| public       | true                                         | 必有   | 比赛是否公开 | boolen     |
+| rated        | true                                         | 必有   | 是否计分     | boolean    |
+| status       | "upcoming"/"running"/"shut"/"end"/"finished" | 必有   | 比赛状态     | string     |
+| time_limited | { }                                          | 必有   | 题目限时     | dictionary |
+| register_num | 163                                          | 必有   | 注册人数     | int        |
+| author       | HKvv                                         | 必有   | 作者用户名   | string     |
+| total_number | 10                                           | 必有   | 题目数量     | int        |
 
 其中`time_limited`中的参数信息如下所示：
 
@@ -3358,13 +3358,13 @@ Cookie: sessionid=<sessionid数值>
 
 **参数信息**
 
-| 参数名   | 示例                                   | 必要性 | 含义                      | 类型   |
-| -------- | -------------------------------------- | ------ | ------------------------- | ------ |
-| pagesize | 1                                      | 必有   | 每页列出的账号数量        | int    |
-| pagenum  | 1                                      | 必有   | 获取第几页的信息          | int    |
-| type     | "upcoming"/"running"/"shut"/"finished" | 可选   | 比赛状态，多个状态用+分隔 | string |
-| keyword  | April                                  | 可选   | 比赛名关键词              | string |
-| author   | HKvv                                   | 可选   | 比赛作者                  | string |
+| 参数名   | 示例                                         | 必要性 | 含义                      | 类型   |
+| -------- | -------------------------------------------- | ------ | ------------------------- | ------ |
+| pagesize | 1                                            | 必有   | 每页列出的账号数量        | int    |
+| pagenum  | 1                                            | 必有   | 获取第几页的信息          | int    |
+| type     | "upcoming"/"running"/"shut"/"end"/"finished" | 可选   | 比赛状态，多个状态用+分隔 | string |
+| keyword  | April                                        | 可选   | 比赛名关键词              | string |
+| author   | HKvv                                         | 可选   | 比赛作者                  | string |
 
 ##### 响应
 
