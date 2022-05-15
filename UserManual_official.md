@@ -116,13 +116,13 @@ note left of tk: 比赛创建及参与功能
 
 #### 4.3.4 举例
 
-<img src="E:\SE\SE-BSsystem\img\user_modify.jpg" alt="user_modify" align=left style="zoom: 50%;" />
+<img src=".\img\user_modify.jpg" alt="user_modify" align=left style="zoom: 50%;" />
 
 用户完善信息且输入框下无格式错误提示后，点击确认按钮即可完成修改。当出现如下错误提示时只需按要求修改信息，并再次点击确认按钮就可。
 
-<img src="E:\SE\SE-BSsystem\img\user_modify_e.jpg" alt="user_modify_e" align="left" style="zoom:50%;" />
+<img src=".\img\user_modify_e.jpg" alt="user_modify_e" align="left" style="zoom:50%;" />
 
-<img src="E:\SE\SE-BSsystem\img\user_modify_e2.jpg" alt="user_modify_e2" align="left" style="zoom:50%;" />
+<img src=".\img\user_modify_e2.jpg" alt="user_modify_e2" align="left" style="zoom:50%;" />
 
 ### 4.4 用户信息管理
 
@@ -130,7 +130,13 @@ note left of tk: 比赛创建及参与功能
 
 #### 4.4.1 管理员信息管理
 
-##### 4.4.1.1 
+该部分将展示所有BrainStorm系统的超级管理员及管理员信息。
+
+##### 4.4.1.1 管理员信息
+
+###### 4.4.1.1.1 说明
+
+
 
 #### 4.4.2 小程序用户信息管理
 
