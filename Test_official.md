@@ -117,7 +117,7 @@ API 测试 exp ：
 
 <div>			<!--块级封装-->
     <center>	<!--将图片和文字居中-->
-    <img src="img\API_test_exp.jpg" style="zoom:75%;" />
+    <img src="img\API_test_exp.png" style="zoom:75%;" />
     <br>		<!--换行-->
     	<!--标题-->
     </center>
