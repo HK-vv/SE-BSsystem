@@ -7,7 +7,6 @@
 | 22.05.14 | v0.0 | 李昀泽 | 创建手册文档及目录;编写概述部分 |
 | 22.05.24 | v0.1 | 李昀泽 | 编写管理员使用说明中个人修改、管理员信息管理、题库管理部分 |
 | 22.05.24 | v0.2 | 刘硕 | 编写管理员使用说明中登录、登出、小程序用户信息管理、比赛管理部分 |
-|      |      |      |          |
 
 ## 2 概述
 
@@ -547,11 +546,11 @@ iOS 8.0.18及以上版本，Android 8.0.19及以上版本微信客户端
 
 登录
 
-<img src="./img/UM_5.1.2.1.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.1.2.1.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 修改昵称
 
-<img src="./img/UM_5.1.2.2.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.1.2.2.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 ### 5.2练习
 
@@ -563,25 +562,25 @@ iOS 8.0.18及以上版本，Android 8.0.19及以上版本微信客户端
 
 练习入口
 
-<img src="./img/UM_5.2.2.1.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.2.2.1.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 标签与数量选择
 
-<img src="./img/UM_5.2.2.2.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.2.2.2.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 答题页面
 
-<img src="./img/UM_5.2.2.3.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.2.2.3.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 结束页面
 
-<img src="./img/UM_5.2.2.4.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.2.2.4.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 回顾答题情况
 
-<img src="./img/UM_5.2.2.5.1.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.2.2.5.1.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
-<img src="./img/UM_5.2.2.5.2.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.2.2.5.2.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 ### 5.3比赛
 
@@ -593,11 +592,11 @@ iOS 8.0.18及以上版本，Android 8.0.19及以上版本微信客户端
 
 注册比赛
 
-<img src="./img/UM_5.3.2.1.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.3.2.1.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 开始比赛
 
-<img src="./img/UM_5.3.2.2.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.3.2.2.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 开始答题
 
@@ -605,16 +604,16 @@ iOS 8.0.18及以上版本，Android 8.0.19及以上版本微信客户端
 
 继续比赛
 
-<img src="./img/UM_5.3.2.4.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.3.2.4.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 答题结束
 
-<img src="./img/UM_5.3.2.5.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.3.2.5.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 查看结果
 
-<img src="./img/UM_5.3.2.6.1.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.3.2.6.1.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
-<img src="./img/UM_5.3.2.6.2.jpg" alt="UM_4.6.6.2_2" style="zoom:67%;" />
+<img src="./img/UM_5.3.2.6.2.jpg" alt="UM_4.6.6.2_2" style="zoom:30%;" />
 
 ## 6 附录与其他
